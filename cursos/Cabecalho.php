@@ -33,14 +33,14 @@
                     <a class="nav-link" href="ListarDisciplina.php">Disciplina </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Cadastro.php">Adicionar membro</a>
+                    <a class="nav-link" href="FormCadastro.php">Adicionar membro</a>
                 </li>
                 
                 <?php
                 }if($_SESSION["perfil"]=="Docente"){
                         ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Planos de Ensino</a>
+                    <a class="nav-link" href="FormPlano.php">Planos de Ensino</a>
                 </li>
                 <?php
                 }if($_SESSION["perfil"]=="Discente do Colegiado"){

@@ -13,11 +13,11 @@
     $sqlprep -> bind_param("ssss",$email,$nome,$password,$perfil);
     if($sqlprep -> execute()){
         $_SESSION["cadastrado"]="Usuário cadastrado";
-        header("location: Cadastro.php"); 
+        header("location: FormCadastro.php"); 
 
     }else{
         $_SESSION["erroCadastro"]="Erro de cadastro do usuário";
-        header("location: Cadastro.php"); 
+        header("location: FormCadastro.php"); 
     }
     
  
