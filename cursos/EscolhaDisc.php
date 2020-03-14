@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     require_once("Conexao.php");
     $idDisc = $_POST["idDisc"];
 

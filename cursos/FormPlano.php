@@ -45,8 +45,6 @@
                          </form>
                          <?php 
 
-                         $idDisc = $_SESSION["idDisc"];
-
                          $sql = "select * from disciplina where id=?";
                          $sqlprep = $conexao->prepare($sql);
                          $sqlprep->bind_param("s",$idDisc);
@@ -69,7 +67,7 @@
                         endforeach;
                         ?>
                    
-                        <form action="SalvarPlano.php" method="POST" onsubmit="" name="">
+                        <form action="SalvarPlano.php" method="POST">
                             <div class="form-row">
                                 <div class="col-3">
                                     <label>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Mar-2020 às 19:24
+-- Tempo de geração: 14-Mar-2020 às 21:53
 -- Versão do servidor: 10.4.6-MariaDB
--- versão do PHP: 7.3.8
+-- versão do PHP: 7.2.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -91,7 +91,9 @@ INSERT INTO `usuarios` (`id`, `email`, `nome`, `senha`, `perfil`) VALUES
 (3, 'adriana@pedagoga.edu.br', 'Adriana Assis', '1234', 'Pedagogo'),
 (4, 'edilson@coordenador.edu.br', 'Palminha', '102030', 'Coordenador'),
 (5, 'denner@discente.edu.br', 'Denner Basilio', '105420', 'Discente do Colegiado'),
-(8, 'hugo@docente.edu.br', 'Hugo Pimentel', '105421', 'Docente');
+(8, 'hugo@docente.edu.br', 'Hugo Pimentel', '105421', 'Docente'),
+(9, 'cadu@discente.edu.br', 'pato', '102031', 'Discente do Colegiado'),
+(10, 'maria@docente.edu.br', 'Maria denise', '12345', 'Docente');
 
 --
 -- Índices para tabelas despejadas
@@ -136,7 +138,7 @@ ALTER TABLE `disciplina`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restrições para despejos de tabelas
