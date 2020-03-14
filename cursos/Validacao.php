@@ -25,8 +25,19 @@
     if(isset($validacao)){
         $_SESSION["nome"]=$nome;
         $_SESSION["perfil"]=$perfil;
-        header("location: FormDisc.php");
+        if($perfil == "Coordenador"){
+            header("location: FormDisc.php");
 
+        }if($perfil == "Docente"){
+            header("location: FormPlano.php");
+
+        }if($perfil == "Pedagogo"){
+            header("location: FormCurso.php");
+
+        }if($perfil == "Discente do Colegiado"){
+            header("location: index.php");
+
+        }
     }else{    
         $_SESSION["erro"]="Erro, usuário ou senha invalidos";
         header("location: Login.php");

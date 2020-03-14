@@ -15,7 +15,7 @@
 
         <body>
             <div class="container">
-            <?php   
+                <?php   
             require_once("Cabecalho.php");
             require_once("Conexao.php");
             $sql = "select * from curso";
@@ -43,58 +43,69 @@
                             <div class="card-body">
                                 <form action="SalvarDisciplina.php" method="POST" onsubmit="" name="">
                                     <div class="form-row">
-                                    <div class="col-6">
-                                        <label>
-                                            <h5 class="text-primary">Id da Disciplina</h5>
-                                        </label><br>
-                                        <input type="text" class="form-control" name="idDisc" placeholder="Automatico" readonly="true"
-                                            value="<?=$vetorUmregistro["id_disciplina"];?>">
-                                    </div></div><br>
-                                    <div class="form-row">
-                                    <div class="col-8">
-                                        <label>
-                                            <h5 class="text-primary">Nome da Disciplina</h5>
-                                        </label><br>
-                                        <input type="text" class="form-control" name="nomeDisc"
-                                            value="<?=$vetorUmregistro["nome_disciplina"];?>">
+                                        <div class="col-4">
+                                            <label>
+                                                <h5 class="text-primary">Id da Disciplina</h5>
+                                            </label><br>
+                                            <input type="text" class="form-control" name="idDisc"
+                                                placeholder="Automatico" readonly="true"
+                                                value="<?=$vetorUmregistro["id_disciplina"];?>">
+                                        </div>
                                     </div><br>
-                                    <div >
-                                        <label>
-                                            <h5 class="text-primary">Carga Horaria</h5>
-                                        </label><br>
-                                        <input type="text" class="form-control" name="cargaHoraria"
-                                            value="<?=$vetorUmregistro["carga_horaria"];?>">
-                                    </div></div><br>
+                                    <div class="form-row">
+                                        <div class="col-8">
+                                            <label>
+                                                <h5 class="text-primary">Nome da Disciplina</h5>
+                                            </label><br>
+                                            <input type="text" class="form-control" name="nomeDisc"
+                                                value="<?=$vetorUmregistro["nome_disciplina"];?>">
+                                        </div><br>
+                                        <div class="col-4">
+                                            <label>
+                                                <h5 class="text-primary">Carga Horaria</h5>
+                                            </label><br>
+                                            <input type="text" class="form-control" name="cargaHoraria"
+                                                value="<?=$vetorUmregistro["carga_horaria"];?>">
+                                        </div>
+                                    </div><br>
                                     <div>
                                         <label>
                                             <h5 class="text-primary">Ementa</h5>
                                         </label><br>
-                                        <input type="text" class="form-control"name="ementa" 
-                                        value="<?=$vetorUmregistro["ementa"];?>">
+                                        <input type="text" class="form-control" name="ementa"
+                                            value="<?=$vetorUmregistro["ementa"];?>">
                                     </div><br>
                                     <div class="form-row">
-                                    <div class="col-6">
-                                        <label>
-                                            <h5 class="text-primary">Nº de Semanas</h5>
-                                        </label><br>
-                                        <input type="text"class="form-control" name="numeroSemana"
-                                            value="<?=$vetorUmregistro["numero_semanas"];?>">
+                                        <div class="col-6">
+                                            <label>
+                                                <h5 class="text-primary">Nº de Semanas</h5>
+                                            </label><br>
+                                            <input type="text" class="form-control" name="numeroSemana"
+                                                value="<?=$vetorUmregistro["numero_semanas"];?>">
+                                        </div><br>
+                                        <div class="col-6">
+                                            <label>
+                                                <h5 class="text-primary">Período do Curso</h5>
+                                            </label><br>
+                                            <input type="text" class="form-control" name="periodoCurso"
+                                                value="<?=$vetorUmregistro["periodo_curso"];?>">
+                                        </div>
                                     </div><br>
-                                    <div class="col-6">
-                                        <label>
-                                            <h5 class="text-primary">Período do Curso</h5>
-                                        </label><br>
-                                        <input type="text" class="form-control" name="periodoCurso"
-                                            value="<?=$vetorUmregistro["periodo_curso"];?>">
-                                    </div></div><br>
                                     <div>
                                         <label>
                                             <h5 class="text-primary">Referências</h5>
                                         </label><br>
-                                        <input type="text"class="form-control" name="referencias"
+                                        <input type="text" class="form-control" name="referencias"
                                             value="<?=$vetorUmregistro["referencias"];?>">
                                     </div><br>
-                                    <div class="col-md-6">
+                                    <div>
+                                        <label>
+                                            <h5 class="text-primary">Objetivos gerais</h5>
+                                        </label><br>
+                                        <input type="text" class="form-control" name="objetivosG"
+                                            value="<?=$vetorUmregistro["objetivosG"];?>">
+                                    </div><br>
+                                    <div class="col-6">
                                         <label>
                                             <h5 class="text-primary"> Selecionar o Curso</h5>
                                         </label>

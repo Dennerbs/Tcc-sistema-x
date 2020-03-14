@@ -31,10 +31,12 @@
                 <th class="text-success">Nome Disciplina</th>
                 <th class="text-success">Carga Horaria</th>
                 <th class="text-success">Ementa</th>
+                <th class="text-success">Objetivos gerais</th>
                 <th class="text-success">Nº Semanas</th>
                 <th class="text-success">Periodo do Curso</th>
                 <th class="text-success">Referencias</th>
                 <th class="text-success">Curso</th>
+
                 <th colspan="2" class="text-success text-center">Alterações</th>
             </tr>
             <?php
@@ -46,6 +48,7 @@
                 <td><?=$umRegistro["nome_disciplina"];?></td>
                 <td><?=$umRegistro["carga_horaria"];?></td>
                 <td><?=$umRegistro["ementa"];?></td>
+                <td><?=$umRegistro["objetivosG"];?></td>
                 <td><?=$umRegistro["numero_semanas"];?></td>
                 <td><?=$umRegistro["periodo_curso"];?></td>
                 <td><?=$umRegistro["referencias"];?></td>
