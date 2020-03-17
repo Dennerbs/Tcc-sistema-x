@@ -8,5 +8,5 @@
     $sqlprep -> bind_param("i", $id);
     $sqlprep -> execute();
 
-   require_once("FormCurso.php");
+   require_once("ListarCurso.php");
 ?>

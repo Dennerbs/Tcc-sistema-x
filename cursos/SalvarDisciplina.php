@@ -1,5 +1,4 @@
 <?php
-    require_once("ListarDisciplina.php");
     $nomeDisc = $_POST["nomeDisc"];
     $cargaH = $_POST["cargaHoraria"];
     $ementa = $_POST["ementa"];
@@ -17,11 +16,12 @@
     $sqlprep = $conexao ->prepare($sql);
     $sqlprep -> bind_param("sisiisis",$nomeDisc, $cargaH,$ementa,$nSemana,$periodoC,$referencias,$idCursos,$objetivosG);
     $sqlprep -> execute();
+    header("location: ListarDisciplina.php"); 
     }else{
         $sql = "update disciplina set nome_disciplina=?,carga_horaria=?,ementa=?,numero_semanas=?,periodo_curso=?,referencias=?,id_curso=?,objetivosG=? where id_disciplina=?";
         $sqlprep =$conexao ->prepare($sql);
         $sqlprep -> bind_param("sisiisisi",$nomeDisc,$cargaH,$ementa,$nSemana,$periodoC,$referencias,$idCursos,$objetivosG,$idDisc);
         $sqlprep -> execute();
+    header("location: ListarDisciplina.php");  
     }
-    header("location: ListarDisciplina.php")   
 ?>

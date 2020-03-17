@@ -1,18 +1,40 @@
 <?php
     $nomePlano = $_POST["nomePlano"];
+    $nomeDocente = $_POST["nomeDocente"];
+    $nomeCurso = $_POST["nomeCurso"];
+    $periodoC = $_POST["periodoC"];
     $nomeDisc = $_POST["nomeDisc"];
     $cargaDisc = $_POST["cargaDisc"];
     $semanaDisc = $_POST["semanaDisc"];
+    $aulasT = $_POST["aulasT"];
+    $aulasP = $_POST["aulasP"];
+    $aulasL = $_POST["aulasL"];
+    $laboratorio = $_POST["laboratorio"];
     $ementaDisc = $_POST["ementaDisc"];
-    $objetivos = $_POST["objetivosDisc"];
+    $objetivosG = $_POST["objetivosG"];
+    $objetivosE = $_POST["objetivosE"];
+    $avaliacaoA = $_POST["avaliacaoA"];
+    $referenciasB = $_POST["referenciasB"];
+    $referenciasC = $_POST["referenciasC"];
+    $p1primeiro = $_POST["p1primeiro"];
+    $p2primeiro = $_POST["p2primeiro"];
+    $recprimeiro = $_POST["recprimeiro"];
+    $p1segundo = $_POST["p1segundo"];
+    $p2segundo = $_POST["p2segundo"];
+    $recsegundo = $_POST["recsegundo"];
 
 
     require_once("Conexao.php");
     session_start();
            
-    $sql = "insert into planos (nome_plano,disc_plano,carga_plano,semanas_plano,ementa_plano,objetivos_plano) values (?,?,?,?,?,?)";
+    $sql = "insert into planos (nome_plano,nome_docente,curso_plano,periodoC_plano,nomeDisc_plano,carga_plano,semanas_plano,
+        aulasT_plano,aulasP_plano,aulasL_plano,laboratorio,ementa_plano,objetivosG_plano,objetivosE_plano,aprendizagem,
+        referencias_plano,complementares,p1_primeiro,p2_primeiro,rec_primeiro,p1_segundo,p2_segundo,rec_segundo)
+        values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     $sqlprep = $conexao ->prepare($sql);
-    $sqlprep -> bind_param("ssiiss",$nomePlano,$nomeDisc,$cargaDisc,$semanaDisc,$ementaDisc,$objetivos);
+    $sqlprep -> bind_param("sssisiiiiiissssssssssss",$nomePlano,$nomeDocente,$nomeCurso,$periodoC,$nomeDisc,$cargaDisc,$semanaDisc,
+        $aulasT,$aulasP,$aulasL,$laboratorio,$ementaDisc,$objetivosG,$objetivosE,$avaliacaoA,$referenciasB,$referenciasC,$p1primeiro,
+        $p2primeiro,$recprimeiro,$p1segundo,$p2segundo,$recsegundo);
     if($sqlprep -> execute()){
         $_SESSION["inseridoPlano"]="Plano de ensino foi adicionado com sucesso";
         header("location: FormPlano.php"); 

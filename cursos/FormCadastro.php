@@ -33,20 +33,21 @@
                         ?>
                         <form method="POST" action="SalvarCadastro.php">
                             <div class="form-group">
-                                <label for="nome">Nome</label>
-                                <input type="text" class="form-control" id="nome" name="nome">
+                                <label class="validationDefault01" for="nome">Nome</label>
+                                <input type="text" class="form-control" name="nome" id="validationDefault01" required>
                             </div>
                             <div class="form-group">
-                                <label for="login">Email</label>
-                                <input type="text" class="form-control" id="login" name="email">
+                                <label class="validationDefault02" for="login">Email</label>
+                                <input type="text" class="form-control" name="email" id="validationDefault02" required>
                             </div>
                             <div class="form-group">
-                                <label for="senha">Senha</label>
-                                <input type="password" class="form-control" id="senha" name="password">
+                                <label class="validationDefault03" for="senha">Senha</label>
+                                <input type="password" class="form-control" name="password" id="validationDefault03" required>
                             </div>
                             <div class="form-group">
                                 <label for="selecionar">Perfil</label>
                                 <select class="form-control" id="selecionar" name="perfil">
+                                    <option selected disabled>Perfil do usuário</option>
                                     <option>Docente</option>
                                     <option>Discente do Colegiado</option>
                                     <option>Pedagogo</option>

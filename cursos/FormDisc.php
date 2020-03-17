@@ -8,7 +8,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
             <!-- Bootstrap CSS -->
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
                 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
                 crossorigin="anonymous">
         </head>
@@ -41,7 +41,7 @@
                         <div class="card">
                             <div class="card-header">Disciplinas</div>
                             <div class="card-body">
-                                <form action="SalvarDisciplina.php" method="POST" onsubmit="" name="">
+                                <form action="SalvarDisciplina.php" method="POST">
                                     <div class="form-row">
                                         <div class="col-4">
                                             <label>
@@ -54,70 +54,73 @@
                                     </div><br>
                                     <div class="form-row">
                                         <div class="col-8">
-                                            <label>
+                                            <label class="validationDefault01">
                                                 <h5 class="text-primary">Nome da Disciplina</h5>
                                             </label><br>
-                                            <input type="text" class="form-control" name="nomeDisc"
-                                                value="<?=$vetorUmregistro["nome_disciplina"];?>">
+                                            <input type="text" class="form-control" name="nomeDisc" id="validationDefault01"
+                                                value="<?=$vetorUmregistro["nome_disciplina"];?>" required>
                                         </div><br>
                                         <div class="col-4">
-                                            <label>
+                                            <label class="validationDefault02">
                                                 <h5 class="text-primary">Carga Horaria</h5>
                                             </label><br>
-                                            <input type="text" class="form-control" name="cargaHoraria"
-                                                value="<?=$vetorUmregistro["carga_horaria"];?>">
+                                            <input type="text" class="form-control" name="cargaHoraria" id="validationDefault02"
+                                                value="<?=$vetorUmregistro["carga_horaria"];?>" required>
                                         </div>
                                     </div><br>
                                     <div>
-                                        <label>
+                                        <label class="validationDefault03">
                                             <h5 class="text-primary">Ementa</h5>
                                         </label><br>
-                                        <input type="text" class="form-control" name="ementa"
-                                            value="<?=$vetorUmregistro["ementa"];?>">
+                                        <input type="text" class="form-control" name="ementa" id="validationDefault03"
+                                            value="<?=$vetorUmregistro["ementa"];?>" required>
+                                    </div><br>
+                                    <div>
+                                        <label class="validationDefault04">
+                                            <h5 class="text-primary">Objetivos gerais</h5>
+                                        </label><br>
+                                        <input type="text" class="form-control" name="objetivosG" id="validationDefault04"
+                                            value="<?=$vetorUmregistro["objetivosG"];?>" required>
                                     </div><br>
                                     <div class="form-row">
                                         <div class="col-6">
-                                            <label>
+                                            <label class="validationDefault05">
                                                 <h5 class="text-primary">Nº de Semanas</h5>
                                             </label><br>
-                                            <input type="text" class="form-control" name="numeroSemana"
-                                                value="<?=$vetorUmregistro["numero_semanas"];?>">
-                                        </div><br>
+                                            <input type="text" class="form-control" name="numeroSemana" id="validationDefault05"
+                                                value="<?=$vetorUmregistro["numero_semanas"];?>" required>
+                                        </div>
                                         <div class="col-6">
-                                            <label>
+                                            <label class="validationDefault06">
                                                 <h5 class="text-primary">Período do Curso</h5>
                                             </label><br>
-                                            <input type="text" class="form-control" name="periodoCurso"
-                                                value="<?=$vetorUmregistro["periodo_curso"];?>">
+                                            <input type="text" class="form-control" name="periodoCurso" id="validationDefault06"
+                                                value="<?=$vetorUmregistro["periodo_curso"];?>" required>
                                         </div>
-                                    </div><br>
-                                    <div>
-                                        <label>
+                                    </div>
+                                    <div class="form-row">
+                                    <div class="col-md-12 mt-4">
+                                        <label class="validationDefault07">
                                             <h5 class="text-primary">Referências</h5>
                                         </label><br>
-                                        <input type="text" class="form-control" name="referencias"
-                                            value="<?=$vetorUmregistro["referencias"];?>">
-                                    </div><br>
-                                    <div>
-                                        <label>
-                                            <h5 class="text-primary">Objetivos gerais</h5>
-                                        </label><br>
-                                        <input type="text" class="form-control" name="objetivosG"
-                                            value="<?=$vetorUmregistro["objetivosG"];?>">
-                                    </div><br>
-                                    <div class="col-6">
-                                        <label>
+                                        <input type="text" class="form-control" name="referencias" id="validationDefault07"
+                                            value="<?=$vetorUmregistro["referencias"];?>" required>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label class="validationDefault08">
                                             <h5 class="text-primary"> Selecionar o Curso</h5>
                                         </label>
-                                        <select name="id_curso" class="form-control" id="SelecionarCurso">
+                                        <select name="id_curso" class="form-control" id="validationDefault08" required>
+                                        <option selected disabled value="">Escolha o curso</option>
                                             <?php foreach ($vetorTodosRegistros as $umRegistro){ ?>
                                             <option value="<?=$umRegistro["id_curso"];?>">
                                                 <?=$umRegistro["nome_curso"];?>
                                             </option>
                                             <?php } ?>
                                         </select>
-                                    </div><br>
-                                    <button type="submit" class="btn btn-success">Salvar</button>
+                                    </div>
+                                </div>
+                                    <button type="submit" class="btn btn-success mt-4">Salvar</button>
                                 </form>
                             </div>
                         </div>

@@ -15,5 +15,5 @@
             $sqlprep -> bind_param("ssi",$nomeCurso, $descricaoCurso,$idCurso);
             $sqlprep -> execute();   
         }
-        header("location: FormCurso.php");  
+        header("location: ListarCurso.php");  
     ?>

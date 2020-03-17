@@ -40,21 +40,21 @@
                                     <h5 class="text-primary">Id do Curso</h5>
                                 </label><br>
                                 <input type="text" class="form-control" value="<?=$vetorUmregistro["id_curso"]; ?>" name="idCurso" readonly
-                                    placeholder="(automático)">
+                                    placeholder="Automático">
                             </div><br>
                             <div class="col-6">
-                                <label>
+                                <label class="validationDefault01">
                                     <h5 class="text-primary">Nome Curso</h5>
                                 </label><br>
                                 <input type="text" class="form-control" value="<?=$vetorUmregistro["nome_curso"]; ?>" name="nomeCurso"
-                                    placeholder="">
+                                id="validationDefault01" placeholder="" required>
                             </div><br>
                             <div class="col-9">
-                                <label>
+                                <label class="validationDefault02">
                                     <h5 class="text-primary">Descrição do Curso</h5>
                                 </label><br>
                                 <input type="text" class="form-control" value="<?=$vetorUmregistro["descricao_curso"]; ?>"
-                                    name="descricaoCurso" placeholder="">
+                                id="validationDefault02" name="descricaoCurso" placeholder="" required>
                             </div></div><br>
                             
                             <div>

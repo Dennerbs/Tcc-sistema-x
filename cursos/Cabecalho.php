@@ -6,7 +6,7 @@
 
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
@@ -39,9 +39,15 @@
                 <?php
                 }if($_SESSION["perfil"]=="Docente"){
                         ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="FormPlano.php">Planos de Ensino</a>
-                </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Planos de Ensino
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="FormPlano.php">Novo plano</a>
+                        <a class="dropdown-item" href="ListarPlano.php">Meus planos</a>
+                    </li>
                 <?php
                 }if($_SESSION["perfil"]=="Discente do Colegiado"){
                             ?>

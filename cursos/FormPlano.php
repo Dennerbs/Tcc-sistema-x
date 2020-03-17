@@ -26,11 +26,11 @@
             $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
         }
     ?>
-            <div class="col-md-10 mt-4">
+            <div class="col-md-11 mt-4">
                 <div class="card">
                     <div class="card-header">Planos de Ensino</div>
                     <div class="card-body">
-                    <?php
+                        <?php
                             if(isset($_SESSION["erroPlano"])):
                         ?>
                         <div class="alert alert-danger" role="alert">
@@ -59,27 +59,23 @@
                                     <?=$umRegistro["nome_disciplina"];?>
                                 </option>
                                 <?php } ?>
+                                <option>Em branco</option>
                             </select>
 
                             <button type="submit" class="btn btn-primary my-1">Confirmar</button>
-<<<<<<< HEAD
-                         </form>
-                         <?php 
-
-                         $sql = "select * from disciplina where id=?";
-=======
                         </form>
                         <?php 
-                        $nome = "";
-                        $disc = "";
-                        $carga = "";
-                        $ementa = "";
-                        $semanas = "";
-                        $periodoCurso= "";
-                        $referencias = "";
-                        $objetivosG = "";
-                         $sql = "select * from disciplina where nome_disciplina = ?";
->>>>>>> 3f4a350703ed10426f1fe604afe2ff4e8b3e1522
+                            $nome = "";
+                            $disc = "";
+                            $carga = "";
+                            $ementa = "";
+                            $semanas = "";
+                            $periodoCurso= "";
+                            $referencias = "";
+                            $objetivosG = "";
+                            $nomeCurso = "";
+
+                         $sql = "select * from disciplina where nome_disciplina=?";
                          $sqlprep = $conexao->prepare($sql);
                          $sqlprep->bind_param("s",$_SESSION["nomeDisc"]);
                          $sqlprep->execute();
@@ -99,69 +95,213 @@
                             $periodoCurso=$valor["periodo_curso"];
                             $referencias =$valor["referencias"];
                             $objetivosG =$valor["objetivosG"];
+                            $curso=$valor["id_curso"];
                         endforeach;
-                        ?>
-<<<<<<< HEAD
-                   
-                        <form action="SalvarPlano.php" method="POST">
-=======
 
-                        <form action="SalvarPlano.php" method="POST" class="mt-3">
-                        <div>
-                                    <label>
-                                        <h5 class="text-primary">Nome do plano de Ensino</h5>
-                                    </label><br>
-                                    <input type="text" class="form-control" name="nomePlano">
-                                </div><br>
->>>>>>> 3f4a350703ed10426f1fe604afe2ff4e8b3e1522
+                        $sql = "select nome_curso from curso where id_curso =?";
+                        $sqlprep = $conexao->prepare($sql);
+                        $sqlprep->bind_param("i",$curso);
+                        $sqlprep->execute();
+                        $cursoCapturado = $sqlprep->get_result();
+                        $vetorCurso= mysqli_fetch_assoc($cursoCapturado);
+                         $vetorTodosCursos = array();
+                         while($vetorCurso !=null){
+                             array_push($vetorTodosCursos,$vetorCurso);
+                             $vetorCurso = mysqli_fetch_assoc($cursoCapturado);
+                         }
+                        foreach($vetorTodosCursos as $valor):
+                            $nomeCurso = $valor["nome_curso"];
+                        endforeach;
+
+                        ?>
+
+                        <form class="mt-4" action="SalvarPlano.php" method="POST">
+                            <div>
+                                <label class="validationDefault01">
+                                    <h5 class="text-primary">Nome do plano de ensino</h5>
+                                </label><br>
+                                <input type="text" class="form-control" name="nomePlano" id="validationDefault01"
+                                    placeholder=" Exemplo: Plano-Portugues 1027" required>
+                            </div><br>
+                            <div>
+                                <label class="validationDefault02">
+                                    <h5 class="text-primary">Nome do docente</h5>
+                                </label><br>
+                                <input type="text" class="form-control" name="nomeDocente" id="validationDefault02"
+                                    value="<?=$_SESSION["nome"]; ?>" required>
+                            </div><br>
                             <div class="form-row">
+                                <div class="col-9">
+                                    <label>
+                                        <h5 class="text-primary">Curso</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" name="nomeCurso" value="<?=$nomeCurso ?>"
+                                        readonly>
+                                </div>
+                                <div class="col-3">
+                                    <label>
+                                        <h5 class="text-primary">Período do Curso</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" name="periodoC"
+                                        value="<?=$periodoCurso; ?>° semestre" readonly>
+                                </div>
+                            </div>
+                            <div class="form-row mt-4">
                                 <div class="col-4">
                                     <label>
                                         <h5 class="text-primary">Nome da Disciplina</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" value="<?=$nome; ?>" name="nomeDisc">
-                                </div><br>
+                                    <input type="text" class="form-control" value="<?=$nome; ?>" name="nomeDisc"
+                                        readonly>
+                                </div>
                                 <div class="col-4">
                                     <label>
                                         <h5 class="text-primary">Carga Horária</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" value="<?=$carga?>" name="cargaDisc"
-                                        placeholder="">
-                                </div><br>
+                                    <input type="text" class="form-control" value="<?=$carga?> horas" name="cargaDisc"
+                                        placeholder="" readonly>
+                                </div>
                                 <div class="col-4">
                                     <label>
                                         <h5 class="text-primary">N° de semanas aula </h5>
                                     </label><br>
-                                    <input type="text" class="form-control" value="<?=$semanas; ?>" name="semanaDisc" placeholder="">
-                                </div><br>
-                                <div class="col-12 mt-2">
-                                <label>
+                                    <input type="text" class="form-control" value="<?=$semanas; ?>" name="semanaDisc"
+                                        placeholder="" readonly>
+                                </div>
+                            </div>
+                            <div class="form-row mt-4">
+                                <div class="col-3">
+                                    <label class="validationDefault03">
+                                        <h5 class="text-primary">Aulas teóricas</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" name="aulasT" id="validationDefault03">
+                                </div>
+                                <div class="col-3">
+                                    <label class="validationDefault04">
+                                        <h5 class="text-primary">Aulas práticas</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" name="aulasP" id="validationDefault04">
+                                </div>
+                                <div class="col-3">
+                                    <label class="validationDefault05">
+                                        <h5 class="text-primary">Aulas no laboratório</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" name="aulasL" id="validationDefault05">
+                                </div>
+                                <div class="col-3">
+                                    <label class="validationDefault06">
+                                        <h5 class="text-primary">Laboratório</h5>
+                                    </label><br>
+                                    <select class="custom-select" name="laboratorio" id="validationDefault06" required>
+                                        <option selected disabled value="">Laboratório</option>
+                                        <option>69</option>
+                                        <option>Em sala</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row mt-4">
+                                <div class="col-12">
+                                    <label class="validationDefault07">
                                         <h5 class="text-primary">Ementa</h5>
                                     </label><br>
                                     <input type="text" class="form-control" value="<?=$ementa?>" name="ementaDisc"
-                                        placeholder="">
-                                 </div>
-                                <div class="col-12 mt-2">
-                                    <label>
+                                        id="validationDefault07" readonly>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <label class="validationDefault08">
                                         <h5 class="text-primary">Objetivos gerais</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" value="<?=$objetivosG; ?>"name="objetivosDisc"
-                                        placeholder="">
+                                    <input type="text" class="form-control" value="<?=$objetivosG; ?>" name="objetivosG"
+                                        id="validationDefault08">
                                 </div>
-                                
-                            </div><br>
-
-                            <div>
-                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                <div class="col-12 mt-4">
+                                    <label class="validationDefault09">
+                                        <h5 class="text-primary">Objetivos especificos</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" name="objetivosE" id="validationDefault09">
+                                </div>
                             </div>
-                        </form>
+                            <div class="form-row mt-4">
+                                <div class="col-12">
+                                    <label class="validationDefault10">
+                                        <h5 class="text-primary">Avaliação da aprendizagem</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" name="avaliacaoA" id="validationDefault10">
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <label class="validationDefault11">
+                                        <h5 class="text-primary">Rerencias Bibliograficas</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" name="referenciasB"
+                                        value="<?=$referencias; ?>" id="validationDefault11" readonly>
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <label>
+                                        <h5 class="text-primary">Rerencias Complementares</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" name="referenciasC" id="">
+                                </div>
+                            </div>
+                            <div class="form-row mt-4">
+                                <div class="col-5">
+                                    <h5 class="text-primary text-center">1° Bimestre</h5>
+                                </div>
+                                <div class="col-2">
+                                </div>
+
+                                <div class="col-5">
+                                    <h5 class="text-primary text-center">2° Bimestre</h5>
+                                </div>
+                            </div>
+                            <div class="form-row mt-4">
+                                <div class="col-5">
+                                    <label class="validationDefault13">
+                                        <h5 class="text-primary text-center">P1</h5>
+                                    </label><br>
+                                    <input type="date" class="form-control" name="p1primeiro"
+                                        id="validationDefault13"><br>
+                                    <label class="validationDefault14">
+                                        <h5 class="text-primary text-center">P2</h5>
+                                    </label><br>
+                                    <input type="date" class="form-control" name="p2primeiro"
+                                        id="validationDefault14"><br>
+                                    <label class="validationDefault15">
+                                        <h5 class="text-primary text-center">Recuperação</h5>
+                                    </label><br>
+                                    <input type="date" class="form-control" name="recprimeiro" id="validationDefault15">
+
+                                </div>
+                                <div class="col-2">
+
+                                </div>
+                                <div class="col-5">
+                                    <label class="validationDefault16">
+                                        <h5 class="text-primary text-center">P1</h5>
+                                    </label><br>
+                                    <input type="date" class="form-control" name="p1segundo"
+                                        id="validationDefault16"><br>
+                                    <label class="validationDefault17">
+                                        <h5 class="text-primary text-center">P2</h5>
+                                    </label><br>
+                                    <input type="date" class="form-control" name="p2segundo"
+                                        id="validationDefault17"><br>
+                                    <label class="validationDefault18">
+                                        <h5 class="text-primary text-center">Recuperação</h5>
+                                    </label><br>
+                                    <input type="date" class="form-control" name="recsegundo" id="validationDefault18">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success mt-4">Salvar</button>
+
                     </div>
+                    </form>
                 </div>
             </div>
-            <?php
+        </div>
+        <?php
             require_once("Footer.php");
             ?>
-        </div>
+    </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
