@@ -17,7 +17,7 @@
         <?php
         require_once("Conexao.php");
         require_once("Cabecalho.php");
-        $sql = "select nome_plano from planos";
+        $sql = "select nome_plano,situacao from planos";
         $resultadoSql = mysqli_query($conexao, $sql);
         $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
         $vetorTodosregistro = array();
@@ -26,17 +26,74 @@
             $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
             }
         ?>
-        <div class="card mt-4" style="width: 18rem;">
-  <div class="card-header">
-    Planos de Ensino
-  </div>
-  <div class="list-group">
-    <?php foreach ($vetorTodosregistro as $umRegistro){ ?>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mt-4" style="width: 28rem;">
+                    <div class="card-header">
+                        Planos de Ensino
+                    </div>
+                    <div class="list-group">
+                        <?php foreach ($vetorTodosregistro as $umRegistro){ 
 
-  <a href="#" class="list-group-item list-group-item-action"><?=$umRegistro["nome_plano"]; ?></a>
-    <?php } ?>
-</div>
-</div>
+                    if($umRegistro["situacao"]=="Novo"){
+                    ?>
+                        <a href="#"
+                            class="list-group-item list-group-item-action list-group-item-primary"><?=$umRegistro["nome_plano"]; ?></a>
+
+                        <?php }if($umRegistro["situacao"]=="Corrigir"){ ?>
+
+                        <a href="#"
+                            class="list-group-item list-group-item-action list-group-item-warning"><?=$umRegistro["nome_plano"]; ?></a>
+
+                        <?php }if($umRegistro["situacao"]=="Aguardando"){ ?>
+
+                        <a href="#"
+                            class="list-group-item list-group-item-action list-group-item-danger"><?=$umRegistro["nome_plano"]; ?></a>
+
+                        <?php }if($umRegistro["situacao"]=="Aprovado"){ ?>
+
+                        <a href="#"
+                            class="list-group-item list-group-item-action list-group-item-success"><?=$umRegistro["nome_plano"]; ?></a>
+
+                        <?php }
+    } ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4">
+                <p class="text-center"><em>Fique atento às etapas por qual os planos de ensino percorrem até sua aprovação.</em></p>
+                <div class="card text-white bg-warning mb-3 float-right ml-1" style="max-width: 16rem;">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Aguardando sugestões</h5>
+                        <p class="card-text text-justify">O plano de ensino foi direcionado e aguarda as sugestões do colegiado</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-info mb-3 float-right" style="max-width: 16rem;">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Novo</h5>
+                        <p class="card-text text-justify">Seu plano de ensino acaba de ser criado, e ainda não foi enviado para 
+                        receber sugestões ou a aprovação do colegiado</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-success mb-3 float-right ml-1" style="max-width: 16rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Aprovado!!</h5>
+                        <p class="card-text text-justify">Seu plano de ensino passou pelas mãos do colegiado e foi considerado
+                        suficiente</p>
+                    </div>
+                </div>
+                <div class="card text-white bg-danger mb-3 float-right" style="max-width: 16rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Aguardando sua correção</h5>
+                        <p class="card-text text-justify">O colegiado recebeu seu plano de ensino e retornou-o,
+                        para que você possa fazer algumas alterações em certos pontos,e então enviá-lo novamente</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
         <?php
         require_once("Footer.php");
         ?>
