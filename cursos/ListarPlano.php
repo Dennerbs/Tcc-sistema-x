@@ -17,8 +17,11 @@
         <?php
         require_once("Conexao.php");
         require_once("Cabecalho.php");
-        $sql = "select nome_plano,situacao from planos";
-        $resultadoSql = mysqli_query($conexao, $sql);
+        $sql = "select nome_plano,situacao from planos where nome_docente=?";
+        $sqlprep = $conexao->prepare($sql);
+        $sqlprep->bind_param("s",$_SESSION["nome"]);
+        $sqlprep->execute();
+        $resultadoSql = $sqlprep->get_result();
         $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
         $vetorTodosregistro = array();
         while($vetorUmregistro != null){

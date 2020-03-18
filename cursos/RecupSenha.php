@@ -44,25 +44,49 @@
 
                         <form method="POST" action="Validacao.php">
                             <div class="form-group">
-                                <label for="email"><h5 class="text-primary">Email</h5></label>
-                                <input type="text" class="form-control" id="email" name="email">
+                                <label for="validationServer01">
+                                    <h5 class="text-primary">Email</h5>
+                                </label>
+                                <input type="email" class="form-control" id="validationServer01"name="email" required>
                             </div>
-                            <div class="form-group">
-                                <label for="password"><h5 class="text-primary">Senha</h5></label>
-                                <input type="password" class="form-control" id="password" name="password">
+                            <button type="submit" class="btn btn-primary" data-toggle="modal"
+                                data-target="#exampleModal">
+                                Enviar
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Aviso</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Nossa equipe enviou um código para alteração de senha no Email
+                                            informado, por gentileza, verifique sua caixa de mensagens
+                                        </div>
+                                        <div class="modal-footer">
+                                                <a class="btn btn-primary" href="" role="button" 
+                                                data-dismiss="modal">Entendi</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Entrar</button>
-                            <a class="text-right ml-2" href="RecupSenha.php">Esqueci minha senha</a>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mt-3">
                 <div class="card w-100" style="width: 18rem;">
-                    <img src="imagens/Bandeira_Coxim.png" class="card-img-top" alt="Bandeira de Coxim-MS">
+                    <img src="imagens/frifaire.png" class="card-img-top" alt="Bandeira de Coxim-MS">
                     <div class="card-body">
-                        <p class="card-text text-justify">O Sistema x é um sistema desenvolvido por academicos,
-                            para auxiliar o corpo educacional do municipio de Coxim-MS</p>
+                        <p class="card-text text-justify">Não compartilhe seu Email e sua Senha com
+                            terceiros, proteja seus dados, o acesso ao sistema, e acima de tudo você.
+                        </p>
                     </div>
                 </div>
             </div>
