@@ -63,6 +63,7 @@
                             </select>
 
                             <button type="submit" class="btn btn-primary my-1">Confirmar</button>
+<<<<<<< HEAD
                         </form>
                         <?php 
                             $nome = "";
@@ -76,6 +77,22 @@
                             $nomeCurso = "";
 
                          $sql = "select * from disciplina where nome_disciplina=?";
+=======
+                         </form>
+                         <?php 
+
+                         $sql = "select * from disciplina where id=?";
+
+                        $nome = "";
+                        $disc = "";
+                        $carga = "";
+                        $ementa = "";
+                        $semanas = "";
+                        $periodoCurso= "";
+                        $referencias = "";
+                        $objetivosG = "";
+                         $sql = "select * from disciplina where nome_disciplina = ?";
+>>>>>>> a
                          $sqlprep = $conexao->prepare($sql);
                          $sqlprep->bind_param("s",$_SESSION["nomeDisc"]);
                          $sqlprep->execute();
@@ -114,6 +131,11 @@
                         endforeach;
 
                         ?>
+<<<<<<< HEAD
+=======
+                   
+                        <form action="SalvarPlano.php" method="POST">
+>>>>>>> a
 
                         <form class="mt-4" action="SalvarPlano.php" method="POST">
                             <div>
@@ -135,6 +157,7 @@
                                     <label>
                                         <h5 class="text-primary">Curso</h5>
                                     </label><br>
+<<<<<<< HEAD
                                     <input type="text" class="form-control" name="nomeCurso" value="<?=$nomeCurso ?>"
                                         readonly>
                                 </div>
@@ -147,6 +170,11 @@
                                 </div>
                             </div>
                             <div class="form-row mt-4">
+=======
+                                    <input type="text" class="form-control" name="nomePlano">
+                                </div><br>
+                            <div class="form-row">
+>>>>>>> a
                                 <div class="col-4">
                                     <label>
                                         <h5 class="text-primary">Nome da Disciplina</h5>
