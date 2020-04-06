@@ -63,8 +63,7 @@
                             </select>
 
                             <button type="submit" class="btn btn-primary my-1">Confirmar</button>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                         </form>
                         <?php 
                             $nome = "";
@@ -78,11 +77,6 @@
                             $nomeCurso = "";
 
                          $sql = "select * from disciplina where nome_disciplina=?";
-=======
-=======
->>>>>>> 1703
-                         </form>
-                         <?php 
 
                          $sql = "select * from disciplina where id=?";
 
@@ -95,9 +89,7 @@
                         $referencias = "";
                         $objetivosG = "";
                          $sql = "select * from disciplina where nome_disciplina = ?";
-<<<<<<< HEAD
->>>>>>> a
-=======
+
 
                             $nome = "";
                             $disc = "";
@@ -110,7 +102,7 @@
                             $nomeCurso = "";
 
                          $sql = "select * from disciplina where nome_disciplina=?";
->>>>>>> 1703
+
                          $sqlprep = $conexao->prepare($sql);
                          $sqlprep->bind_param("s",$_SESSION["nomeDisc"]);
                          $sqlprep->execute();
