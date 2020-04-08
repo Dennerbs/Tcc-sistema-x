@@ -7,9 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+        p,
+        h1,
+        label {
+            color:#4169E1;
+        }
+        input{
+opacity: 1.0;
+
+        }
+    </style>
+
 </head>
 
-<body>
+<body style="background-color: #1C1C1C;">
     <div class="container">
         <?php 
         require_once("Cabecalho.php");
@@ -26,9 +38,11 @@
             $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
         }
     ?>
-            <div class="col-md-11 mt-4">
-                <div class="card">
-                    <div class="card-header">Planos de Ensino</div>
+            <div class="col-md-12 mt-4">
+                <div class="card" style="background-color: #212529;">
+                    <div class="card-header">
+                        <p>Planos de Ensino</p>
+                    </div>
                     <div class="card-body">
                         <?php
                             if(isset($_SESSION["erroPlano"])):
@@ -62,7 +76,7 @@
                                 <option>Em branco</option>
                             </select>
 
-                            <button type="submit" class="btn btn-primary my-1">Confirmar</button>
+                            <button type="submit" class="btn btn-outline-light my-1">Confirmar</button>
                         </form>
                         <?php 
                             $nome = "";
@@ -174,19 +188,19 @@
                                     <label class="validationDefault03">
                                         <h5 class="text-primary">Aulas teóricas</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" name="aulasT" id="validationDefault03">
+                                    <input type="text" class="form-control" name="aulasT" id="validationDefault03" required>
                                 </div>
                                 <div class="col-3">
                                     <label class="validationDefault04">
                                         <h5 class="text-primary">Aulas práticas</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" name="aulasP" id="validationDefault04">
+                                    <input type="text" class="form-control" name="aulasP" id="validationDefault04" required>
                                 </div>
                                 <div class="col-3">
                                     <label class="validationDefault05">
                                         <h5 class="text-primary">Aulas no laboratório</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" name="aulasL" id="validationDefault05">
+                                    <input type="text" class="form-control" name="aulasL" id="validationDefault05" required>
                                 </div>
                                 <div class="col-3">
                                     <label class="validationDefault06">
@@ -211,14 +225,14 @@
                                     <label class="validationDefault08">
                                         <h5 class="text-primary">Objetivos gerais</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" value="<?=$objetivosG; ?>" name="objetivosG"
-                                        id="validationDefault08">
+                                    <input type="text" class="form-control" value="<?=$objetivosG; ?>" name="objetivosG" id="validationDefault08" required>
                                 </div>
                                 <div class="col-12 mt-4">
                                     <label class="validationDefault09">
                                         <h5 class="text-primary">Objetivos especificos</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" name="objetivosE" id="validationDefault09">
+                                    <input type="text" class="form-control" name="objetivosE" id="validationDefault09"
+                                    required>
                                 </div>
                             </div>
                             <div class="form-row mt-4">
@@ -226,14 +240,15 @@
                                     <label class="validationDefault10">
                                         <h5 class="text-primary">Avaliação da aprendizagem</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" name="avaliacaoA" id="validationDefault10">
+                                    <input type="text" class="form-control" name="avaliacaoA" id="validationDefault10"
+                                    required>
                                 </div>
                                 <div class="col-12 mt-2">
                                     <label class="validationDefault11">
                                         <h5 class="text-primary">Rerencias Bibliograficas</h5>
                                     </label><br>
                                     <input type="text" class="form-control" name="referenciasB"
-                                        value="<?=$referencias; ?>" id="validationDefault11" readonly>
+                                        value="<?=$referencias; ?>" id="validationDefault11" readonly required>
                                 </div>
                                 <div class="col-12 mt-2">
                                     <label>
@@ -259,16 +274,14 @@
                                         <h5 class="text-primary text-center">P1</h5>
                                     </label><br>
                                     <input type="date" class="form-control" name="p1primeiro"
-                                        id="validationDefault13"><br>
+                                        id="validationDefault13" required><br>
                                     <label class="validationDefault14">
                                         <h5 class="text-primary text-center">P2</h5>
                                     </label><br>
                                     <input type="date" class="form-control" name="p2primeiro"
-                                        id="validationDefault14"><br>
+                                        id="validationDefault14" required><br>
                                     <label class="validationDefault15">
-                                        <h5 class="text-primary text-center">Recuperação</h5>
-                                    </label><br>
-                                    <input type="date" class="form-control" name="recprimeiro" id="validationDefault15">
+    
 
                                 </div>
                                 <div class="col-2">
@@ -279,16 +292,13 @@
                                         <h5 class="text-primary text-center">P1</h5>
                                     </label><br>
                                     <input type="date" class="form-control" name="p1segundo"
-                                        id="validationDefault16"><br>
+                                        id="validationDefault16" required><br>
                                     <label class="validationDefault17">
                                         <h5 class="text-primary text-center">P2</h5>
                                     </label><br>
                                     <input type="date" class="form-control" name="p2segundo"
-                                        id="validationDefault17"><br>
-                                    <label class="validationDefault18">
-                                        <h5 class="text-primary text-center">Recuperação</h5>
-                                    </label><br>
-                                    <input type="date" class="form-control" name="recsegundo" id="validationDefault18">
+                                        id="validationDefault17" required><br>
+                                    
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-success mt-4">Salvar</button>

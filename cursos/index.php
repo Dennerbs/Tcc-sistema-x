@@ -26,7 +26,7 @@
                 <div class="jumbotron-fluid mt-4">
                     <div class="container" style="height: 400px;">
                         <h1 class="display-2 text-center">Bem vindo!!</h1>
-                        <p class="lead text-center">Sistema x, o sistema academico para alguma escola</p>
+                        <p class="lead text-center">Sistema x, o sistema acadêmico para o Instituto Federal de Mato Grosso do Sul- Campus Coxim</p>
                     </div>
                 </div>
             </div>
