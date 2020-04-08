@@ -62,7 +62,7 @@
                     <img src="imagens/Bandeira_Coxim.png" class="card-img-top" alt="Bandeira de Coxim-MS">
                     <div class="card-body">
                         <p class="card-text text-justify">O Sistema x é um sistema desenvolvido por academicos,
-                            para auxiliar o corpo educacional do municipio de Coxim-MS</p>
+                            para auxiliar o corpo educacional de alguma instituição, de Coxim-MS</p>
                     </div>
                 </div>
             </div>

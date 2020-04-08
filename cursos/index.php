@@ -13,57 +13,53 @@
     <style>
         p,
         h1 {
-            color: #000000
-        }
-
-        #1 {
-            background-color: #F5F5DC;
-
+            color:#4169E1;
         }
     </style>
 </head>
 
-<body background="imagens/sakura.jpg">
+<body style="background-color: #1C1C1C;">
     <div class="container">
         <?php require_once("Cabecalho.php"); ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="jumbotron-fluid mt-4">
-                    <div class="container">
+                    <div class="container" style="height: 400px;">
                         <h1 class="display-2 text-center">Bem vindo!!</h1>
-                        <p class="lead text-center">Sistema x, o sistema academico das escolas de Coxim-MS</p>
+                        <p class="lead text-center">Sistema x, o sistema academico para alguma escola</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
+            
+            <?php
+            if(isset($_SESSION["nome"])){
+                if($_SESSION["perfil"]=="Coordenador"){  ?>
+                <div class="col-md-12 mt-4">
+                    <a href="#.php" type="button" class="btn btn-outline-dark btn-lg btn-block">Vamos lá!! </a>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
+            <?php }if($_SESSION["perfil"]=="Discente do Colegiado"){  ?>
+                <div class="col-md-12 mt-4">
+                    <a href="#.php" type="button" class="btn btn-outline-dark btn-lg btn-block">Vamos lá!! </a>
+                </div> 
+            <?php }if($_SESSION["perfil"]=="Docente"){  ?>
+                <div class="col-md-12 mt-4">
+                    <a href="#.php" type="button" class="btn btn-outline-dark btn-lg btn-block">Vamos lá!! </a>
+                </div> 
+            <?php }if($_SESSION["perfil"]=="Pedagogo"){  ?>
+                <div class="col-md-12 mt-4">
+                    <a href="#.php" type="button" class="btn btn-outline-dark btn-lg btn-block">Vamos lá!! </a>
                 </div>
-            </div>
+            <?php 
+                }
+            }else{ ?>
             <div class="col-md-12 mt-4">
             <a href="Login.php" type="button" class="btn btn-outline-dark btn-lg btn-block">Entrar </a>
             </div>
+        <?php } ?>
         </div>
     </div>
+    <?php 
+    require_once("Footer.php"); ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
