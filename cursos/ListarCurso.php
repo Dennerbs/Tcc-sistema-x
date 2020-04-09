@@ -6,8 +6,18 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        td{
+            color:#58D3F7;
+            font-size: 14px;
+        }
+        input{
+opacity: 0.9;
+
+        }
+    </style>
   </head>
-  <body>
+  <body style="background-color: #1C1C1C;">
         <div class="container">
             <?php
             require_once("Cabecalho.php");
@@ -22,11 +32,11 @@
                 } 
             ?>
              <a type="submit" class="btn btn-success btn-lg btn-block mt-4" href="FormCurso.php" role="button">Cadastrar</a>
-            <div class="container">
+            </div>
                 <table class="table mt-4">
                     <tr>
-                        <th class="text-success">Nome do Curso</th>
-                        <th class="text-success">Descrição do Curso</th>
+                        <th class="text-success text-center">Nome do Curso</th>
+                        <th class="text-success text-center">Descrição do Curso</th>
                         <th class="text-success text-center" colspan="2">Alterações</th>
                     </tr>
                     <?php
@@ -34,18 +44,18 @@
     ?>
                     <tr>
 
-                        <td><?=$umRegistro["nome_curso"];?></td>
-                        <td><?=$umRegistro["descricao_curso"];?></td>
-                        <td>
+                        <td class="text-center"><?=$umRegistro["nome_curso"];?></td>
+                        <td class="text-center"><?=$umRegistro["descricao_curso"];?></td>
+                        <td class="text-center">
                             <form action="RemoverCurso.php" method="post">
                                 <input type="hidden" name="id_curso" value="<?= $umRegistro["id_curso"]; ?>">
                                 <button type="submit" class="btn btn-danger">Remover</button>
                             </form>
                         </td>
-                        <td>
+                        <td class="text-center">
                             <form action="FormCurso.php" method="post">
                                 <input type="hidden" name="id_curso" value="<?= $umRegistro["id_curso"]; ?>">
-                                <button type="submit" class="btn btn-info">Atualizar</button>
+                                <button type="submit" class="btn btn-warning">Atualizar</button>
                             </form>
                         </td>
                     </tr>
@@ -56,7 +66,9 @@
             </div>
         </div>
     </div>
+    <?php require_once("Footer.php"); ?>
     </div>
+
     </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

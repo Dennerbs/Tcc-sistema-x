@@ -14,7 +14,7 @@
     <?php
         session_start();
     ?>
-    <nav class="navbar navbar-expand-lg  bg-dark border border-info mt-3">
+    <nav class="navbar navbar-expand-lg  bg-dark border border-info mt-4">
         <a class="navbar-brand" href="index.php">Sistema x</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

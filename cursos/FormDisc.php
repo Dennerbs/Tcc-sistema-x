@@ -2,7 +2,7 @@
         <html lang="en">
 
         <head>
-            <title>Title</title>
+            <title>Nova Disciplina</title>
             <!-- Required meta tags -->
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,9 +11,20 @@
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
                 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
                 crossorigin="anonymous">
+                <style>
+        p,
+        h1,
+        label {
+            color:#4169E1;
+        }
+        input{
+opacity: 0.9;
+
+        }
+    </style>
         </head>
 
-        <body>
+        <body style="background-color: #1C1C1C;">
             <div class="container">
                 <?php   
             require_once("Cabecalho.php");
@@ -38,8 +49,8 @@
             ?>
                 <div class="row">
                     <div class="col-md-12 mt-4">
-                        <div class="card">
-                            <div class="card-header">Disciplinas</div>
+                        <div class="card" style="background-color: #212529;">
+                            <div class="card-header"><p>Disciplinas</p></div>
                             <div class="card-body">
                                 <form action="SalvarDisciplina.php" method="POST">
                                     <div class="form-row">
@@ -101,7 +112,7 @@
                                     <div class="form-row">
                                     <div class="col-md-12 mt-4">
                                         <label class="validationDefault07">
-                                            <h5 class="text-primary">Referências</h5>
+                                            <h5 class="text-primary">Bibliografia Básica</h5>
                                         </label><br>
                                         <input type="text" class="form-control" name="referencias" id="validationDefault07"
                                             value="<?=$vetorUmregistro["referencias"];?>" required>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Inicial</title>
+    <title>Login</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,7 +29,7 @@ opacity: 0.6;
         ?>
         <div class="row my-2">
             <div class="col-md-12">
-                <h1 class="text-center">Login</h1>
+                <h1 class="text-center font-italic">Login</h1>
             </div>
 
         </div>
@@ -77,7 +77,7 @@ opacity: 0.6;
                 <div class="card w-100" style="background-color: #212529;width: 18rem;">
                     <img src="imagens/educacao.jpg" class="card-img-top" alt="Bandeira de Coxim-MS">
                     <div class="card-body">
-                        <p class="card-text text-justify">O Sistema x é um sistema desenvolvido por academicos,
+                        <p class="card-text text-justify">Cordélia é uma aplicação web desenvolvida por acadêmicos
                             para auxiliar o corpo educacional do Instituto Federal de Mato Grosso do Sul- Campus Coxim</p>
                     </div>
                 </div>

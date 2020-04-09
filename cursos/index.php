@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Cordélia</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-        p,
-        h1 {
+        p,h2,h5{
             color:#4169E1;
         }
     </style>
@@ -25,8 +24,9 @@
             <div class="col-md-12">
                 <div class="jumbotron-fluid mt-4">
                     <div class="container" style="height: 400px;">
-                        <h1 class="display-2 text-center">Bem vindo!!</h1>
-                        <p class="lead text-center">Sistema x, o sistema acadêmico para o Instituto Federal de Mato Grosso do Sul- Campus Coxim</p>
+                        <h5 class="display-3 text-center font-italic" style="height: 180px;">Cordélia</h5>
+                        <h2 class="text-center">Bem vindo!!</h2>
+                        <p class="lead text-center">Ao sistema acadêmico para o Instituto Federal de Mato Grosso do Sul- Campus Coxim</p>
                     </div>
                 </div>
             </div>

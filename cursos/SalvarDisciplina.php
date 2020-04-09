@@ -11,16 +11,16 @@
 
     require_once("Conexao.php");
     if($idDisc == 0){        
-    $sql = "insert into disciplina (nome_disciplina,carga_horaria,ementa,numero_semanas,periodo_curso,referencias,id_curso,objetivosG) 
+    $sql = "insert into disciplina (nome_disciplina,carga_horaria,ementa,objetivosG,numero_semanas,periodo_curso,referencias,id_curso) 
     values (?,?,?,?,?,?,?,?)";
     $sqlprep = $conexao ->prepare($sql);
-    $sqlprep -> bind_param("sisiisis",$nomeDisc, $cargaH,$ementa,$nSemana,$periodoC,$referencias,$idCursos,$objetivosG);
+    $sqlprep -> bind_param("sissiisi",$nomeDisc, $cargaH,$ementa,$objetivosG,$nSemana,$periodoC,$referencias,$idCursos);
     $sqlprep -> execute();
     header("location: ListarDisciplina.php"); 
     }else{
-        $sql = "update disciplina set nome_disciplina=?,carga_horaria=?,ementa=?,numero_semanas=?,periodo_curso=?,referencias=?,id_curso=?,objetivosG=? where id_disciplina=?";
+        $sql = "update disciplina set nome_disciplina=?,carga_horaria=?,ementa=?,objetivosG=?,numero_semanas=?,periodo_curso=?,referencias=?,id_curso=? where id_disciplina=?";
         $sqlprep =$conexao ->prepare($sql);
-        $sqlprep -> bind_param("sisiisisi",$nomeDisc,$cargaH,$ementa,$nSemana,$periodoC,$referencias,$idCursos,$objetivosG,$idDisc);
+        $sqlprep -> bind_param("sissiisii",$nomeDisc,$cargaH,$ementa,$objetivosG,$nSemana,$periodoC,$referencias,$idCursos,$idDisc);
         $sqlprep -> execute();
     header("location: ListarDisciplina.php");  
     }

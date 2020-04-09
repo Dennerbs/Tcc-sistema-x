@@ -10,9 +10,19 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style>
+        p,
+        h1{
+            color:#4169E1;
+        }
+        input{
+opacity: 0.9;
+
+        }
+    </style>
 </head>
 
-<body>
+<body style="background-color: #1C1C1C;">
     <div class="container">
         <?php 
         require_once("Cabecalho.php");
@@ -30,8 +40,8 @@
         $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);  
     ?>
             <div class="col-md-10 mt-4">
-                <div class="card">
-                    <div class="card-header">Cursos</div>
+                <div class="card" style="background-color: #212529;">
+                    <div class="card-header"><p>Cursos</p></div>
                     <div class="card-body">
                         <form action="SalvarCurso.php" method="POST" onsubmit="" name="">
                             <div class="form-row">
@@ -64,7 +74,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         
     <?php require_once("Footer.php"); 
         

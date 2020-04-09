@@ -27,6 +27,12 @@ opacity: 0.6;
         <?php
         require_once("Cabecalho.php");
         ?>
+        <div class="row my-2">
+            <div class="col-md-12">
+                <h1 class="text-center font-italic">Recuperação de Senha</h1>
+            </div>
+
+        </div>
         <div class="row">
             <div class="col-md-8 mt-3">
                 <div class="card" style="background-color: #212529;">

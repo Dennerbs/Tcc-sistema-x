@@ -2,14 +2,25 @@
 <html lang="en">
 
 <head>
-
+<title>Disciplinas</title>
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+        td{
+            color:#58D3F7;
+            font-size: 14px;
+        }
+        input{
+opacity: 0.9;
+
+        }
+    </style>
+
 </head>
 
-<body>
+<body style="background-color: #1C1C1C;">
     <div class="container">
         <?php
     require_once("Cabecalho.php");
@@ -26,16 +37,17 @@
     
 ?>
          <a type="submit" class="btn btn-success btn-lg btn-block mt-4" href="FormDisc.php" role="button">Cadastrar</a>
+         </div>
         <table class="table mt-4">
             <tr>
-                <th class="text-success">Nome Disciplina</th>
-                <th class="text-success">Carga Horaria</th>
-                <th class="text-success">Ementa</th>
-                <th class="text-success">Objetivos gerais</th>
-                <th class="text-success">Nº Semanas</th>
-                <th class="text-success">Periodo do Curso</th>
-                <th class="text-success">Referencias</th>
-                <th class="text-success">Curso</th>
+                <th class="text-success text-justify">Nome Disciplina</th>
+                <th class="text-success text-center">Carga Horaria</th>
+                <th class="text-success text-justify">Ementa</th>
+                <th class="text-success text-justify">Objetivos gerais</th>
+                <th class="text-success text-center">Nº Semanas</th>
+                <th class="text-success text-center">Periodo do Curso</th>
+                <th class="text-success text-center">Referencias</th>
+                <th class="text-success text-justify">Curso</th>
 
                 <th colspan="2" class="text-success text-center">Alterações</th>
             </tr>
@@ -45,13 +57,13 @@
     ?>
             <tr>
 
-                <td><?=$umRegistro["nome_disciplina"];?></td>
-                <td><?=$umRegistro["carga_horaria"];?></td>
-                <td><?=$umRegistro["ementa"];?></td>
-                <td><?=$umRegistro["objetivosG"];?></td>
-                <td><?=$umRegistro["numero_semanas"];?></td>
-                <td><?=$umRegistro["periodo_curso"];?></td>
-                <td><?=$umRegistro["referencias"];?></td>
+                <td class="text-justify"><?=$umRegistro["nome_disciplina"];?></td>
+                <td class="text-center"><?=$umRegistro["carga_horaria"];?></td>
+                <td class="text-justify"><?=$umRegistro["ementa"];?></td>
+                <td class="text-justify"><?=$umRegistro["objetivosG"];?></td>
+                <td class="text-center"><?=$umRegistro["numero_semanas"];?></td>
+                <td class="text-center"><?=$umRegistro["periodo_curso"];?></td>
+                <td class="text-justify"><?=$umRegistro["referencias"];?></td>
                 <td>
                     <?php
                     $idC =$umRegistro["id_curso"];
@@ -70,7 +82,7 @@
                 <td>
                     <form action="FormDisc.php" method="POST">
                         <input type="hidden" name="id_disciplina" value="<?= $umRegistro["id_disciplina"]; ?>">
-                        <button type="submit" class="btn btn-info">Atualizar</button>
+                        <button type="submit" class="btn btn-warning">Atualizar</button>
                     </form>
                 </td>
 
@@ -79,7 +91,7 @@
         }
     ?>
         </table>
-    </div>
+    
     <?php require_once("Footer.php"); 
         
         ?>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Planos de Ensino</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,14 +10,30 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+        p,
+        h1{
+            color:#4169E1;
+        }
+        input{
+opacity: 0.9;
+
+        }
+        #wp{
+            color: #FFFFFF;
+        }
+        #sa{
+            color: #01DF01;
+        }
+    </style>
 </head>
 
-<body>
+<body style="background-color: #1C1C1C;">
     <div class="container">
         <?php
         require_once("Conexao.php");
         require_once("Cabecalho.php");
-        $sql = "select nome_plano,situacao from planos where nome_docente=?";
+        $sql = "select id_plano,nome_plano,situacao from planos where nome_docente=? ORDER BY situacao";
         $sqlprep = $conexao->prepare($sql);
         $sqlprep->bind_param("s",$_SESSION["nome"]);
         $sqlprep->execute();
@@ -31,17 +47,27 @@
         ?>
         <div class="row">
             <div class="col-md-6 mt-4">
-                <div class="card" style="width: 28rem;">
+                <div class="card" style="background-color: #212529;width: 28rem;">
                     <div class="card-header">
-                        Planos de Ensino
+                        <p>Planos de Ensino</p>
                     </div>
                     <div class="list-group">
                         <?php foreach ($vetorTodosregistro as $umRegistro){ 
 
                     if($umRegistro["situacao"]=="Novo"){
                     ?>
-                        <a href="#"
+                        <div class="row mt-1">
+                            <div class="col-md-8">
+                                <a href="#"
                             class="list-group-item list-group-item-action list-group-item-primary"><?=$umRegistro["nome_plano"]; ?></a>
+                            </div>
+                            <div class="col-md-4 my-2">
+                                <form action="PlanoCorrecao.php" method="post">
+                                    <input type="hidden" name="id_plano" value="<?=$umRegistro["id_plano"]; ?>">
+                                <button type="submit" class="btn btn-info">Submeter</button>
+                            </form>
+                            </div>
+                        </div>
 
                         <?php }if($umRegistro["situacao"]=="Corrigir"){ ?>
 
@@ -67,29 +93,29 @@
                 <p class="text-center"><em>Fique atento às etapas por qual os planos de ensino percorrem até sua aprovação.</em></p>
                 <div class="card h-50 text-white bg-warning mb-3 float-right ml-1" style="max-width: 16rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Aguardando sugestões</h5>
-                        <p class="card-text text-justify">O plano de ensino foi direcionado e aguarda as sugestões do colegiado</p>
+                        <h5 class="card-title">Aguardando sugestões >:)</h5>
+                        <p id="wp" class="card-text text-justify">O plano de ensino foi direcionado e aguarda as sugestões do colegiado</p>
                     </div>
                 </div>
                 <div class="card h-50  text-white bg-info mb-3 float-right" style="max-width: 16rem;">
 
                     <div class="card-body">
-                        <h5 class="card-title">Novo</h5>
-                        <p class="card-text text-justify">Seu plano de ensino acaba de ser criado, e ainda não foi enviado para 
+                        <h5 class="card-title">Novo ^_^</h5>
+                        <p id="wp" class="card-text text-justify">Seu plano de ensino acaba de ser criado, e ainda não foi enviado para 
                         receber sugestões ou a aprovação do colegiado</p>
                     </div>
                 </div>
                 <div class="card h-50  text-white bg-success mb-3 float-right ml-1" style="max-width: 16rem;">
                     <div class="card-body">
                         <h5 class="card-title">Aprovado!!</h5>
-                        <p class="card-text text-justify">Seu plano de ensino passou pelas mãos do colegiado e foi considerado
+                        <p id="wp" class="card-text text-justify">Seu plano de ensino passou pelas mãos do colegiado e foi considerado
                         suficiente</p>
                     </div>
                 </div>
                 <div class="card h-50 text-white bg-danger mb-3 float-right" style="max-width: 16rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Aguardando sua correção</h5>
-                        <p class="card-text text-justify">O colegiado recebeu seu plano de ensino e retornou-o,
+                        <h5 class="card-title">Aguardando sua correção :S</h5>
+                        <p id="wp" class="card-text text-justify">O colegiado recebeu seu plano de ensino e retornou-o,
                         para que você possa fazer algumas alterações em certos pontos,e então enviá-lo novamente</p>
                     </div>
                 </div>
