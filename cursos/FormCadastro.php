@@ -10,16 +10,26 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+        p,
+        h1{
+            color:#4169E1;
+        }
+        input,select{
+opacity: 0.9;
+
+        }
+    </style>
 </head>
 
-<body>
+<body style="background-color: #1C1C1C;">
     <div class="container">
         <?php
         require_once("Cabecalho.php");
         ?>
         <div class="row">
             <div class="col-md-8 mt-3">
-                <div class="card">
+                <div class="card" style="background-color: #212529;">
                     <div class="card-body">
                         <?php
                             if(isset($_SESSION["cadastrado"])):
@@ -33,19 +43,19 @@
                         ?>
                         <form method="POST" action="SalvarCadastro.php">
                             <div class="form-group">
-                                <label class="validationDefault01" for="nome">Nome</label>
+                                <label class="validationDefault01" for="nome"><h5 class="text-primary">Nome</h5></label>
                                 <input type="text" class="form-control" name="nome" id="validationDefault01" required>
                             </div>
                             <div class="form-group">
-                                <label class="validationDefault02" for="login">Email</label>
+                                <label class="validationDefault02" for="login"><h5 class="text-primary">Email</h5></label>
                                 <input type="text" class="form-control" name="email" id="validationDefault02" required>
                             </div>
                             <div class="form-group">
-                                <label class="validationDefault03" for="senha">Senha</label>
+                                <label class="validationDefault03" for="senha"><h5 class="text-primary">Senha</h5></label>
                                 <input type="password" class="form-control" name="password" id="validationDefault03" required>
                             </div>
                             <div class="form-group">
-                                <label for="selecionar">Perfil</label>
+                                <label for="selecionar"><h5 class="text-primary">Perfil</h5></label>
                                 <select class="form-control" id="selecionar" name="perfil">
                                     <option selected disabled>Perfil do usuário</option>
                                     <option>Docente</option>
