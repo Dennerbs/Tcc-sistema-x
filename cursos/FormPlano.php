@@ -41,7 +41,7 @@ opacity: 1.0;
             <div class="col-md-12 mt-4">
                 <div class="card" style="background-color: #212529;">
                     <div class="card-header">
-                        <p>Planos de Ensino</p>
+                        <h6 class="text-primary">Planos de Ensino</h6>
                     </div>
                     <div class="card-body">
                         <?php
@@ -76,12 +76,8 @@ opacity: 1.0;
                                 <option>Em branco</option>
                             </select>
 
-<<<<<<< HEAD
                             <button type="submit" class="btn btn-primary my-1">Confirmar</button>
 
-=======
-                            <button type="submit" class="btn btn-outline-light my-1">Confirmar</button>
->>>>>>> d8f64312e561e539e06a0029d40980e0cc795392
                         </form>
                         <?php 
                             $nome = "";
@@ -159,16 +155,9 @@ opacity: 1.0;
                         endforeach;
 
                         ?>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
                    
-                        <form action="SalvarPlano.php" method="POST">
->>>>>>> a
-=======
-                   
-                        <form action="SalvarPlano.php" method="POST">
->>>>>>> 1703
+
 
                         <form class="mt-4" action="SalvarPlano.php" method="POST">
                             <div>
@@ -190,13 +179,7 @@ opacity: 1.0;
                                     <label>
                                         <h5 class="text-primary">Curso</h5>
                                     </label><br>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                                    <input type="text" class="form-control" name="nomePlano">
-                                </div><br>
-                            <div class="form-row">
->>>>>>> 1703
+
                                     <input type="text" class="form-control" name="nomeCurso" value="<?=$nomeCurso ?>"
                                         readonly>
                                 </div>
@@ -209,14 +192,7 @@ opacity: 1.0;
                                 </div>
                             </div>
                             <div class="form-row mt-4">
-<<<<<<< HEAD
-=======
-                                    <input type="text" class="form-control" name="nomePlano">
-                                </div><br>
-                            <div class="form-row">
->>>>>>> a
-=======
->>>>>>> 1703
+
                                 <div class="col-4">
                                     <label>
                                         <h5 class="text-primary">Nome da Disciplina</h5>
@@ -336,9 +312,7 @@ opacity: 1.0;
                                     </label><br>
                                     <input type="date" class="form-control" name="p2primeiro"
                                         id="validationDefault14" required><br>
-                                    <label class="validationDefault15">
-    
-
+                                
                                 </div>
                                 <div class="col-2">
 

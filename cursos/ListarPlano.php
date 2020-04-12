@@ -26,9 +26,10 @@ opacity: 0.9;
             color: #01DF01;
         }
     </style>
+    
 </head>
 
-<body style="background-color: #1C1C1C;">
+<body >
     <div class="container">
         <?php
         require_once("Conexao.php");
@@ -51,82 +52,114 @@ opacity: 0.9;
                     <div class="card-header">
                         <p>Planos de Ensino</p>
                     </div>
+                    <div class="card-body">
                     <div class="list-group">
                         <?php foreach ($vetorTodosregistro as $umRegistro){ 
 
                     if($umRegistro["situacao"]=="Novo"){
                     ?>
-                        <div class="row mt-1">
-                            <div class="col-md-8">
-                                <a href="#"
-                            class="list-group-item list-group-item-action list-group-item-primary"><?=$umRegistro["nome_plano"]; ?></a>
-                            </div>
-                            <div class="col-md-4 my-2">
-                                <form action="PlanoCorrecao.php" method="post">
+                        
+                        <div class="row">
+                        <div class="col-md-7">
+                               <form action="VisualizarPlano.php" method="POST"> 
+                               <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"];?>">
+                                <button type="submit" class=" btn btn-primary btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
+                               </form>
+                        </div>
+                        <div class="col-md-5">
+                                <form action="PlanoCorrecao.php" method="POST">
                                     <input type="hidden" name="id_plano" value="<?=$umRegistro["id_plano"]; ?>">
-                                <button type="submit" class="btn btn-info">Submeter</button>
+                                <button type="submit" class="btn btn-light btn-lg btn-block">Submeter</button>
                             </form>
                             </div>
                         </div>
 
                         <?php }if($umRegistro["situacao"]=="Corrigir"){ ?>
-
-                        <a href="#"
-                            class="list-group-item list-group-item-action list-group-item-warning"><?=$umRegistro["nome_plano"]; ?></a>
+                           <div>
+                               <form action="VisualizarPlano.php" method="POST"> 
+                               <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
+                                <button  type="submit" class="btn btn-warning btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
+                               </form>
+                               
+                            </div>
 
                         <?php }if($umRegistro["situacao"]=="Aguardando"){ ?>
-
-                        <a href="#"
-                            class="list-group-item list-group-item-action list-group-item-danger"><?=$umRegistro["nome_plano"]; ?></a>
-
+                            <div>
+                            <form action="VisualizarPlano.php" method="POST"> 
+                               <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
+                                <button type="submit" class="btn btn-danger btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
+                               </form>
+                           </div>
                         <?php }if($umRegistro["situacao"]=="Aprovado"){ ?>
 
-                        <a href="#"
-                            class="list-group-item list-group-item-action list-group-item-success"><?=$umRegistro["nome_plano"]; ?></a>
+                            <div>
+                            <form action="VisualizarPlano.php" method="POST"> 
+                               <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
+                                <button type="submit" class="btn btn-sucess btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
+                               </form>
+                           </div>
 
                         <?php }
-        } ?>
+        } ?> 
+                    </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 mt-4">
-                <p class="text-center"><em>Fique atento às etapas por qual os planos de ensino percorrem até sua aprovação.</em></p>
-                <div class="card h-50 text-white bg-warning mb-3 float-right ml-1" style="max-width: 16rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Aguardando sugestões >:)</h5>
-                        <p id="wp" class="card-text text-justify">O plano de ensino foi direcionado e aguarda as sugestões do colegiado</p>
-                    </div>
-                </div>
-                <div class="card h-50  text-white bg-info mb-3 float-right" style="max-width: 16rem;">
+            
+        
+       
+        <div class="col-md-6 mt-4">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Legenda Status dos Planos
+        </button>
 
-                    <div class="card-body">
-                        <h5 class="card-title">Novo ^_^</h5>
-                        <p id="wp" class="card-text text-justify">Seu plano de ensino acaba de ser criado, e ainda não foi enviado para 
-                        receber sugestões ou a aprovação do colegiado</p>
-                    </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content bg bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary" >Legendas</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="card h-50  text-white bg-success mb-3 float-right ml-1" style="max-width: 16rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Aprovado!!</h5>
-                        <p id="wp" class="card-text text-justify">Seu plano de ensino passou pelas mãos do colegiado e foi considerado
-                        suficiente</p>
-                    </div>
-                </div>
-                <div class="card h-50 text-white bg-danger mb-3 float-right" style="max-width: 16rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Aguardando sua correção :S</h5>
-                        <p id="wp" class="card-text text-justify">O colegiado recebeu seu plano de ensino e retornou-o,
-                        para que você possa fazer algumas alterações em certos pontos,e então enviá-lo novamente</p>
-                    </div>
-                </div>
-            </div>
+        <div class="bg bg-dark modal-body">
+            <div class="row">
+                <div class="col-md-6">
+                <button type="button" class="btn btn-primary btn-lg btn-block" data-container="body" data-toggle="popover" data-placement="top" 
+                    data-content="Seu plano de ensino acaba de ser criado, e 
+                    ainda não foi enviado para receber sugestões ou a aprovação do colegiado.">Novo
+                </button></div>
+                <div class="col-md-6 ">
+                <button type="button" class="btn btn-success text-white btn-lg btn-block" data-container="body" data-toggle="popover" data-placement="right" 
+                    data-content="Seu plano de ensino passou pelas mãos do colegiado e foi considerado suficiente.">Aprovado
+                </button></div>
+                <div class="col-md-6 mt-1">
+                <button type="button" class="btn btn-warning btn-lg btn-block" data-container="body" data-toggle="popover" data-placement="right" 
+                    data-content="O plano de ensino foi direcionado e aguarda as sugestões do colegiado.">Aguardando Sugestões
+                </button></div>
+                <div class="col-md-6 mt-1">
+                <button type="button" class="btn btn-danger btn-lg btn-block" data-container="body" data-toggle="popover" data-placement="bottom" 
+                    data-content="O colegiado recebeu seu plano de ensino e retornou-o, 
+                    para que você possa fazer algumas alterações em certos pontos,e então enviá-lo novamente">Aguardando suas correções
+                </button></div>
+                
         </div>
-        <?php
-        require_once("Footer.php");
-        ?>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div></div>
+
+    </div>
+  </div>
+</div>
+    <div>
+    <?php require_once("Footer.php");?>
+    </div>
+        </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+</body>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -136,6 +169,10 @@ opacity: 0.9;
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-</body>
+    <script>
+            $(function () {
+            $('[data-toggle="popover"]').popover()
+            })
+    </script>
 
 </html>

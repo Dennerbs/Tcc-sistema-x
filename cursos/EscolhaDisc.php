@@ -1,12 +1,5 @@
 <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> a
-=======
-
->>>>>>> 1703
     session_start();
     require_once("Conexao.php");
     $idDisc = $_POST["idDisc"];
