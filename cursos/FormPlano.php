@@ -283,10 +283,11 @@ opacity: 1.0;
                                         value="<?=$referencias; ?>" id="validationDefault11" readonly required>
                                 </div>
                                 <div class="col-12 mt-2">
-                                    <label>
+                                    <label class="validationDefault12">
                                         <h5 class="text-primary">Rerencias Complementares</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" name="referenciasC" id="">
+                                    <input type="text" class="form-control" name="referenciasC" id="validationDefault12"
+                                    required>
                                 </div>
                             </div>
                             <div class="form-row mt-4">

@@ -7,12 +7,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body >
+  <body>
     <div class="container">
       <?php 
-     
-    require_once('Cabecalho.php');
-    require_once('Conexao.php');
+    require_once("Cabecalho.php");
+    require_once("Conexao.php");
     $idplano = 0;
 
     
@@ -31,10 +30,10 @@
   <div class="col-md-12 mt-4">
     <div class="card" style="background-color: #212529;">
       <div class="card-header">
-      <h6 class="text-primary">Planos de Ensino</h6>
+      <h6 class="text-primary" style="font-style: italic;">Plano de Ensino <?php echo $vetorUmregistro["nome_plano"]; ?></h6>
       </div>
     <div class="card-body">
-    <form class=""  method="POST">
+    <form action=""  method="POST">
         <div>
           <label ><h5 class="text-primary">Nome do plano de ensino</h5></label><br>
           <input type="text" class="form-control" name="nomePlano" 
@@ -157,11 +156,20 @@
             <input type="date" class="form-control" name="p2segundo"
               value="<?php echo $vetorUmregistro['p2_segundo'] ?>" readonly><br>
           </div>
-         </div>  
+         </div>
+         <?php if($vetorUmregistro["situacao"]=="Corrigir"){ ?>
+            <small id="notificacao" class="form-text text-muted">Seu plano de ensino foi submetido, e está aguardando correções, por isso, você não poderá realizar nenhuma alteração até que seja retornado</small>
+         <?php }if($vetorUmregistro["situacao"]=="Aprovado"){ ?>
+           <small id="notificacao" class="form-text text-muted">Seu plano de ensino foi aprovado, não é possivel realizar mais alterações</small>
+         <?php }
+          ?>
+
         </form>
     </div>
   </div>
  </div>      
+
+<?php require_once("Footer.php"); ?>
 </div> 
     </body>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -169,9 +177,11 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 </html>
 
 

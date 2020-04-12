@@ -43,7 +43,7 @@
                 </div> 
             <?php }if($_SESSION["perfil"]=="Docente"){  ?>
                 <div class="col-md-12 mt-4">
-                    <a href="#.php" type="button" class="btn btn-outline-dark btn-lg btn-block">Vamos lá!! </a>
+                    <a href=".php" type="button" class="btn btn-outline-dark btn-lg btn-block">Vamos lá!! </a>
                 </div> 
             <?php }if($_SESSION["perfil"]=="Pedagogo"){  ?>
                 <div class="col-md-12 mt-4">

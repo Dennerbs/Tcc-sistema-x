@@ -15,7 +15,7 @@
         session_start();
     ?>
     <nav class="navbar navbar-expand-lg  bg-dark border border-info mt-4">
-        <a class="navbar-brand" href="index.php">Sistema x</a>
+        <a class="navbar-brand" href="index.php">Cordélia</a>
         <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,9 +33,12 @@
                     <a class="nav-link" href="ListarDisciplina.php">Disciplina </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="FormCadastro.php">Adicionar membro</a>
+                    <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>
                 </li>
                 
+                <li class="nav-item">
+                    <a class="nav-link" href="FormCadastro.php">Adicionar membro</a>
+                </li>
                 <?php
                 }if($_SESSION["perfil"]=="Docente"){
                         ?>

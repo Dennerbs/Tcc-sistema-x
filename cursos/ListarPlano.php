@@ -25,6 +25,7 @@ opacity: 0.9;
         #sa{
             color: #01DF01;
         }
+
     </style>
     
 </head>
@@ -34,6 +35,7 @@ opacity: 0.9;
         <?php
         require_once("Conexao.php");
         require_once("Cabecalho.php");
+        if($_SESSION["perfil"]=="Docente"){
         $sql = "select id_plano,nome_plano,situacao from planos where nome_docente=? ORDER BY situacao";
         $sqlprep = $conexao->prepare($sql);
         $sqlprep->bind_param("s",$_SESSION["nome"]);
@@ -50,7 +52,7 @@ opacity: 0.9;
             <div class="col-md-6 mt-4">
                 <div class="card" style="background-color: #212529;width: 28rem;">
                     <div class="card-header">
-                        <p>Planos de Ensino</p>
+                        <p>Meus planos de ensino</p>
                     </div>
                     <div class="card-body">
                     <div class="list-group">
@@ -60,22 +62,22 @@ opacity: 0.9;
                     ?>
                         
                         <div class="row">
-                        <div class="col-md-7">
+                        <div class="col-md-9 mt-1">
                                <form action="VisualizarPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"];?>">
                                 <button type="submit" class=" btn btn-primary btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
                                </form>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-3 mt-3">
                                 <form action="PlanoCorrecao.php" method="POST">
                                     <input type="hidden" name="id_plano" value="<?=$umRegistro["id_plano"]; ?>">
-                                <button type="submit" class="btn btn-light btn-lg btn-block">Submeter</button>
+                                <button  type="submit" class="btn btn-secondary btn-sm">Submeter</button>
                             </form>
                             </div>
                         </div>
 
                         <?php }if($umRegistro["situacao"]=="Corrigir"){ ?>
-                           <div>
+                           <div class="mt-1">
                                <form action="VisualizarPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
                                 <button  type="submit" class="btn btn-warning btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
@@ -84,7 +86,7 @@ opacity: 0.9;
                             </div>
 
                         <?php }if($umRegistro["situacao"]=="Aguardando"){ ?>
-                            <div>
+                            <div class="mt-1">
                             <form action="VisualizarPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
                                 <button type="submit" class="btn btn-danger btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
@@ -92,10 +94,10 @@ opacity: 0.9;
                            </div>
                         <?php }if($umRegistro["situacao"]=="Aprovado"){ ?>
 
-                            <div>
+                            <div class="mt-1">
                             <form action="VisualizarPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
-                                <button type="submit" class="btn btn-sucess btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
+                                <button type="submit" class="btn btn-success btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
                                </form>
                            </div>
 
@@ -105,8 +107,61 @@ opacity: 0.9;
                     </div>
                 </div>
             </div>
-            
-        
+            <?php }else{ 
+                $validacao="Novo";
+            $sql = "select id_plano,nome_plano,situacao from planos where situacao!=?";
+        $sqlprep = $conexao->prepare($sql);
+        $sqlprep->bind_param("s",$validacao);
+        $sqlprep->execute();
+        $resultadoSql = $sqlprep->get_result();
+        $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
+        $vetorTodosregistro = array();
+        while($vetorUmregistro != null){
+            array_push($vetorTodosregistro, $vetorUmregistro);
+            $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
+            }
+        ?>
+        <div class="row">
+            <div class="col-md-6 mt-4">
+                <div class="card" style="background-color: #212529;width: 28rem;">
+                    <div class="card-header">
+                        <p>Planos de Ensino dos docentes</p>
+                    </div>
+                    <div class="card-body">
+                    <div class="list-group">
+                        <?php foreach ($vetorTodosregistro as $umRegistro){ 
+                    if($umRegistro["situacao"]=="Corrigir"){ ?>
+                           <div class="mt-1">
+                               <form action="VisualizarPlano.php" method="POST"> 
+                               <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
+                                <button  type="submit" class="btn btn-warning btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
+                               </form>
+                               
+                            </div>
+
+                        <?php }if($umRegistro["situacao"]=="Aguardando"){ ?>
+                            <div class="mt-1">
+                            <form action="VisualizarPlano.php" method="POST"> 
+                               <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
+                                <button type="submit" class="btn btn-danger btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
+                               </form>
+                           </div>
+                        <?php }if($umRegistro["situacao"]=="Aprovado"){ ?>
+
+                            <div class="mt-1">
+                            <form action="VisualizarPlano.php" method="POST"> 
+                               <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
+                                <button type="submit" class="btn btn-success btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
+                               </form>
+                           </div>
+
+                        <?php }
+                    } ?> 
+                    </div>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
        
         <div class="col-md-6 mt-4">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -116,8 +171,8 @@ opacity: 0.9;
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content bg bg-dark">
-                <div class="modal-header">
-                    <h5 class="modal-title text-primary" >Legendas</h5>
+                <div class="modal-header align">
+                    <h5 class="modal-title text-primary text-center" >Legendas</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>

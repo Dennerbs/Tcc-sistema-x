@@ -22,7 +22,6 @@
     $p2segundo = $_POST["p2segundo"];
 
 
-
     require_once("Conexao.php");
     session_start();
            
