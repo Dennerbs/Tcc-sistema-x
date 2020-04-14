@@ -88,6 +88,7 @@ opacity: 1.0;
                             $periodoCurso="";
                             $referencias ="";
                             $objetivosG ="";
+                            $objetivosE="";
                             $nomeCurso="";
 
                          $sql = "select * from disciplina where nome_disciplina=?";
@@ -111,7 +112,8 @@ opacity: 1.0;
                             $periodoCurso=$valor["periodo_curso"];
                             $referencias =$valor["referencias"];
                             $objetivosG =$valor["objetivosG"];
-                            $nomeCurso=$valor["id_curso"];
+                            $objetivosE =$valor["objetivosE"];
+                            $curso=$valor["id_curso"];
                         endforeach;
 
                         $sql = "select nome_curso from curso where id_curso =?";
@@ -227,42 +229,37 @@ opacity: 1.0;
                                     </label><br>
                                     <textarea name="ementaDisc" class="char valid form-control" rows="4" id="validationDefault07" required><?=$nome; ?></textarea>
                                 </div>
-                                
-                                <div class="col-12 mt-4">
+                                <div class="col-md-12 mt-4">
                                     <label class="validationDefault08">
-                                        <h5 class="text-primary">Objetivos gerais</h5>
+                                    <h5 class="text-primary">Objetivos Gerais</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" value="<?=$objetivosG; ?>" name="objetivosG" id="validationDefault08" required>
+                                    <textarea name="objetivosG" class="char valid form-control" rows="4" id="validationDefault08" required><?=$objetivosG; ?></textarea>
                                 </div>
-                                <div class="col-12 mt-4">
+                                <div class="col-md-12 mt-4">
                                     <label class="validationDefault09">
-                                        <h5 class="text-primary">Objetivos especificos</h5>
+                                    <h5 class="text-primary">Objetivos Específicos</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" name="objetivosE" id="validationDefault09"
-                                    required>
+                                    <textarea name="objetivosE" class="char valid form-control" rows="4" id="validationDefault09" required><?=$objetivosE; ?></textarea>
                                 </div>
                             </div>
                             <div class="form-row mt-4">
-                                <div class="col-12">
+                                <div class="col-md-12 mt-4">
                                     <label class="validationDefault10">
-                                        <h5 class="text-primary">Avaliação da aprendizagem</h5>
+                                    <h5 class="text-primary">Avaliação da aprendizagem</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" name="avaliacaoA" id="validationDefault10"
-                                    required>
+                                    <textarea name="avaliacaoA" class="char valid form-control" rows="4" id="validationDefault10" required></textarea>
                                 </div>
-                                <div class="col-12 mt-2">
+                                <div class="col-md-12 mt-4">
                                     <label class="validationDefault11">
-                                        <h5 class="text-primary">Rerencias Bibliograficas</h5>
+                                    <h5 class="text-primary">Referências Bibliográficas</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" name="referenciasB"
-                                        value="<?=$referencias; ?>" id="validationDefault11" readonly required>
+                                    <textarea name="referenciasB" class="char valid form-control" rows="4" id="validationDefault11" required readonly><?=$referencias; ?></textarea>
                                 </div>
-                                <div class="col-12 mt-2">
+                                <div class="col-md-12 mt-4">
                                     <label class="validationDefault12">
-                                        <h5 class="text-primary">Rerencias Complementares</h5>
+                                    <h5 class="text-primary">Referências Complementares</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" name="referenciasC" id="validationDefault12"
-                                    required>
+                                    <textarea name="referenciasC" class="char valid form-control" rows="4" id="validationDefault12" required ></textarea>
                                 </div>
                             </div>
                             <div class="form-row mt-4">

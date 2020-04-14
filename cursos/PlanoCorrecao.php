@@ -2,7 +2,7 @@
 
 require_once("Conexao.php");
 $id = $_POST["id_plano"];
-$Corrigir="Corrigir";
+$Corrigir="CorrigirColegiado";
 $sql = "update planos set situacao=? where id_plano=?";
             $sqlprep =$conexao ->prepare($sql);
             $sqlprep -> bind_param("si",$Corrigir,$id);

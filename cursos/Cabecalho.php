@@ -61,7 +61,7 @@
                 }if($_SESSION["perfil"]=="Pedagogo"){
                             ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Ajudar</a>
+                    <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>
                 </li>
                 <?php
 

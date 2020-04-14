@@ -26,16 +26,16 @@
         $_SESSION["nome"]=$nome;
         $_SESSION["perfil"]=$perfil;
         if($perfil == "Coordenador"){
-            header("location: FormDisc.php");
+            header("location: ListarPlano.php");
 
         }if($perfil == "Docente"){
             header("location: FormPlano.php");
 
         }if($perfil == "Pedagogo"){
-            header("location: FormCurso.php");
+            header("location: ListarPlano.php");
 
         }if($perfil == "Discente do Colegiado"){
-            header("location: index.php");
+            header("location: ListarPlano.php");
 
         }
     }else{    
