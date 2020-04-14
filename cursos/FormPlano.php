@@ -80,40 +80,15 @@ opacity: 1.0;
 
                         </form>
                         <?php 
-                            $nome = "";
-                            $disc = "";
-                            $carga = "";
-                            $ementa = "";
-                            $semanas = "";
-                            $periodoCurso= "";
-                            $referencias = "";
-                            $objetivosG = "";
-                            $nomeCurso = "";
-
-                         $sql = "select * from disciplina where nome_disciplina=?";
-
-                         $sql = "select * from disciplina where id=?";
-
-                        $nome = "";
-                        $disc = "";
-                        $carga = "";
-                        $ementa = "";
-                        $semanas = "";
-                        $periodoCurso= "";
-                        $referencias = "";
-                        $objetivosG = "";
-                         $sql = "select * from disciplina where nome_disciplina = ?";
-
-
-                            $nome = "";
-                            $disc = "";
-                            $carga = "";
-                            $ementa = "";
-                            $semanas = "";
-                            $periodoCurso= "";
-                            $referencias = "";
-                            $objetivosG = "";
-                            $nomeCurso = "";
+                            $nome ="";
+                            $disc ="";
+                            $carga ="";
+                            $ementa ="";
+                            $semanas ="";
+                            $periodoCurso="";
+                            $referencias ="";
+                            $objetivosG ="";
+                            $nomeCurso="";
 
                          $sql = "select * from disciplina where nome_disciplina=?";
 
@@ -136,7 +111,7 @@ opacity: 1.0;
                             $periodoCurso=$valor["periodo_curso"];
                             $referencias =$valor["referencias"];
                             $objetivosG =$valor["objetivosG"];
-                            $curso=$valor["id_curso"];
+                            $nomeCurso=$valor["id_curso"];
                         endforeach;
 
                         $sql = "select nome_curso from curso where id_curso =?";
@@ -155,11 +130,11 @@ opacity: 1.0;
                         endforeach;
 
                         ?>
-
-                   
-
-
                         <form class="mt-4" action="SalvarPlano.php" method="POST">
+                        <div>
+                            <input type="hidden" class="form-control" name="id_plano" 
+                            value="">
+                            </div>
                             <div>
                                 <label class="validationDefault01">
                                     <h5 class="text-primary">Nome do plano de ensino</h5>
@@ -246,13 +221,13 @@ opacity: 1.0;
                                 </div>
                             </div>
                             <div class="form-row mt-4">
-                                <div class="col-12">
+                                <div class="col-md mt-4">
                                     <label class="validationDefault07">
-                                        <h5 class="text-primary">Ementa</h5>
+                                    <h5 class="text-primary">Ementa</h5>
                                     </label><br>
-                                    <input type="text" class="form-control" value="<?=$ementa?>" name="ementaDisc"
-                                        id="validationDefault07" readonly>
+                                    <textarea name="ementaDisc" class="char valid form-control" rows="4" id="validationDefault07" required><?=$nome; ?></textarea>
                                 </div>
+                                
                                 <div class="col-12 mt-4">
                                     <label class="validationDefault08">
                                         <h5 class="text-primary">Objetivos gerais</h5>

@@ -80,18 +80,16 @@ opacity: 0.9;
                                         </div>
                                     </div><br>
                                     <div>
-                                        <label class="validationDefault03">
-                                            <h5 class="text-primary">Ementa</h5>
-                                        </label><br>
-                                        <input type="text" class="form-control" name="ementa" id="validationDefault03"
-                                            value="<?=$vetorUmregistro["ementa"];?>" required>
-                                    </div><br>
+                                    <label class="validationDefault03">
+                                        <h5 class="text-primary">Ementa</h5>
+                                    </label><br>
+                                    <textarea name="ementa" class="char valid form-control" rows="4" id="validationDefault03" required><?=$vetorUmregistro["ementa"];?></textarea>
+                                    </div>
                                     <div>
                                         <label class="validationDefault04">
                                             <h5 class="text-primary">Objetivos gerais</h5>
                                         </label><br>
-                                        <input type="text" class="form-control" name="objetivosG" id="validationDefault04"
-                                            value="<?=$vetorUmregistro["objetivosG"];?>" required>
+                                            <textarea name="objetivosG" class="char valid form-control" rows="4" id="validationDefault04" required><?=$vetorUmregistro["objetivosG"];?></textarea>
                                     </div><br>
                                     <div class="form-row">
                                         <div class="col-6">
