@@ -38,6 +38,7 @@ opacity: 0.9;
         $resultadoSql = mysqli_query($conexao, $sql);
         $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
         ?>
+        <div class="row">
     <div class="col-md-12 mt-4">
     <div class="card" style="background-color: #212529;">
       <div class="card-header">
@@ -196,6 +197,8 @@ opacity: 0.9;
     </div>
   </div>
  </div>
+ </div>
+ <?php require_once("Footer.php"); ?>
  </div>
  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -32,9 +32,9 @@ opacity: 0.9;
 
 <body >
     <div class="container">
-        <?php
-        require_once("Conexao.php");
+        <?php  
         require_once("Cabecalho.php");
+        require_once("Conexao.php");
 
         if($_SESSION["perfil"]=="Docente"){
         $sql = "select id_plano,nome_plano,situacao from planos where nome_docente=? ORDER BY situacao";
@@ -264,7 +264,6 @@ opacity: 0.9;
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-</body>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -279,5 +278,6 @@ opacity: 0.9;
             $('[data-toggle="popover"]').popover()
             })
     </script>
+</body>
 
 </html>
