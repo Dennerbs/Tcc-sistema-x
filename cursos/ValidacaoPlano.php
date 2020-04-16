@@ -18,9 +18,6 @@
     }if($vetorUmregistro["situacao"]=="CorrigirColegiado"){
     	$_SESSION["id_plan"]=$idplano;
     	header("location: PlanoColegiado.php");
-    }if($vetorUmregistro["situacao"]=="CorrigirCoordenador"){
-    	$_SESSION["id_plan"]=$idplano;
-    	header("location: PlanoCoordenador.php");
     }
     if($vetorUmregistro["situacao"]=="Aguardando"){
     	$_SESSION["id_plan"]=$idplano;

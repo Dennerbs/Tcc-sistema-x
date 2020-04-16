@@ -3,7 +3,6 @@
 require_once("Conexao.php");
 
 $idplano=$_POST["idplano"];
-$comentarios = $_POST["comentario"];
 $finalizado=$_POST["finalizado"];
 
 if($finalizado=="finalizado"){
@@ -16,10 +15,10 @@ if($finalizado=="finalizado"){
             }
 
 }else{
-	$situacao="CorrigirCoordenador";
-	$sql = "update planos set situacao=?,comentario=? where id_plano=?";
+	$situacao="Aguardando";
+	$sql = "update planos set situacao=? where id_plano=?";
     	$sqlprep =$conexao ->prepare($sql);
-        $sqlprep -> bind_param("ssi",$situacao,$comentarios,$idplano);
+        $sqlprep -> bind_param("si",$situacao,$idplano);
         if($sqlprep -> execute()){
             	header("location: ListarPlano.php");
             }

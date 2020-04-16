@@ -73,7 +73,7 @@
                             </div>
                         </div>
 
-                        <?php }if($umRegistro["situacao"]=="CorrigirColegiado" || $umRegistro["situacao"]=="CorrigirCoordenador"){ ?>
+                        <?php }if($umRegistro["situacao"]=="CorrigirColegiado"){ ?>
                            <div class="mt-1">
                                <form action="ValidacaoPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
@@ -114,8 +114,8 @@
                 </div>
             </div>
             <?php }if(($_SESSION["perfil"]=="Pedagogo")||($_SESSION["perfil"]=="Discente do Colegiado")||($_SESSION["perfil"]=="Coordenador")){ 
-                $validacao="Novo";
-            $sql = "select id_plano,nome_plano,situacao from planos where situacao!=? ORDER BY situacao ";
+        $validacao="Novo";
+        $sql = "select id_plano,nome_plano,situacao from planos where situacao!=? ORDER BY situacao ";
         $sqlprep = $conexao->prepare($sql);
         $sqlprep->bind_param("s",$validacao);
         $sqlprep->execute();
@@ -159,55 +159,7 @@
                     </div>
                 </div>
             </div>
-        <?php }if($_SESSION["perfil"]=="Coordenador"){
-            $validacao="Novo";
-            $sql = "select id_plano,nome_plano,situacao from planos where situacao!=? ORDER BY situacao ";
-        $sqlprep = $conexao->prepare($sql);
-        $sqlprep->bind_param("s",$validacao);
-        $sqlprep->execute();
-        $resultadoSql = $sqlprep->get_result();
-        $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
-        $vetorTodosregistro = array();
-        while($vetorUmregistro != null){
-            array_push($vetorTodosregistro, $vetorUmregistro);
-            $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
-            }
-        ?>
-        <div class="row">
-            <div class="col-md-7 mt-4">
-                <div class="card">
-                    <div class="card-header">
-                        <p>Planos de Ensino dos docentes</p>
-                    </div>
-                    <div class="card-body">
-                    <div class="list-group">
-                        <?php foreach ($vetorTodosregistro as $umRegistro){ 
-                    if($umRegistro["situacao"]=="CorrigirCoordenador"){ ?>
-                           <div class="mt-1">
-                               <form action="ValidacaoPlano.php" method="POST"> 
-                               <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
-                                <button  type="submit" class="btn btn-warning btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
-                               </form>
-                            </div>
-
-                        <?php }if($umRegistro["situacao"]=="Sucesso"){ ?>
-
-                            <div class="mt-1">
-                            <form action="ValidacaoPlano.php" method="POST"> 
-                               <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
-                                <button type="submit" class="btn btn-success btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
-                               </form>
-                           </div>
-
-                        <?php }
-                    } ?> 
-                    </div>
-                    </div>
-                </div>
-            </div>
-
-
-       <?php } ?>
+        <?php } ?>
        
         <div class="col-md-5 mt-4">
             <p class="text-center">Clique no botão abaixo, para visualizar o que significa cada uma das cores do plano de ensino</p>

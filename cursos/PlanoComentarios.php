@@ -13,6 +13,6 @@ $data = date('Y-m-d H:i');
     $sqlprep = $conexao ->prepare($sql);
     $sqlprep -> bind_param("ssssi",$usuario,$perfil,$comentario,$data,$idplano);
     if($sqlprep -> execute()){
-    	header("location: ListarPlano.php");
+    	header("location: PlanoColegiado.php");
     }
  ?>

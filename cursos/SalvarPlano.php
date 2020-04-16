@@ -30,11 +30,11 @@
     $comentarios="";
     $sql = "insert into planos (nome_plano,nome_docente,curso_plano,periodoC_plano,nomeDisc_plano,carga_plano,semanas_plano,
         aulasT_plano,aulasP_plano,aulasL_plano,laboratorio,ementa_plano,objetivosG_plano,objetivosE_plano,aprendizagem,
-        referencias_plano,complementares,p1_primeiro,p2_primeiro,p1_segundo,p2_segundo,situacao,comentario)
-        values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        referencias_plano,complementares,p1_primeiro,p2_primeiro,p1_segundo,p2_segundo,situacao)
+        values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     $sqlprep = $conexao ->prepare($sql);
-    $sqlprep -> bind_param("sssisiiiiisssssssssssss",$nomePlano,$nomeDocente,$nomeCurso,$periodoC,$nomeDisc,$cargaDisc,$semanaDisc,
-        $aulasT,$aulasP,$aulasL,$laboratorio,$ementaDisc,$objetivosG,$objetivosE,$avaliacaoA,$referenciasB,$referenciasC,$p1primeiro,$p2primeiro,$p1segundo,$p2segundo,$situacao,$comentarios);
+    $sqlprep -> bind_param("sssisiiiiissssssssssss",$nomePlano,$nomeDocente,$nomeCurso,$periodoC,$nomeDisc,$cargaDisc,$semanaDisc,
+        $aulasT,$aulasP,$aulasL,$laboratorio,$ementaDisc,$objetivosG,$objetivosE,$avaliacaoA,$referenciasB,$referenciasC,$p1primeiro,$p2primeiro,$p1segundo,$p2segundo,$situacao);
     if($sqlprep -> execute()){
         $_SESSION["inseridoPlano"]="Plano de ensino foi adicionado com sucesso";
         header("location: FormPlano.php"); 

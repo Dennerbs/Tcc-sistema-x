@@ -171,7 +171,7 @@ opacity: 0.9;
          </div>
          <?php if(($_SESSION["perfil"]=="Pedagogo")||($_SESSION["perfil"]=="Discente do Colegiado")||($_SESSION["perfil"]=="Docente do Colegiado")||($_SESSION["perfil"]=="Tecnico do colegiado") ||($_SESSION["perfil"]=="Coordenador")){ ?>
           <form method="POST" action="PlanoComentarios.php">
-            <input type="hidden" name="idplano" value="$vetorUmregistro['id_plano']">
+            <input type="hidden" name="idplano" value="<?=$vetorUmregistro['id_plano']; ?>">
               <div class="form-row mt-4"> 
               <div class="col-md-12 mt-4">
                 <label class="validationDefault22">
@@ -204,8 +204,16 @@ opacity: 0.9;
               </form>
             <?php }if($_SESSION["perfil"]=="Coordenador"){ ?>
                 <div class="col-md-12">
-                  <button type="submit" style="width:15rem;" class="btn btn-danger mt-3">Retornar ao docente</button>
-                  <button type="submit" style="width:15rem;" class="btn btn-success mt-3">Aprovar plano de ensino</button>
+                  <form method="POST" action="PlanoEvolucao.php">
+                    <input type="hidden" name="idplano" value="<?=$vetorUmregistro['id_plano'];?>">
+                    <button type="submit" style="width:15rem;" class="btn btn-danger mt-3">Retornar ao docente</button>
+                  </form>
+                  <form method="POST" action="PlanoEvolucao.php">
+                    <input type="hidden" name="idplano" value="<?=$vetorUmregistro['id_plano'];?>">
+                    <input type="hidden" name="finalizado" value="finalizado">
+                    <button type="submit" style="width:15rem;" class="btn btn-success mt-3">Aprovar plano de ensino</button>
+                  </form>
+
                 </div>
 
              <?php }if($_SESSION["perfil"]=="Docente"){ ?>
