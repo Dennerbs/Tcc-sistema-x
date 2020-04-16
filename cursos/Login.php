@@ -16,13 +16,12 @@
             color:#4169E1;
         }
         input{
-opacity: 0.6;
-
+opacity: 0.6; 
         }
     </style>
 </head>
 
-<body style="background-color: #1C1C1C;">
+<body>
     <div class="container">
         <?php
         require_once("Cabecalho.php");
@@ -35,7 +34,7 @@ opacity: 0.6;
         </div>
         <div class="row">
             <div class="col-md-8 mt-3">
-                <div class="card border-black" style="background-color: #212529;">
+                <div class="card border-black">
                     <div class="card-body">
                         <?php
                             if(isset($_SESSION["erro"])):
@@ -74,7 +73,7 @@ opacity: 0.6;
                 </div>
             </div>
             <div class="col-md-4 mt-3">
-                <div class="card w-100" style="background-color: #212529;width: 18rem;">
+                <div class="card w-100" style="width: 18rem;">
                     <img src="imagens/educacao.jpg" class="card-img-top" alt="Bandeira de Coxim-MS">
                     <div class="card-body">
                         <p class="card-text text-justify">Cordélia é uma aplicação web desenvolvida por acadêmicos

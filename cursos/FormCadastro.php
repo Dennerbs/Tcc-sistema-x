@@ -22,14 +22,14 @@ opacity: 0.9;
     </style>
 </head>
 
-<body style="background-color: #1C1C1C;">
+<body>
     <div class="container">
         <?php
         require_once("Cabecalho.php");
         ?>
         <div class="row">
             <div class="col-md-8 mt-3">
-                <div class="card" style="background-color: #212529;">
+                <div class="card">
                     <div class="card-body">
                         <?php
                             if(isset($_SESSION["cadastrado"])):

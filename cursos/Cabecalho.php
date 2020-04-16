@@ -8,13 +8,18 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style type="text/css">
+            body{
+            background-image:url("imagens/triangulo.jpg");
+        }
+        </style>
 </head>
 
-<body style="background-color: #1C1C1C;">
+<body>
     <?php
         session_start();
     ?>
-    <nav class="navbar navbar-expand-lg  bg-dark border border-info mt-4">
+    <nav class="navbar navbar-expand-lg  bg-light border border-info mt-4">
         <a class="navbar-brand" href="index.php">Cordélia</a>
         <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +35,7 @@
                     <a class="nav-link" href="ListarCurso.php">Cursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ListarDisciplina.php">Disciplina </a>
+                    <a class="nav-link" href="ListarDisciplina.php">Disciplinas </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>

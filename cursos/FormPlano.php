@@ -10,12 +10,12 @@
         <style>
         p,
         h1,
-        label {
-            color:#4169E1;
-        }
         input{
-opacity: 1.0;
+            opacity: 1.0;
 
+        }
+        label {
+            color:#4169E1;  
         }
     </style>
 
@@ -39,7 +39,7 @@ opacity: 1.0;
         }
     ?>
             <div class="col-md-12 mt-4">
-                <div class="card" style="background-color: #212529;">
+                <div class="card">
                     <div class="card-header">
                         <h6 class="text-primary">Planos de Ensino</h6>
                     </div>

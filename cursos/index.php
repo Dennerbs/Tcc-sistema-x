@@ -14,10 +14,14 @@
         p,h2,h5{
             color:#4169E1;
         }
+        .btn{
+            opacity: 0.5;
+        }
     </style>
+
 </head>
 
-<body style="background-color: #1C1C1C;">
+<body>
     <div class="container">
         <?php require_once("Cabecalho.php"); ?>
         <div class="row">

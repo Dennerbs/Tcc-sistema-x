@@ -8,16 +8,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         td{
-            color:#58D3F7;
             font-size: 14px;
-        }
-        input{
-opacity: 0.9;
-
+            opacity: 1.0;
         }
     </style>
   </head>
-  <body style="background-color: #1C1C1C;">
+  <body>
         <div class="container">
             <?php
             require_once("Cabecalho.php");
@@ -32,7 +28,6 @@ opacity: 0.9;
                 } 
             ?>
              <a type="submit" class="btn btn-success btn-lg btn-block mt-4" href="FormCurso.php" role="button">Cadastrar</a>
-            </div>
                 <table class="table mt-4">
                     <tr>
                         <th class="text-success text-center">Nome do Curso</th>
@@ -55,7 +50,7 @@ opacity: 0.9;
                         <td class="text-center">
                             <form action="FormCurso.php" method="post">
                                 <input type="hidden" name="id_curso" value="<?= $umRegistro["id_curso"]; ?>">
-                                <button type="submit" class="btn btn-warning">Atualizar</button>
+                                <button type="submit" class="btn btn-info">Atualizar</button>
                             </form>
                         </td>
                     </tr>
@@ -65,6 +60,7 @@ opacity: 0.9;
                 </table>
             </div>
         </div>
+    </div>
     </div>
     <?php require_once("Footer.php"); ?>
     </div>

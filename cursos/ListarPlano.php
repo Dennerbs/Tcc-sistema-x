@@ -15,10 +15,6 @@
         h1{
             color:#4169E1;
         }
-        input{
-opacity: 0.9;
-
-        }
         #wp{
             color: #FFFFFF;
         }
@@ -50,8 +46,8 @@ opacity: 0.9;
             }
         ?>
         <div class="row">
-            <div class="col-md-6 mt-4">
-                <div class="card" style="background-color: #212529;width: 28rem;">
+            <div class="col-md-7 mt-4">
+                <div class="card">
                     <div class="card-header">
                         <p>Meus planos de ensino</p>
                     </div>
@@ -107,7 +103,7 @@ opacity: 0.9;
                             <div class="mt-1">
                             <form action="ValidacaoPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
-                                <button type="submit" class="btn btn-success btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
+                                <strike><button type="submit" class="btn btn-success btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button></strike>
                                </form>
                            </div>
 
@@ -132,8 +128,8 @@ opacity: 0.9;
             }
         ?>
         <div class="row">
-            <div class="col-md-6 mt-4">
-                <div class="card" style="background-color: #212529;width: 28rem;">
+            <div class="col-md-7 mt-4">
+                <div class="card">
                     <div class="card-header">
                         <p>Planos de Ensino dos docentes</p>
                     </div>
@@ -178,8 +174,8 @@ opacity: 0.9;
             }
         ?>
         <div class="row">
-            <div class="col-md-6 mt-4">
-                <div class="card" style="background-color: #212529;width: 28rem;">
+            <div class="col-md-7 mt-4">
+                <div class="card">
                     <div class="card-header">
                         <p>Planos de Ensino dos docentes</p>
                     </div>
@@ -213,21 +209,23 @@ opacity: 0.9;
 
        <?php } ?>
        
-        <div class="col-md-6 mt-4">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Legenda Status dos Planos
-        </button>
+        <div class="col-md-5 mt-4">
+            <p class="text-center">Clique no botão abaixo, para visualizar o que significa cada uma das cores do plano de ensino</p>
+            <button type="button" class="btn btn-outline-dark btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
+            Legenda Status dos Planos
+            </button>
+        </div>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div class="modal-content bg bg-dark">
+                <div class="modal-content bg bg-light">
                 <div class="modal-header align">
-                    <h5 class="modal-title text-primary text-center" >Legendas</h5>
+                        <h5 class="modal-title text-primary" >Legendas</h5>         
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-        <div class="bg bg-dark modal-body">
+        <div class="bg bg-light modal-body">
             <div class="row">
                 <div class="col-md-6">
                 <button type="button" class="btn btn-primary btn-lg btn-block" data-container="body" data-toggle="popover" data-placement="top" 
@@ -256,7 +254,6 @@ opacity: 0.9;
 
     </div>
   </div>
-</div>
     <div>
     <?php require_once("Footer.php");?>
     </div>

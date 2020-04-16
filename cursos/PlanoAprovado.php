@@ -40,7 +40,7 @@ opacity: 0.9;
         ?>
         <div class="row">
     <div class="col-md-12 mt-4">
-    <div class="card" style="background-color: #212529;">
+    <div class="card">
       <div class="card-header">
       <h6 class="text-primary" style="font-style: italic;">Plano de Ensino <?php echo $vetorUmregistro["nome_plano"]; ?></h6>
       </div>
