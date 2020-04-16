@@ -31,6 +31,7 @@ opacity: 0.9;
         $sql = "select * from planos where id_plano = $idplano";
         $resultadoSql = mysqli_query($conexao, $sql);
         $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
+
         ?>
         <div class="row">
     <div class="col-md-12 mt-4">
@@ -168,32 +169,74 @@ opacity: 0.9;
               value="<?php echo $vetorUmregistro['p2_segundo'] ?>" required readonly><br>
           </div>
          </div>
-         <?php if(($_SESSION["perfil"]=="Pedagogo")||($_SESSION["perfil"]=="Discente do Colegiado")){ ?>
-
+         <?php if(($_SESSION["perfil"]=="Pedagogo")||($_SESSION["perfil"]=="Discente do Colegiado")||($_SESSION["perfil"]=="Docente do Colegiado")||($_SESSION["perfil"]=="Tecnico do colegiado") ||($_SESSION["perfil"]=="Coordenador")){ ?>
+          <form method="POST" action="PlanoComentarios.php">
+            <input type="hidden" name="idplano" value="$vetorUmregistro['id_plano']">
               <div class="form-row mt-4"> 
               <div class="col-md-12 mt-4">
-          <form method="POST" action="PlanoComentarios.php">
-                <label class="comentario"><h5 class="text-primary">Considerações a respeito do plano</h5>
+                <label class="validationDefault22">
+                  <h5 class="text-primary">Comentários sobre o plano</h5>
                 </label><br>
-                <input type="hidden" name="idplano" value="<?=$vetorUmregistro['id_plano']; ?>">
-                <textarea name="comentario" class="char valid form-control" rows="6" id="comentario"><?=$vetorUmregistro['comentario']; ?></textarea>
-                  <button type="submit" class="btn btn-warning mt-4">Salvar observações</button>
-                  <small id="notificacao" class="form-text text-muted">Ops! Há algumas irregularidades com o plano de ensino, melhor devolve-lo ao docente</small>
-          </form>
-                <form method="POST" action="PlanoEvolucao.php">
-                  <input type="hidden" name="idplano" value="<?=$vetorUmregistro['id_plano']; ?>">
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-success mt-4 inline-block">Encaminhar para Coordenador</button>
-                    <small id="notificacao" class="form-text text-muted">Tudo ok com o plano? Encaminhe para o coordenador</small>
-                  </div>
-                  
-                </form>
+                <textarea name="comentario" class="char valid form-control" rows="4" id="validationDefault22" required>
+                  <?php $sql = "select usuario,perfil,comentario,horario from comentarios where id_plano=?";
+              $sqlprep = $conexao->prepare($sql);
+              $sqlprep->bind_param("i",$vetorUmregistro["id_plano"]);
+              $sqlprep->execute();
+              $registro = $sqlprep->get_result();
+              $vetorRegistro= mysqli_fetch_assoc($registro);
+              $vetorTodosRegistros = array();
+              while($vetorRegistro !=null){
+                array_push($vetorTodosRegistros,$vetorRegistro);
+                $vetorRegistro = mysqli_fetch_assoc($registro);
+              }
+              foreach($vetorTodosRegistros as $valor){
+              echo $nome = $valor["usuario"];
+              echo $perfil = $valor["perfil"];
+              echo $comentario = $valor["comentario"];
+              echo $horario = $valor["horario"];
+              }
+              ?>
+                </textarea>
               </div>
-            </div>
-<?php }else{ ?>
-           <small id="notificacao" class="form-text text-muted">Seu plano de ensino foi enviado para correção, Aguarde ^^</small>
+                <div class="col-md-12">
+                  <button type="submit" style="width:15rem;" class="btn btn-warning mt-4">Salvar observações</button>
+                </div>
+              </form>
+            <?php }if($_SESSION["perfil"]=="Coordenador"){ ?>
+                <div class="col-md-12">
+                  <button type="submit" style="width:15rem;" class="btn btn-danger mt-3">Retornar ao docente</button>
+                  <button type="submit" style="width:15rem;" class="btn btn-success mt-3">Aprovar plano de ensino</button>
+                </div>
+
+             <?php }if($_SESSION["perfil"]=="Docente"){ ?>
+            <div class="form-row mt-4"> 
+              <div class="col-md-12 mt-4">
+                <label class="validationDefault22">
+                  <h5 class="text-primary">Comentários sobre o plano</h5>
+                </label><br>
+                <textarea name="comentario" class="char valid form-control" rows="4" id="validationDefault22" readonly>
+              <?php $sql = "select usuario,perfil,comentario,horario from comentarios where id_plano=?";
+              $sqlprep = $conexao->prepare($sql);
+              $sqlprep->bind_param("i",$vetorUmregistro["id_plano"]);
+              $sqlprep->execute();
+              $registro = $sqlprep->get_result();
+              $vetorRegistro= mysqli_fetch_assoc($registro);
+              $vetorTodosRegistros = array();
+              while($vetorRegistro !=null){
+                array_push($vetorTodosRegistros,$vetorRegistro);
+                $vetorRegistro = mysqli_fetch_assoc($registro);
+              }
+              foreach($vetorTodosRegistros as $valor){
+              echo $nome = $valor["usuario"];
+              echo $perfil = $valor["perfil"];
+              echo $comentario = $valor["comentario"];
+              echo $horario = $valor["horario"];
+              }
+              ?></textarea>
+              </div>
+                <small id="notificacao" class="form-text text-muted">Seu plano de ensino foi enviado para correção, Aguarde ^^</small><br>
+           </div>
       <?php  } ?>
-    </div>
   </div>
  </div>
  </div>

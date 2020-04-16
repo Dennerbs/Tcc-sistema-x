@@ -198,7 +198,25 @@ opacity: 0.9;
                 <label class="comentario"><h5 class="text-primary">Considerações a respeito do plano</h5>
                 </label><br>
                 <input type="hidden" name="idplano" value="<?=$vetorUmregistro['id_plano']; ?>">
-                <textarea name="comentario" class="char valid form-control" rows="6" id="comentario" readonly> <?=$vetorUmregistro['comentario']; ?></textarea>
+                <textarea name="comentario" class="char valid form-control" rows="6" id="comentario" readonly>
+              <?php $sql = "select usuario,perfil,comentario,horario from comentarios where id_plano=?";
+              $sqlprep = $conexao->prepare($sql);
+              $sqlprep->bind_param("i",$vetorUmregistro["id_plano"]);
+              $sqlprep->execute();
+              $registro = $sqlprep->get_result();
+              $vetorRegistro= mysqli_fetch_assoc($registro);
+              $vetorTodosRegistros = array();
+              while($vetorRegistro !=null){
+                array_push($vetorTodosRegistros,$vetorRegistro);
+                $vetorRegistro = mysqli_fetch_assoc($registro);
+              }
+              foreach($vetorTodosRegistros as $valor){
+              echo $nome = $valor["usuario"];
+              echo $perfil = $valor["perfil"];
+              echo $comentario = $valor["comentario"];
+              echo $horario = $valor["horario"];
+              } ?>
+              </textarea>
          </div>
        </div>
             <small id="notificacao" class="form-text text-muted">O plano de ensino está aguardando as correções requeridas pelo colegiado</small>

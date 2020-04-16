@@ -113,7 +113,7 @@
                     </div>
                 </div>
             </div>
-            <?php }if(($_SESSION["perfil"]=="Pedagogo")||($_SESSION["perfil"]=="Discente do Colegiado")){ 
+            <?php }if(($_SESSION["perfil"]=="Pedagogo")||($_SESSION["perfil"]=="Discente do Colegiado")||($_SESSION["perfil"]=="Coordenador")){ 
                 $validacao="Novo";
             $sql = "select id_plano,nome_plano,situacao from planos where situacao!=? ORDER BY situacao ";
         $sqlprep = $conexao->prepare($sql);
