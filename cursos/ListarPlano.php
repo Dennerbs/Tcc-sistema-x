@@ -149,7 +149,7 @@
                             <div class="mt-1">
                             <form action="ValidacaoPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
-                                <button type="submit" class="btn btn-success btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
+                                <strike><button type="submit" class="btn btn-success btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button></strike>
                                </form>
                            </div>
 

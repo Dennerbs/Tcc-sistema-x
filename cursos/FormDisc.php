@@ -24,7 +24,7 @@ opacity: 0.9;
     </style>
         </head>
 
-        <body style="background-color: #1C1C1C;">
+        <body>
             <div class="container">
                 <?php   
             require_once("Cabecalho.php");
@@ -49,7 +49,7 @@ opacity: 0.9;
             ?>
                 <div class="row">
                     <div class="col-md-12 mt-4">
-                        <div class="card" style="background-color: #212529;">
+                        <div class="card">
                             <div class="card-header"><p>Disciplinas</p></div>
                             <div class="card-body">
                                 <form action="SalvarDisciplina.php" method="POST">

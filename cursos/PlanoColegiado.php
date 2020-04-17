@@ -177,8 +177,7 @@ opacity: 0.9;
                 <label class="validationDefault22">
                   <h5 class="text-primary">Comentários sobre o plano</h5>
                 </label><br>
-                <textarea name="comentario" class="char valid form-control" rows="4" id="validationDefault22" required>
-                  <?php $sql = "select usuario,perfil,comentario,horario from comentarios where id_plano=?";
+              <?php $sql = "select usuario,perfil,comentario,horario from comentarios where id_plano=?";
               $sqlprep = $conexao->prepare($sql);
               $sqlprep->bind_param("i",$vetorUmregistro["id_plano"]);
               $sqlprep->execute();
@@ -188,7 +187,9 @@ opacity: 0.9;
               while($vetorRegistro !=null){
                 array_push($vetorTodosRegistros,$vetorRegistro);
                 $vetorRegistro = mysqli_fetch_assoc($registro);
-              }
+              } ?>
+              <textarea name="comentario" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required form-control w-100" aria-required="true" aria-invalid="false">
+              <?php 
               foreach($vetorTodosRegistros as $valor){
               echo $nome = $valor["usuario"];
               echo $perfil = $valor["perfil"];
@@ -196,7 +197,7 @@ opacity: 0.9;
               echo $horario = $valor["horario"];
               }
               ?>
-                </textarea>
+              </textarea>
               </div>
                 <div class="col-md-12">
                   <button type="submit" style="width:15rem;" class="btn btn-warning mt-4">Salvar observações</button>
@@ -222,7 +223,6 @@ opacity: 0.9;
                 <label class="validationDefault22">
                   <h5 class="text-primary">Comentários sobre o plano</h5>
                 </label><br>
-                <textarea name="comentario" class="char valid form-control" rows="4" id="validationDefault22" readonly>
               <?php $sql = "select usuario,perfil,comentario,horario from comentarios where id_plano=?";
               $sqlprep = $conexao->prepare($sql);
               $sqlprep->bind_param("i",$vetorUmregistro["id_plano"]);
@@ -233,14 +233,17 @@ opacity: 0.9;
               while($vetorRegistro !=null){
                 array_push($vetorTodosRegistros,$vetorRegistro);
                 $vetorRegistro = mysqli_fetch_assoc($registro);
-              }
+              } ?>
+              <textarea name="comentario" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required form-control w-100" aria-required="true" aria-invalid="false" readonly>
+              <?php
               foreach($vetorTodosRegistros as $valor){
               echo $nome = $valor["usuario"];
               echo $perfil = $valor["perfil"];
               echo $comentario = $valor["comentario"];
               echo $horario = $valor["horario"];
               }
-              ?></textarea>
+              ?>
+              </textarea>
               </div>
                 <small id="notificacao" class="form-text text-muted">Seu plano de ensino foi enviado para correção, Aguarde ^^</small><br>
            </div>

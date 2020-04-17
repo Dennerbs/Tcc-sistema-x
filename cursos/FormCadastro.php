@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Cadastro</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -60,7 +60,9 @@ opacity: 0.9;
                                     <option selected disabled>Perfil do usuário</option>
                                     <option>Docente</option>
                                     <option>Discente do Colegiado</option>
+                                    <option>Docente do colegiado</option>
                                     <option>Pedagogo</option>
+                                    <option>Técnico do colegiado</option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Cadastrar</button>
