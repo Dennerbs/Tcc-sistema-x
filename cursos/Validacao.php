@@ -34,7 +34,13 @@
         }if($perfil == "Pedagogo"){
             header("location: ListarPlano.php");
 
-        }if($perfil == "Discente do Colegiado"){
+        }if($perfil == "Discente do colegiado"){
+            header("location: ListarPlano.php");
+
+        }if($perfil == "Docente do colegiado"){
+            header("location: ListarPlano.php");
+
+        }if($perfil == "Tecnico do colegiado"){
             header("location: ListarPlano.php");
 
         }

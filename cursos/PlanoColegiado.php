@@ -169,15 +169,10 @@ opacity: 0.9;
               value="<?php echo $vetorUmregistro['p2_segundo'] ?>" required readonly><br>
           </div>
          </div>
-         <?php if(($_SESSION["perfil"]=="Pedagogo")||($_SESSION["perfil"]=="Discente do Colegiado")||($_SESSION["perfil"]=="Docente do Colegiado")||($_SESSION["perfil"]=="Tecnico do colegiado") ||($_SESSION["perfil"]=="Coordenador")){ ?>
-          <form method="POST" action="PlanoComentarios.php">
-            <input type="hidden" name="idplano" value="<?=$vetorUmregistro['id_plano']; ?>">
-              <div class="form-row mt-4"> 
-              <div class="col-md-12 mt-4">
-                <label class="validationDefault22">
-                  <h5 class="text-primary">Comentários sobre o plano</h5>
-                </label><br>
-              <?php $sql = "select usuario,perfil,comentario,horario from comentarios where id_plano=?";
+         <label class="validationDefault22">
+            <h5 class="text-primary">Comentários já realizados</h5>
+          </label><br>
+         <?php $sql = "select usuario,perfil,comentario,horario from comentarios where id_plano=?";
               $sqlprep = $conexao->prepare($sql);
               $sqlprep->bind_param("i",$vetorUmregistro["id_plano"]);
               $sqlprep->execute();
@@ -188,7 +183,7 @@ opacity: 0.9;
                 array_push($vetorTodosRegistros,$vetorRegistro);
                 $vetorRegistro = mysqli_fetch_assoc($registro);
               } ?>
-              <textarea name="comentario" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required form-control w-100" aria-required="true" aria-invalid="false">
+              <textarea name="comentario" cols="40" rows="10" class="form-control w-100" aria-required="true" aria-invalid="false" readonly>
               <?php 
               foreach($vetorTodosRegistros as $valor){
               echo $nome = $valor["usuario"];
@@ -196,8 +191,17 @@ opacity: 0.9;
               echo $comentario = $valor["comentario"];
               echo $horario = $valor["horario"];
               }
-              ?>
+              ?>   
               </textarea>
+         <?php if(($_SESSION["perfil"]=="Pedagogo")||($_SESSION["perfil"]=="Discente do colegiado")||($_SESSION["perfil"]=="Docente do colegiado")||($_SESSION["perfil"]=="Tecnico do colegiado") ||($_SESSION["perfil"]=="Coordenador")){ ?>
+          <form method="POST" action="PlanoComentarios.php">
+            <input type="hidden" name="idplano" value="<?=$vetorUmregistro['id_plano']; ?>">
+              <div class="form-row mt-4"> 
+              <div class="col-md-12 mt-4">
+                <label class="validationDefault22">
+                  <h5 class="text-primary">Suas observações</h5>
+                </label><br>
+              <textarea name="comentario" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required form-control w-100" aria-required="true" aria-invalid="false"></textarea>
               </div>
                 <div class="col-md-12">
                   <button type="submit" style="width:15rem;" class="btn btn-warning mt-4">Salvar observações</button>
