@@ -57,13 +57,25 @@
                         <a class="dropdown-item" href="ListarPlano.php">Meus planos</a>
                     </li>
                 <?php
-                }if($_SESSION["perfil"]=="Discente do Colegiado"){
+                }if($_SESSION["perfil"]=="Discente do colegiado"){
                             ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Chorar</a>
+                    <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>
                 </li>
                 <?php 
                 }if($_SESSION["perfil"]=="Pedagogo"){
+                            ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>
+                </li>
+                <?php
+                }if($_SESSION["perfil"]=="Docente do colegiado"){
+                            ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>
+                </li>
+                <?php
+                }if($_SESSION["perfil"]=="Tecnico do colegiado"){
                             ?>
                 <li class="nav-item">
                     <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>

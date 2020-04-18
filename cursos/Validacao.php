@@ -25,7 +25,6 @@
     if(isset($validacao)){
         $_SESSION["nome"]=$nome;
         $_SESSION["perfil"]=$perfil;
-        
         if($perfil == "Coordenador"){
             header("location: ListarPlano.php");
 

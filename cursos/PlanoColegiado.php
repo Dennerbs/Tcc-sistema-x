@@ -17,6 +17,9 @@
 opacity: 0.9;
 
         }
+        #comentario{
+        border: 2px solid #F5A9D0;
+        }
 
     </style>
 </head>
@@ -169,10 +172,19 @@ opacity: 0.9;
               value="<?php echo $vetorUmregistro['p2_segundo'] ?>" required readonly><br>
           </div>
          </div>
+<<<<<<< HEAD
          <label class="validationDefault22">
             <h5 class="text-primary">Comentários já realizados</h5>
           </label><br>
          <?php $sql = "select usuario,perfil,comentario,horario from comentarios where id_plano=$idplano";
+=======
+         <?php if(($_SESSION["perfil"]=="Pedagogo")||($_SESSION["perfil"]=="Discente do colegiado")||($_SESSION["perfil"]=="Docente do colegiado")||($_SESSION["perfil"]=="Tecnico do colegiado") ||($_SESSION["perfil"]=="Coordenador")){ ?>
+          <div class="row">
+            <div class="col-md-12">         
+              <label class="validationDefault21"><h5 class="text-primary text-center">Comentários</h5></label><br>
+              <div id="comentario" class="overflow-auto w-auto p-2" style="height:450px;">
+                <?php $sql = "select * from comentarios where id_plano=?";
+>>>>>>> a27746ed636a0c6eeb7de1b08d85758149c2acee
               $sqlprep = $conexao->prepare($sql);
               $sqlprep->bind_param("i",$vetorUmregistro["id_plano"]);
               $sqlprep->execute();
@@ -182,18 +194,14 @@ opacity: 0.9;
               while($vetorRegistro !=null){
                 array_push($vetorTodosRegistros,$vetorRegistro);
                 $vetorRegistro = mysqli_fetch_assoc($registro);
+              }foreach($vetorTodosRegistros as $valor){ 
+              echo $valor["usuario"]; ?> (<?php echo $valor["perfil"]; ?>) comentou:<br><?php
+              echo $valor["comentario"]; ?> em: <?php echo $valor["horario"]; ?><br><br><?php
+
               } ?>
-              <textarea name="comentario" cols="40" rows="10" class="form-control w-100" aria-required="true" aria-invalid="false" readonly>
-              <?php 
-              foreach($vetorTodosRegistros as $valor){
-              echo $nome = $valor["usuario"];
-              echo $perfil = $valor["perfil"];
-              echo $comentario = $valor["comentario"];
-              echo $horario = $valor["horario"];
-              }
-              ?>   
-              </textarea>
-         <?php if(($_SESSION["perfil"]=="Pedagogo")||($_SESSION["perfil"]=="Discente do colegiado")||($_SESSION["perfil"]=="Docente do colegiado")||($_SESSION["perfil"]=="Tecnico do colegiado") ||($_SESSION["perfil"]=="Coordenador")){ ?>
+              </div>
+            </div>
+          </div>
           <form method="POST" action="PlanoComentarios.php">
             <input type="hidden" name="idplano" value="<?=$vetorUmregistro['id_plano']; ?>">
               <div class="form-row mt-4"> 
@@ -222,12 +230,11 @@ opacity: 0.9;
                 </div>
 
              <?php }if($_SESSION["perfil"]=="Docente"){ ?>
-            <div class="form-row mt-4"> 
-              <div class="col-md-12 mt-4">
-                <label class="validationDefault22">
-                  <h5 class="text-primary">Comentários sobre o plano</h5>
-                </label><br>
-              <?php $sql = "select usuario,perfil,comentario,horario from comentarios where id_plano=?";
+            <div class="row">
+            <div class="col-md-12">         
+              <label class="validationDefault21"><h5 class="text-primary text-center">Comentários sobre este plano</h5></label><br>
+              <div id="comentario" class="overflow-auto w-auto p-2" style="height:450px;">
+                <?php $sql = "select * from comentarios where id_plano=?";
               $sqlprep = $conexao->prepare($sql);
               $sqlprep->bind_param("i",$vetorUmregistro["id_plano"]);
               $sqlprep->execute();
@@ -237,20 +244,15 @@ opacity: 0.9;
               while($vetorRegistro !=null){
                 array_push($vetorTodosRegistros,$vetorRegistro);
                 $vetorRegistro = mysqli_fetch_assoc($registro);
+              }foreach($vetorTodosRegistros as $valor){ 
+              echo $valor["usuario"]; ?> (<?php echo $valor["perfil"]; ?>) comentou:<br><?php
+              echo $valor["comentario"]; ?> em: <?php echo $valor["horario"]; ?><br><br><?php
+
               } ?>
-              <textarea name="comentario" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required form-control w-100" aria-required="true" aria-invalid="false" readonly>
-              <?php
-              foreach($vetorTodosRegistros as $valor){
-              echo $nome = $valor["usuario"];
-              echo $perfil = $valor["perfil"];
-              echo $comentario = $valor["comentario"];
-              echo $horario = $valor["horario"];
-              }
-              ?>
-              </textarea>
               </div>
-                <small id="notificacao" class="form-text text-muted">Seu plano de ensino foi enviado para correção, Aguarde ^^</small><br>
-           </div>
+            </div>
+          </div>
+            <small id="notificacao" class="form-text text-muted">Seu plano de ensino foi enviado para correção, Aguarde ^^</small><br>      
       <?php  } ?>
   </div>
  </div>
