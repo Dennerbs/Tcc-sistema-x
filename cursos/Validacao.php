@@ -30,18 +30,18 @@
             header("location: ListarPlano.php");
 
         }if($perfil == "Docente"){
-            header("location: FormPlano.php");
+            header("location: ListarPlano.php");
 
         }if($perfil == "Pedagogo"){
             header("location: ListarPlano.php");
 
-        }if($perfil == "Discente do colegiado"){
+        }if($perfil == "Discente do Colegiado"){
             header("location: ListarPlano.php");
 
-        }if($perfil == "Docente do colegiado"){
+        }if($perfil == "Docente do Colegiado"){
             header("location: ListarPlano.php");
 
-        }if($perfil == "Tecnico do colegiado"){
+        }if($perfil == "Tecnico do Colegiado"){
             header("location: ListarPlano.php");
 
         }

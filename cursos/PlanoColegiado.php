@@ -172,7 +172,7 @@ opacity: 0.9;
          <label class="validationDefault22">
             <h5 class="text-primary">Comentários já realizados</h5>
           </label><br>
-         <?php $sql = "select usuario,perfil,comentario,horario from comentarios where id_plano=?";
+         <?php $sql = "select usuario,perfil,comentario,horario from comentarios where id_plano=$idplano";
               $sqlprep = $conexao->prepare($sql);
               $sqlprep->bind_param("i",$vetorUmregistro["id_plano"]);
               $sqlprep->execute();

@@ -37,7 +37,7 @@
         $aulasT,$aulasP,$aulasL,$laboratorio,$ementaDisc,$objetivosG,$objetivosE,$avaliacaoA,$referenciasB,$referenciasC,$p1primeiro,$p2primeiro,$p1segundo,$p2segundo,$situacao);
     if($sqlprep -> execute()){
         $_SESSION["inseridoPlano"]="Plano de ensino foi adicionado com sucesso";
-        header("location: FormPlano.php"); 
+        header("location: FormPlano_det.php"); 
 
     }else{
         $_SESSION["erroPlano"]="Erro ao adicionar plano de ensino";
