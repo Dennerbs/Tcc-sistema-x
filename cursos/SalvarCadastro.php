@@ -3,8 +3,7 @@
     $password = $_POST["password"];
     $nome = $_POST["nome"];
     $perfil = $_POST["perfil"];
-
-
+    
     require_once("Conexao.php");
     session_start();
            
