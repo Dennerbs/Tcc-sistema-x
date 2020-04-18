@@ -24,28 +24,9 @@
     
     if(isset($validacao)){
         $_SESSION["nome"]=$nome;
-        $_SESSION["perfil"]=$perfil;
-        
-        if($perfil == "Coordenador"){
-            header("location: ListarPlano.php");
-
-        }if($perfil == "Docente"){
-            header("location: FormPlano.php");
-
-        }if($perfil == "Pedagogo"){
-            header("location: ListarPlano.php");
-
-        }if($perfil == "Discente do colegiado"){
-            header("location: ListarPlano.php");
-
-        }if($perfil == "Docente do colegiado"){
-            header("location: ListarPlano.php");
-
-        }if($perfil == "Tecnico do colegiado"){
-            header("location: ListarPlano.php");
-
-        }
-    }else{    
+        $_SESSION["perfil"]=$perfil;     
+        header("location: ListarPlano.php");
+        }else{    
         $_SESSION["erro"]="Erro, usuário ou senha invalidos";
         header("location: Login.php");
     }

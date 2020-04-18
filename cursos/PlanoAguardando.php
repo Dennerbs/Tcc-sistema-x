@@ -16,6 +16,8 @@
         input{
 opacity: 0.9;
 
+        }#comentario{
+        border:2px solid #F5A9D0;
         }
 
     </style>
@@ -194,12 +196,10 @@ opacity: 0.9;
           </div>
          </div>
          <div class="row">
-         <div class="col-md-12 mt-4">
-                <label class="comentario"><h5 class="text-primary">Considerações a respeito do plano</h5>
-                </label><br>
-                <input type="hidden" name="idplano" value="<?=$vetorUmregistro['id_plano']; ?>">
-                <textarea name="comentario" class="char valid form-control" rows="6" id="comentario" readonly>
-              <?php $sql = "select usuario,perfil,comentario,horario from comentarios where id_plano=?";
+            <div class="col-md-12">         
+              <label class="validationDefault21"><h5 class="text-primary text-center">Comentários sobre este plano</h5></label><br>
+              <div id="comentario" class="overflow-auto w-auto p-2" style="height:450px;">
+                <?php $sql = "select * from comentarios where id_plano=?";
               $sqlprep = $conexao->prepare($sql);
               $sqlprep->bind_param("i",$vetorUmregistro["id_plano"]);
               $sqlprep->execute();
@@ -209,16 +209,14 @@ opacity: 0.9;
               while($vetorRegistro !=null){
                 array_push($vetorTodosRegistros,$vetorRegistro);
                 $vetorRegistro = mysqli_fetch_assoc($registro);
-              }
-              foreach($vetorTodosRegistros as $valor){
-              echo $nome = $valor["usuario"];
-              echo $perfil = $valor["perfil"];
-              echo $comentario = $valor["comentario"];
-              echo $horario = $valor["horario"];
+              }foreach($vetorTodosRegistros as $valor){ 
+              echo $valor["usuario"]; ?> (<?php echo $valor["perfil"]; ?>) comentou:<br><?php
+              echo $valor["comentario"]; ?> em: <?php echo $valor["horario"]; ?><br><br><?php
+
               } ?>
-              </textarea>
-         </div>
-       </div>
+              </div>
+            </div>
+          </div>
             <small id="notificacao" class="form-text text-muted">O plano de ensino está aguardando as correções requeridas pelo colegiado</small>
             <button type="submit" class="btn btn-success mt-4">Salvar</button>
           </form>

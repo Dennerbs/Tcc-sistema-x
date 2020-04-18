@@ -191,30 +191,6 @@ opacity: 0.9;
             <input type="date" class="form-control" name="p2segundo"
               value="<?php echo $vetorUmregistro['p2_segundo'] ?>"><br>
           </div>
-          <div class="col-md-12 mt-4">
-            <label class="comentario"><h5 class="text-primary">Considerações a respeito do plano</h5>
-                </label><br>
-                <input type="hidden" name="idplano" value="<?=$vetorUmregistro['id_plano']; ?>">
-                <textarea name="comentario" class="char valid form-control" rows="6" id="comentario" readonly>
-              <?php $sql = "select usuario,perfil,comentario,horario from comentarios where id_plano=?";
-              $sqlprep = $conexao->prepare($sql);
-              $sqlprep->bind_param("i",$vetorUmregistro["id_plano"]);
-              $sqlprep->execute();
-              $registro = $sqlprep->get_result();
-              $vetorRegistro= mysqli_fetch_assoc($registro);
-              $vetorTodosRegistros = array();
-              while($vetorRegistro !=null){
-                array_push($vetorTodosRegistros,$vetorRegistro);
-                $vetorRegistro = mysqli_fetch_assoc($registro);
-              }
-              foreach($vetorTodosRegistros as $valor){
-              echo $nome = $valor["usuario"];
-              echo $perfil = $valor["perfil"];
-              echo $comentario = $valor["comentario"];
-              echo $horario = $valor["horario"];
-              } ?>
-              </textarea>
-          </div>
          </div>
 
             <small id="notificacao" class="form-text text-muted">Seu plano de ensino ainda não foi submetido, isso significa que você pode realizar alterações antes de mandá-lo para correção</small>
