@@ -13,11 +13,8 @@
     <?php require_once('Cabecalho.php');
     require_once('Conexao.php');
 
-    $idplano=$_SESSION["id_plan"];
 
-    $sql = "select * from planos where id_plano = $idplano";
-    $resultadoSql = mysqli_query($conexao, $sql);
-    $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
+
     ?>
         <div class="card">
         <div class="card-header">
@@ -36,46 +33,30 @@
         </div>
         <?php unset($_SESSION["inseridoPlano"]); endif?>
 
-            <form class="mt-4" action="SalvarPlano_det.php" method="POST">
-            <div class="row">
-            <div>
-                <input type="text" class="form-control" name="id_plano" id="validationDefault01" 
-                 value="<?php $vetorUmregistro['id_plano'] ?>"    placeholder=" " hidden >
-            </div>
-            <div class="col-md-4">
-                <label class="validationDefault02">
-                <h5 class="text-primary">Mes</h5>
-                </label><br>
-                <input type="text" class="form-control" name="mes" id="validationDefault02"
-                    placeholder=" " >
-            </div><br>
-            <div class="col-md-4">
-                <label class="validationDefault03">
-                <h5 class="text-primary">Data Inicial</h5>
-                </label><br>
-                <input type="date" class="form-control" name="dI" id="validationDefault03"
-                    placeholder=" " >
-            </div><br>
-            <div class="col-md-4">
-                <label class="validationDefault04">
-                <h5 class="text-primary">Data Final</h5>
-                </label><br>
-                <input type="date" class="form-control" name="dF" id="validationDefault04"
-                    placeholder=" " >
-            </div><br>
-            <div class="col-md-12"> 
-                <label class="validationDefault05">
-                <h5 class="text-primary">Conteudo</h5>
-                </label><br>
-                <input type="text" class="form-control" name="con" id="validationDefault05"
-                    placeholder=" " >
-            </div><br>
-            <button type="submit" class="btn btn-success mt-4">Salvar</button>
-            </div>
-            </form>
-        </div>
-    </div>
-    </div>
+        <form method="POST" action="SalvarPlano_det.php">
+  <table id="employee_table" align="center">
+
+        <tr><th><h5 class="text-primary">mes</h5></th>
+        <th><h5 class="text-primary">Data Inicial</h5></th>
+        <th><h5 class="text-primary">Data Final</h5></th>
+        <th><h5 class="text-primary">Conteudo</h5></th></tr>
+   <tr id="row1">
+   <td><input type='text' class='form-control' name='mes'></td>
+   <td><input type='date' class='form-control' name='dI'></td>
+   <td><input type='date' class='form-control' name='dF'></td>
+   <td><input type='text' class='form-control' name='con'></td>
+    
+   </tr>
+  </table>
+  <input type="button" class="btn btn-success mt-4" onclick="add_row();" value="ADD ROW">
+  <button type="submit" class="btn btn-success mt-4">Salvar</button>
+  
+ </form>
+</div>
+</div>
+</div>
+
+    
   </body>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -85,5 +66,18 @@
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+<script type="text/javascript">
+function add_row()
+{
+ $rowno=$("#employee_table tr").length;
+ $rowno=$rowno+1;
+ $("#employee_table tr:last").after("<tr id='row"+$rowno+
+ "'><td><input type='text' class='form-control' name='mes'></td><td><input type='date' class='form-control' name='dI'></td><td><input type='date' class='form-control' name='dF'></td><td><input type='text' class='form-control' name='con'></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td></tr>");
+}
+function delete_row(rowno)
+{
+ $('#'+rowno).remove();
+}
 </script>
 </html>

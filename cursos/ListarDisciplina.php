@@ -35,7 +35,7 @@
     
 ?>
          <a type="submit" class="btn btn-success btn-lg btn-block mt-4" href="FormDisc.php" role="button">Cadastrar</a>
-        <table class="table mt-4">
+         <table class="table mt-4" style="background-color:#FFFFFF;">
             <tr>
                 <th class="text-success text-justify">Nome Disciplina</th>
                 <th class="text-success text-center">Carga Horaria</th>

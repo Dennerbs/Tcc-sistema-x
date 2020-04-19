@@ -28,7 +28,7 @@
                 } 
             ?>
              <a type="submit" class="btn btn-success btn-lg btn-block mt-4" href="FormCurso.php" role="button">Cadastrar</a>
-                <table class="table mt-4">
+             <table class="table mt-4" style="background-color:#FFFFFF;">
                     <tr>
                         <th class="text-success text-center">Nome do Curso</th>
                         <th class="text-success text-center">Descrição do Curso</th>

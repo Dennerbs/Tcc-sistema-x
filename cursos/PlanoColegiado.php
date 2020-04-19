@@ -172,19 +172,12 @@ opacity: 0.9;
               value="<?php echo $vetorUmregistro['p2_segundo'] ?>" required readonly><br>
           </div>
          </div>
-<<<<<<< HEAD
-         <label class="validationDefault22">
-            <h5 class="text-primary">Comentários já realizados</h5>
-          </label><br>
-         <?php $sql = "select usuario,perfil,comentario,horario from comentarios where id_plano=$idplano";
-=======
          <?php if(($_SESSION["perfil"]=="Pedagogo")||($_SESSION["perfil"]=="Discente do colegiado")||($_SESSION["perfil"]=="Docente do colegiado")||($_SESSION["perfil"]=="Tecnico do colegiado") ||($_SESSION["perfil"]=="Coordenador")){ ?>
           <div class="row">
             <div class="col-md-12">         
               <label class="validationDefault21"><h5 class="text-primary text-center">Comentários</h5></label><br>
               <div id="comentario" class="overflow-auto w-auto p-2" style="height:450px;">
                 <?php $sql = "select * from comentarios where id_plano=?";
->>>>>>> a27746ed636a0c6eeb7de1b08d85758149c2acee
               $sqlprep = $conexao->prepare($sql);
               $sqlprep->bind_param("i",$vetorUmregistro["id_plano"]);
               $sqlprep->execute();
@@ -194,11 +187,12 @@ opacity: 0.9;
               while($vetorRegistro !=null){
                 array_push($vetorTodosRegistros,$vetorRegistro);
                 $vetorRegistro = mysqli_fetch_assoc($registro);
-              }foreach($vetorTodosRegistros as $valor){ 
-              echo $valor["usuario"]; ?> (<?php echo $valor["perfil"]; ?>) comentou:<br><?php
-              echo $valor["comentario"]; ?> em: <?php echo $valor["horario"]; ?><br><br><?php
-
-              } ?>
+              }foreach($vetorTodosRegistros as $valor){ ?>
+                <div>  
+                <h6 class="font-weight-bold"><?php echo $valor["usuario"]; ?> (<?php echo $valor["perfil"]; ?>):</h6> 
+                <?php echo $valor["comentario"]; ?><br> <small class="text-primary"><?php echo $valor["horario"];?></small>
+              </div><br><br>
+              <?php } ?>
               </div>
             </div>
           </div>
@@ -244,11 +238,12 @@ opacity: 0.9;
               while($vetorRegistro !=null){
                 array_push($vetorTodosRegistros,$vetorRegistro);
                 $vetorRegistro = mysqli_fetch_assoc($registro);
-              }foreach($vetorTodosRegistros as $valor){ 
-              echo $valor["usuario"]; ?> (<?php echo $valor["perfil"]; ?>) comentou:<br><?php
-              echo $valor["comentario"]; ?> em: <?php echo $valor["horario"]; ?><br><br><?php
-
-              } ?>
+              }foreach($vetorTodosRegistros as $valor){ ?>
+                <div>  
+                <h6 class="font-weight-bold"><?php echo $valor["usuario"]; ?> (<?php echo $valor["perfil"]; ?>):</h6> 
+                <?php echo $valor["comentario"]; ?><br> <small class="text-primary"><?php echo $valor["horario"];?></small>
+              </div><br><br>
+              <?php } ?>
               </div>
             </div>
           </div>

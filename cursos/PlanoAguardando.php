@@ -209,11 +209,12 @@ opacity: 0.9;
               while($vetorRegistro !=null){
                 array_push($vetorTodosRegistros,$vetorRegistro);
                 $vetorRegistro = mysqli_fetch_assoc($registro);
-              }foreach($vetorTodosRegistros as $valor){ 
-              echo $valor["usuario"]; ?> (<?php echo $valor["perfil"]; ?>) comentou:<br><?php
-              echo $valor["comentario"]; ?> em: <?php echo $valor["horario"]; ?><br><br><?php
-
-              } ?>
+              }foreach($vetorTodosRegistros as $valor){ ?>
+              <div>  
+              <h6 class="font-weight-bold"><?php echo $valor["usuario"]; ?> (<?php echo $valor["perfil"]; ?>):</h6> 
+              <?php echo $valor["comentario"]; ?><br> <small class="text-primary"><?php echo $valor["horario"];?></small>
+            </div><br><br>
+            <?php } ?>
               </div>
             </div>
           </div>

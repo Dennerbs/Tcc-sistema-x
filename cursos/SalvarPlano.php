@@ -24,7 +24,7 @@
 
     require_once("Conexao.php");
     session_start();
-           
+    
     if($id_plano==0){
     $situacao ="Novo";
     $comentarios="";
@@ -37,6 +37,8 @@
         $aulasT,$aulasP,$aulasL,$laboratorio,$ementaDisc,$objetivosG,$objetivosE,$avaliacaoA,$referenciasB,$referenciasC,$p1primeiro,$p2primeiro,$p1segundo,$p2segundo,$situacao);
     if($sqlprep -> execute()){
         $_SESSION["inseridoPlano"]="Plano de ensino foi adicionado com sucesso";
+        $_SESSION['np'] = $nomePlano; 
+        
         header("location: FormPlano_det.php"); 
 
     }else{
@@ -61,3 +63,6 @@
     
  
 ?>
+<form action="SalvarPlano_det.php" method="POST">
+             <input name="idp" value="<?php $id_plano ?>">
+        </form>  
