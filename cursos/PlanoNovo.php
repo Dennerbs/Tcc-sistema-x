@@ -192,6 +192,29 @@ opacity: 0.9;
               value="<?php echo $vetorUmregistro['p2_segundo'] ?>"><br>
           </div>
          </div>
+         <div class="form-row mt-4">
+        <?php $sql = "select * from detalhamento where id_plano = $idplano";
+        $resultadoSql = mysqli_query($conexao, $sql);
+        $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
+        $vetorTodosRegistros = array();
+        while($vetorUmregistro !=null){
+          array_push($vetorTodosRegistros,$vetorUmregistro);
+          $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);}
+          ?> <table id="employee_table" align="center">
+           <tr><th><h5 class="text-primary">Mês</h5></th>
+           <th><h5 class="text-primary">Data Inicial</h5></th>
+           <th><h5 class="text-primary">Data Final</h5></th>
+           <th><h5 class="text-primary">Conteudo</h5></th></tr>
+          <?php foreach($vetorTodosRegistros as $Umregistro){ ?> 
+            <tr id="row1">
+            <td><input type='text' class='form-control' value="<?php echo $Umregistro['mes']?>" name='mes'></td>
+            <td><input type='date' class='form-control' value="<?php echo $Umregistro['dataI']?>" name='dI'></td>
+            <td><input type='date' class='form-control' value="<?php echo $Umregistro['dataF']?>" name='dF'></td>
+            <td><input type='text' class='form-control' value="<?php echo $Umregistro['conteudo']?>" name='con'></td>
+        <?php } ?>
+            </tr>
+          </table>   
+         </div>
 
             <small id="notificacao" class="form-text text-muted">Seu plano de ensino ainda não foi submetido, isso significa que você pode realizar alterações antes de mandá-lo para correção</small>
             <button type="submit" class="btn btn-success mt-4">Salvar</button>

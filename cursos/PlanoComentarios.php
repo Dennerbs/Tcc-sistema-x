@@ -15,4 +15,4 @@ $data = date('Y-m-d H:i');
     if($sqlprep -> execute()){
     	header("location: PlanoColegiado.php");
     }
- ?>
+?>

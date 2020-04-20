@@ -36,7 +36,7 @@
         <form method="POST" action="SalvarPlano_det.php">
   <table id="employee_table" align="center">
 
-        <tr><th><h5 class="text-primary">mes</h5></th>
+        <tr><th><h5 class="text-primary">Mês</h5></th>
         <th><h5 class="text-primary">Data Inicial</h5></th>
         <th><h5 class="text-primary">Data Final</h5></th>
         <th><h5 class="text-primary">Conteudo</h5></th></tr>
