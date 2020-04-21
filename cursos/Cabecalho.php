@@ -44,6 +44,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="FormCadastro.php">Adicionar membro</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Chat.php">Chat</a>
+                </li>
                 <?php
                 }if($_SESSION["perfil"]=="Docente"){
                         ?>
