@@ -4,8 +4,8 @@ require_once("Conexao.php");
 session_start();
 
 $idplano = $_POST["idplano"];
-$usuario = $_SESSION["nome"];
-$perfil = $_SESSION["perfil"];
+$usuario = $_POST["nome"];
+$perfil = $_POST["perfil"];
 $comentario = $_POST["comentario"];
 date_default_timezone_set('America/Sao_Paulo');
 $data = date('Y-m-d H:i');

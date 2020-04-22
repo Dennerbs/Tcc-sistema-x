@@ -77,29 +77,29 @@ opacity: 0.9;
           <div class="col-9">
             <label><h5 class="text-primary">Curso</h5></label><br>
             <input type="text" class="form-control" name="nomeCurso" 
-              value="<?php echo $vetorUmregistro['curso_plano'] ?>">
+              value="<?php echo $vetorUmregistro['curso_plano'] ?>" readonly>
           </div>
           <div class="col-3">
             <label> <h5 class="text-primary">Período do Curso</h5></label><br>
             <input type="text" class="form-control" name="periodoC"
-              value="<?php echo $vetorUmregistro['periodoC_plano'] ?>">
+              value="<?php echo $vetorUmregistro['periodoC_plano'] ?>" readonly>
            </div>
         </div>                           
         <div class="form-row mt-4">
           <div class="col-4">
             <label><h5 class="text-primary">Nome da Disciplina</h5></label><br>
             <input type="text" class="form-control" name="nomeDisc"
-              value="<?php echo $vetorUmregistro['nomeDisc_plano'] ?>">
+              value="<?php echo $vetorUmregistro['nomeDisc_plano'] ?>" readonly>
           </div>
           <div class="col-4">
             <label><h5 class="text-primary">Carga Horária</h5></label><br>
             <input type="text" class="form-control" name="cargaDisc"
-              value="<?php echo $vetorUmregistro['carga_plano'] ?>">
+              value="<?php echo $vetorUmregistro['carga_plano'] ?>" readonly> 
           </div>
           <div class="col-4">
             <label><h5 class="text-primary">N° de semanas aula </h5></label><br>
             <input type="text" class="form-control" name="semanaDisc"
-            value="<?php echo $vetorUmregistro['semanas_plano'] ?>">
+            value="<?php echo $vetorUmregistro['semanas_plano'] ?>" readonly>
           </div>
         </div>                
         <div class="form-row mt-4">
@@ -119,9 +119,14 @@ opacity: 0.9;
               value="<?php echo $vetorUmregistro['aulasL_plano'] ?>">
           </div>
           <div class="col-3">
-            <label><h5 class="text-primary">Laboratório</h5></label><br>
-            <input type="text" class="form-control" name="laboratorio"
-              value="<?php echo $vetorUmregistro['laboratorio'] ?>">            
+            <label class="validationDefault06">
+              <h5 class="text-primary">Laboratório</h5>
+            </label><br>
+            <select class="custom-select" name="laboratorio" id="validationDefault06" required>
+              <option selected disabled value=""><?=$vetorUmregistro['laboratorio'];  ?></option>
+              <option>69</option>
+              <option>Em sala</option>
+            </select>
           </div>
         </div>
         <div class="form-row mt-4">
@@ -129,7 +134,7 @@ opacity: 0.9;
           <label class="validationDefault07">
           <h5 class="text-primary">Ementa</h5>
           </label><br>
-          <textarea name="ementaDisc" class="char valid form-control" rows="4" id="validationDefault07" required
+          <textarea name="ementaDisc" class="char valid form-control" rows="4" id="validationDefault07" required readonly
           ><?php echo $vetorUmregistro['ementa_plano'] ?></textarea>
           </div>
           <div class="col-md-12 mt-4">
@@ -155,7 +160,7 @@ opacity: 0.9;
           <label class="validationDefault11">
           <h5 class="text-primary">Referencias Bibliográficas</h5>
           </label><br>
-          <textarea name="referenciasB" class="char valid form-control" rows="4" id="validationDefault11" required ><?php echo $vetorUmregistro['referencias_plano'] ?></textarea>
+          <textarea name="referenciasB" class="char valid form-control" rows="4" id="validationDefault11" required readonly><?php echo $vetorUmregistro['referencias_plano'] ?></textarea>
           </div>
           <div class="col-md-12 mt-4">
           <label class="validationDefault12">
@@ -193,27 +198,28 @@ opacity: 0.9;
           </div>
          </div>
          <div class="form-row mt-4">
-        <?php $sql = "select * from detalhamento where id_plano = $idplano";
+        <div class="col-md-12">
+          <?php $sql = "select * from detalhamento where id_plano = $idplano";
         $resultadoSql = mysqli_query($conexao, $sql);
-        $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
-        $vetorTodosRegistros = array();
+        $vetorRegistro = mysqli_fetch_assoc($resultadoSql);
+        $vetorDetalhamento = array();
         while($vetorUmregistro !=null){
-          array_push($vetorTodosRegistros,$vetorUmregistro);
+          array_push($vetorDetalhamento,$vetorRegistro);
           $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);}
-          ?> <table id="employee_table" align="center">
+          ?> <table id="employee_table" align="left">
            <tr><th><h5 class="text-primary">Mês</h5></th>
-           <th><h5 class="text-primary">Data Inicial</h5></th>
-           <th><h5 class="text-primary">Data Final</h5></th>
            <th><h5 class="text-primary">Conteudo</h5></th></tr>
-          <?php foreach($vetorTodosRegistros as $Umregistro){ ?> 
+          <?php foreach($vetorDetalhamento as $Umregistro){ ?> 
             <tr id="row1">
             <td><input type='text' class='form-control' value="<?php echo $Umregistro['mes']?>" name='mes'></td>
-            <td><input type='date' class='form-control' value="<?php echo $Umregistro['dataI']?>" name='dI'></td>
-            <td><input type='date' class='form-control' value="<?php echo $Umregistro['dataF']?>" name='dF'></td>
-            <td><input type='text' class='form-control' value="<?php echo $Umregistro['conteudo']?>" name='con'></td>
+            <td>
+              <textarea name="con" class="char valid form-control" style="width:100%;" rows="1" id="validationDefault07" required
+              ><?php echo $Umregistro['conteudo'] ?></textarea> 
+            </td>
         <?php } ?>
             </tr>
-          </table>   
+          </table> 
+        </div>  
          </div>
 
             <small id="notificacao" class="form-text text-muted">Seu plano de ensino ainda não foi submetido, isso significa que você pode realizar alterações antes de mandá-lo para correção</small>

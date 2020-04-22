@@ -173,36 +173,37 @@ opacity: 0.9;
           </div>
          </div>
          <div class="form-row mt-4">
-        <?php $sql = "select * from detalhamento where id_plano = $idplano";
+        <div class="col-md-12">
+          <?php $sql = "select * from detalhamento where id_plano = $idplano";
         $resultadoSql = mysqli_query($conexao, $sql);
-        $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
-        $vetorTodosRegistros = array();
+        $vetorRegistro = mysqli_fetch_assoc($resultadoSql);
+        $vetorDetalhamento = array();
         while($vetorUmregistro !=null){
-          array_push($vetorTodosRegistros,$vetorUmregistro);
+          array_push($vetorDetalhamento,$vetorRegistro);
           $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);}
-          ?> <table id="employee_table" align="center">
+          ?> <table id="employee_table" align="left">
            <tr><th><h5 class="text-primary">Mês</h5></th>
-           <th><h5 class="text-primary">Data Inicial</h5></th>
-           <th><h5 class="text-primary">Data Final</h5></th>
            <th><h5 class="text-primary">Conteudo</h5></th></tr>
-          <?php foreach($vetorTodosRegistros as $Umregistro){ ?> 
+          <?php foreach($vetorDetalhamento as $Umregistro){ ?> 
             <tr id="row1">
-            <td><input type='text' class='form-control' value="<?php echo $Umregistro['mes']?>" name='mes'></td>
-            <td><input type='date' class='form-control' value="<?php echo $Umregistro['dataI']?>" name='dI'></td>
-            <td><input type='date' class='form-control' value="<?php echo $Umregistro['dataF']?>" name='dF'></td>
-            <td><input type='text' class='form-control' value="<?php echo $Umregistro['conteudo']?>" name='con'></td>
+            <td><input type='text' class='form-control' value="<?php echo $Umregistro['mes']?>" name='mes' readonly></td>
+            <td>
+              <textarea name="con" class="char valid form-control" style="width:100%;" rows="1" id="validationDefault07" required readonly
+              ><?php echo $Umregistro['conteudo'] ?></textarea> 
+            </td>
         <?php } ?>
             </tr>
-          </table>   
+          </table> 
+        </div>  
          </div>
          <?php if(($_SESSION["perfil"]=="Pedagogo")||($_SESSION["perfil"]=="Discente do colegiado")||($_SESSION["perfil"]=="Docente do colegiado")||($_SESSION["perfil"]=="Tecnico do colegiado") ||($_SESSION["perfil"]=="Coordenador")){ ?>
           <div class="row">
             <div class="col-md-12">         
               <label class="validationDefault21"><h5 class="text-primary text-center">Comentários</h5></label><br>
               <div id="comentario" class="overflow-auto w-auto p-2" style="height:450px;">
-                <?php $sql = "select * from comentarios where id_plano=?";
+              <?php $sql = "select * from comentarios where id_plano=?";
               $sqlprep = $conexao->prepare($sql);
-              $sqlprep->bind_param("i",$vetorUmregistro["id_plano"]);
+              $sqlprep->bind_param("i",$idplano);
               $sqlprep->execute();
               $registro = $sqlprep->get_result();
               $vetorRegistro= mysqli_fetch_assoc($registro);
@@ -220,7 +221,9 @@ opacity: 0.9;
             </div>
           </div>
           <form method="POST" action="PlanoComentarios.php">
-            <input type="hidden" name="idplano" value="<?=$vetorUmregistro['id_plano']; ?>">
+            <input type="hidden" name="idplano" value="<?=$idplano;  ?>">
+            <input type="hidden" name="nome" value="<?=$_SESSION["nome"]; ?>">
+            <input type="hidden" name="perfil" value="<?=$_SESSION["perfil"]; ?>">
               <div class="form-row mt-4"> 
               <div class="col-md-12 mt-4">
                 <label class="validationDefault22">
@@ -235,7 +238,7 @@ opacity: 0.9;
             <?php }if($_SESSION["perfil"]=="Coordenador"){ ?>
                 <div class="col-md-12">
                   <form method="POST" action="PlanoEvolucao.php">
-                    <input type="hidden" name="idplano" value="<?=$vetorUmregistro['id_plano'];?>">
+                    <input type="hidden" name="idplano" value="<?=$idplano; ?>">
                     <button type="submit" style="width:15rem;" class="btn btn-danger mt-3">Retornar ao docente</button>
                   </form>
                   <form method="POST" action="PlanoEvolucao.php">

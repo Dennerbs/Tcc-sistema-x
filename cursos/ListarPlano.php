@@ -21,7 +21,9 @@
         #sa{
             color: #01DF01;
         }
-
+        #plano{
+            color:#000000;
+        }
     </style>
     
 </head>
@@ -62,13 +64,13 @@
                         <div class="col-md-9 mt-1">
                                <form action="ValidacaoPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"];?>">
-                                <button type="submit" class=" btn btn-primary btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
+                                <button type="submit" class=" btn w-100" style="background-color:#ADD8E6;"><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button>
                                </form>
                         </div>
                         <div class="col-md-3 mt-3">
                                 <form action="PlanoCorrecao.php" method="POST">
                                     <input type="hidden" name="id_plano" value="<?=$umRegistro["id_plano"]; ?>">
-                                <button  type="submit" class="btn btn-secondary btn-sm">Submeter</button>
+                                <button  type="submit" class="btn btn-sm">Submeter</button>
                             </form>
                             </div>
                         </div>
@@ -77,7 +79,7 @@
                            <div class="mt-1">
                                <form action="ValidacaoPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
-                                <button  type="submit" class="btn btn-warning btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
+                                <button  type="submit" class="btn w-100" style="background-color:#fbe531"><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button>
                                </form>
                                
                             </div>
@@ -87,7 +89,7 @@
                         <div class="col-md-9 mt-1">
                                <form action="ValidacaoPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"];?>">
-                                <button type="submit" class=" btn btn-danger btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
+                                <button type="submit" class=" btn w-100" style="background-color:#fc6c5a"><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button>
                                </form>
                         </div>
                         <div class="col-md-3 mt-3">
@@ -103,7 +105,7 @@
                             <div class="mt-1">
                             <form action="ValidacaoPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
-                                <strike><button type="submit" class="btn btn-success btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button></strike>
+                                <strike><button type="submit" class="btn w-100" style="background-color:#04b826;"><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button></strike>
                                </form>
                            </div>
 
@@ -140,7 +142,7 @@
                            <div class="mt-1">
                                <form action="ValidacaoPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
-                                <button  type="submit" class="btn btn-warning btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button>
+                                <button  type="submit" class="btn w-100" style="background-color:#fbe531"><?= $umRegistro["nome_plano"]; ?></button>
                                </form>
                             </div>
 
@@ -149,7 +151,7 @@
                             <div class="mt-1">
                             <form action="ValidacaoPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
-                                <strike><button type="submit" class="btn btn-success btn-lg btn-block"><?= $umRegistro["nome_plano"]; ?></button></strike>
+                                <strike><button type="submit" class="btn w-100" style="background-color:#04b826;"><?= $umRegistro["nome_plano"]; ?></button></strike>
                                </form>
                            </div>
 
@@ -163,8 +165,8 @@
        
         <div class="col-md-5 mt-4">
             <p class="text-center">Clique no botão abaixo, para visualizar o que significa cada uma das cores do plano de ensino</p>
-            <button type="button" class="btn btn-outline-dark btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
-            Legenda Status dos Planos
+            <button type="button" class="btn btn-outline-light btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
+            <p id="plano" class="text-left">Legenda: Status dos planos</p>
             </button>
         </div>
 
@@ -180,20 +182,20 @@
         <div class="bg bg-light modal-body">
             <div class="row">
                 <div class="col-md-6">
-                <button type="button" class="btn btn-primary btn-lg btn-block" data-container="body" data-toggle="popover" data-placement="top" 
+                <button type="button" class="btn w-100" class="btn w-100" style="background-color:#ADD8E6;" data-container="body" data-toggle="popover" data-placement="top" 
                     data-content="Seu plano de ensino acaba de ser criado, e 
                     ainda não foi enviado para receber sugestões ou a aprovação do colegiado.">Novo
                 </button></div>
                 <div class="col-md-6 ">
-                <button type="button" class="btn btn-success text-white btn-lg btn-block" data-container="body" data-toggle="popover" data-placement="right" 
+                <button type="button" class=" btn w-100" style="background-color:#04b826;" data-container="body" data-toggle="popover" data-placement="right" 
                     data-content="Seu plano de ensino passou pelas mãos do colegiado e foi considerado suficiente.">Aprovado
                 </button></div>
                 <div class="col-md-6 mt-1">
-                <button type="button" class="btn btn-warning btn-lg btn-block" data-container="body" data-toggle="popover" data-placement="right" 
+                <button type="button" class=" btn w-100" style="background-color:#fbe531;" data-container="body" data-toggle="popover" data-placement="right" 
                     data-content="O plano de ensino foi direcionado e aguarda as sugestões do colegiado.">Aguardando Sugestões
                 </button></div>
                 <div class="col-md-6 mt-1">
-                <button type="button" class="btn btn-danger btn-lg btn-block" data-container="body" data-toggle="popover" data-placement="bottom" 
+                <button type="button" class=" btn w-100" style="background-color:#fc6c5a" data-container="body" data-toggle="popover" data-placement="bottom" 
                     data-content="O colegiado recebeu seu plano de ensino e retornou-o, 
                     para que você possa fazer algumas alterações em certos pontos,e então enviá-lo novamente">Aguardando suas correções
                 </button></div>
@@ -201,7 +203,7 @@
         </div>
         </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-light" data-dismiss="modal">Fechar</button>
       </div></div>
 
     </div>
