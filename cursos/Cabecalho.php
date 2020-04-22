@@ -45,7 +45,7 @@
                     <a class="nav-link" href="FormCadastro.php">Adicionar membro</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Chat.php">Chat</a>
+                    <a class="nav-link" href="ListarUsuarios.php">Chat</a>
 
                 </li>
                 <?php

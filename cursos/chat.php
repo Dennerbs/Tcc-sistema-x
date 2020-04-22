@@ -109,7 +109,7 @@ function inserir_registo()
                 },
                 success:function()
                 {
-                    $("#mens").html("funfou");
+                    $("#mens").html(" ");
                    
                 },
                 error:function(data){
