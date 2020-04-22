@@ -45,7 +45,11 @@
                     <a class="nav-link" href="FormCadastro.php">Adicionar membro</a>
                 </li>
                 <li class="nav-item">
+<<<<<<< HEAD
                     <a class="nav-link" href="ListarUsuarios.php">Chat</a>
+=======
+                    <a class="nav-link" href="Chat.php">Chat</a>
+>>>>>>> 563aa0f9a61126de437f644750e9c3bbd19e49a8
                 </li>
                 <?php
                 }if($_SESSION["perfil"]=="Docente"){
