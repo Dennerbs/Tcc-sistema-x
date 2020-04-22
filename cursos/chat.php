@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
-    
-    
+
     
     <script>
       function ajx(){
@@ -38,8 +37,6 @@ ajx();
         if(isset($_POST['nome'])){
             $nome = $_POST['nome'];
         }
-        
-        
         $idl=$_SESSION['id_logado'];
         $nomel=$_SESSION['nome'];
         
@@ -52,33 +49,33 @@ ajx();
           
           ?>
     
-        <div id="conteudo">
+        <div id="conteudo" class="mt-4">
             <div id="caixa-chat">
                 <div class="card">
-                <div class="card-header">
-                    <?php echo $nome?>
-                </div>
-                <div class="card-body">
-                <div id="chat">
-                           
-                </div>
-                </div>
+                    <div class="card-header">
+                        <?php echo $nome?>
+                    </div>
+                    <div class="card-body">
+                        <div id="chat">
+                         
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div>
-        <input type="hidden" id="ids" value=" <?= $id_sala; ?>">
-        <input type="hidden" id="id" value=" <?= $idl?>">
-        <input type="hidden" id="nome" value=" <?= $nomel ?>">
-        <div class="m">
-        <input id="mensagem" placeholder="Sua Mensagem" ></div>
-        <div >
-        <button class="btn btn-success" type="submit" id="enviar" onclick="inserir_registo();">Enviar</button>
-        </div>
-        <div id="mens">
 
-        </div>
-        
+        <div>
+            <input type="hidden" id="ids" value=" <?= $id_sala; ?>">
+            <input type="hidden" id="id" value=" <?= $idl?>">
+            <input type="hidden" id="nome" value=" <?= $nomel ?>">
+            <div class="m">
+                <input id="mensagem" class="form-control mt-2" placeholder="Sua Mensagem" ></div>
+            <div>
+                <button class="btn btn-success mt-2" type="submit" id="enviar" onclick="inserir_registo();">Enviar</button>
+            </div>
+            <div id="mens">
+
+            </div>     
         </div>
 
 

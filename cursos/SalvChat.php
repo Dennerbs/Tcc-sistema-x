@@ -1,7 +1,7 @@
 <?php 
     require_once("Conexao.php");
-    date_default_timezone_set('America/Sao_Paulo');
-    $data = date('Y-m-d H:i');
+    date_default_timezone_set('America/Campo_Grande');
+    $data = date('H:i:s');
 
    
     $idl = $_POST['id'];

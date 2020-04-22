@@ -1,4 +1,11 @@
-<?php
+
+<style type="text/css">
+        h6{
+            font-size:20px;
+            font-family: forefront;
+        }
+    </style>
+    <?php
 require_once('Conexao.php');
 session_start();
 $id_sala = 0;
@@ -19,9 +26,14 @@ $id_sala = 0;
           $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);}
         foreach($vetorTodosRegistros as $Umregistro){ ?> 
             <div class="row">
-                <div class="col-9"><span class="text-success"><?= $Umregistro['nome_usuario'];?>:</span></div>
-                <div class="col-6"><span><h6><?= $Umregistro['mensagem'];?></h6></span></div>
-                <div class="col-4"><span class="float-right text-primary"><small><?= $Umregistro['data'];?></small> </span></div>
+                <div class="col-1">
+                    <img src="imagens/usuario.png" alt="imagem do usuario" class="img-thumbnail">
+                </div>
+                <div class="col-11">
+                    <span class="text-success"><?= $Umregistro['nome_usuario'];?>:</span>
+                    <span><h6><?= $Umregistro['mensagem'];?></h6></span>
+                    <span class="text-primary"><small><?= $Umregistro['data'];?></small></span>
+                </div>
             </div><br>
           
                 

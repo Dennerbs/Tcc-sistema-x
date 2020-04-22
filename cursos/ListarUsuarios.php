@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style type="text/css">
+        #botaocontato{
+            width:200px;
+        }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -33,11 +39,15 @@
               if($Umregistro["id"] != $_SESSION['id_logado']){
               ?>
                 <li class="list-group-item">
-                <div class="col-md-3">
+                <div class="col-md-12">
                     <form action="chat.php" method="POST">
                         <input type="hidden" name="id" value="<?=$Umregistro["id"]; ?>">
                         <input type="hidden" name="nome" value="<?=$Umregistro["nome"]; ?>">
-                        <button  type="submit" class="btn btn-secondary btn-lg btn-block"><?=$Umregistro["nome"]; ?></button>
+                        <div class="form-group">  
+                            <img src="imagens/usuario.png" alt="imagem do usuario" class="img-thumbnail">
+                            <button id="botaocontato" type="submit" class="btn btn-outline-primary ml-3"><?=$Umregistro["nome"]; ?></button> 
+                        </div>
+
                     </form>
                 </div>
                 </li>
