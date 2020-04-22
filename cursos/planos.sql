@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Abr-2020 às 03:43
+-- Tempo de geração: 22-Abr-2020 às 04:00
 -- Versão do servidor: 10.4.6-MariaDB
 -- versão do PHP: 7.2.21
 
@@ -21,6 +21,21 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `planos`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `chat`
+--
+
+CREATE TABLE `chat` (
+  `id_chat` int(11) NOT NULL,
+  `id_sala` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `nome_usuario` varchar(100) NOT NULL,
+  `mensagem` text NOT NULL,
+  `data` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -230,6 +245,12 @@ INSERT INTO `usuarios` (`id`, `email`, `nome`, `senha`, `perfil`) VALUES
 --
 
 --
+-- Índices para tabela `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id_chat`);
+
+--
 -- Índices para tabela `curso`
 --
 ALTER TABLE `curso`
@@ -263,6 +284,12 @@ ALTER TABLE `usuarios`
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT de tabela `curso`

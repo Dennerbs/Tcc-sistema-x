@@ -4,7 +4,7 @@
     $login = $_POST["email"];
     $password = $_POST["password"];
     
-    $sql = "select nome,perfil from usuarios where email=? and senha=?";
+    $sql = "select id,nome,perfil from usuarios where email=? and senha=?";
     $sqlprep = $conexao->prepare($sql);
     $sqlprep->bind_param("ss",$login,$password);
     $sqlprep->execute();
@@ -17,12 +17,15 @@
         $validacao = 0;
     }
     foreach($vetorRegistros as $valor):
+        $id = $valor["id"];
         $nome =$valor["nome"];
         $perfil =$valor["perfil"];
+        
 
     endforeach;
     
     if(isset($validacao)){
+        $_SESSION['id_logado'] = $id;
         $_SESSION["nome"]=$nome;
         $_SESSION["perfil"]=$perfil;
         if($perfil == "Coordenador"){

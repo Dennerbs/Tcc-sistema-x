@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Cabecalho</title>
+    <title>Cordelia</title>
 
     <meta charset="utf-8">
 
@@ -44,6 +44,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="FormCadastro.php">Adicionar membro</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ListarUsuarios.php">Chat</a>
+                </li>
                 <?php
                 }if($_SESSION["perfil"]=="Docente"){
                         ?>
@@ -56,11 +59,17 @@
                         <a class="dropdown-item" href="FormPlano.php">Novo plano</a>
                         <a class="dropdown-item" href="ListarPlano.php">Meus planos</a>
                     </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="ListarUsuarios.php">Chat</a>
+                </li>
                 <?php
-                }if($_SESSION["perfil"]=="Discente do colegiado"){
+                }if($_SESSION["perfil"]=="Discente do Colegiado"){
                             ?>
                 <li class="nav-item">
                     <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ListarUsuarios.php">Chat</a>
                 </li>
                 <?php 
                 }if($_SESSION["perfil"]=="Pedagogo"){
@@ -68,17 +77,26 @@
                 <li class="nav-item">
                     <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ListarUsuarios.php">Chat</a>
+                </li>
                 <?php
-                }if($_SESSION["perfil"]=="Docente do colegiado"){
+                }if($_SESSION["perfil"]=="Docente do Colegiado"){
                             ?>
                 <li class="nav-item">
                     <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ListarUsuarios.php">Chat</a>
+                </li>
                 <?php
-                }if($_SESSION["perfil"]=="Tecnico do colegiado"){
+                }if($_SESSION["perfil"]=="Tecnico do Colegiado"){
                             ?>
                 <li class="nav-item">
                     <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ListarUsuarios.php">Chat</a>
                 </li>
                 <?php
 
