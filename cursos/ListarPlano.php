@@ -105,7 +105,7 @@
                             <div class="mt-1">
                             <form action="ValidacaoPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
-                                <strike><button type="submit" class="btn w-100" style="background-color:#04b826;"><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button></strike>
+                                <button type="submit" class="btn w-100" style="background-color:#04b826;"><strike><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button></strike>
                                </form>
                            </div>
 
@@ -142,7 +142,7 @@
                            <div class="mt-1">
                                <form action="ValidacaoPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
-                                <button  type="submit" class="btn w-100" style="background-color:#fbe531"><?= $umRegistro["nome_plano"]; ?></button>
+                                <button  type="submit" class="btn w-100" style="background-color:#fbe531"><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button>
                                </form>
                             </div>
 
@@ -151,7 +151,7 @@
                             <div class="mt-1">
                             <form action="ValidacaoPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
-                                <strike><button type="submit" class="btn w-100" style="background-color:#04b826;"><?= $umRegistro["nome_plano"]; ?></button></strike>
+                                <button type="submit" class="btn w-100" style="background-color:#04b826;"><strike><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></strike></button>
                                </form>
                            </div>
 

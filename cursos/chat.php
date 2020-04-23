@@ -79,6 +79,9 @@ ajx();
         </div>
 
 
+        <?php
+        require_once("Footer.php");
+        ?>
     </div>
 
     <script type="text/javascript">

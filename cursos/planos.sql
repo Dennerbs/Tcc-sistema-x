@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Abr-2020 às 04:00
--- Versão do servidor: 10.4.6-MariaDB
--- versão do PHP: 7.2.21
+-- Generation Time: 23-Abr-2020 às 23:29
+-- Versão do servidor: 10.1.37-MariaDB
+-- versão do PHP: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `planos`
+-- Database: `planos`
 --
 
 -- --------------------------------------------------------
@@ -34,8 +34,26 @@ CREATE TABLE `chat` (
   `id_usuario` int(11) NOT NULL,
   `nome_usuario` varchar(100) NOT NULL,
   `mensagem` text NOT NULL,
-  `data` datetime NOT NULL
+  `data` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `chat`
+--
+
+INSERT INTO `chat` (`id_chat`, `id_sala`, `id_usuario`, `nome_usuario`, `mensagem`, `data`) VALUES
+(70, 5, 2, ' Gilson Saturnino', 'oi adriana', '23:34:00'),
+(71, 5, 3, ' Adriana Assis', 'oi tudo bom?', '23:34:00'),
+(72, 5, 3, ' Adriana Assis', 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', '23:43:00'),
+(73, 5, 3, ' Adriana Assis', 'Oi gilson, como voce estÃ¡', '00:25:00'),
+(74, 5, 3, ' Adriana Assis', 'Oi gilson, como voce estÃ¡', '00:25:00'),
+(75, 5, 2, ' Gilson Saturnino', 'Oi, estou bem e vocÃª?', '00:25:00'),
+(76, 5, 2, ' Gilson Saturnino', 'Oi, estou bem e vocÃª?', '00:27:40'),
+(77, 5, 2, ' Gilson Saturnino', 'KAAKSKAK', '00:27:49'),
+(78, 5, 2, ' Gilson Saturnino', 'Agora estÃ¡ certo', '23:28:28'),
+(79, 6, 2, ' Gilson Saturnino', 'OlÃ¡ Paliminha, houve um equivoco na correÃ§Ã£o do meu plano de ensino de id #3845', '14:40:31'),
+(80, 6, 4, ' Palminha', 'Ora pois, vou revisar, submeta o plano de id #3845 novamente, por gentileza', '14:43:18'),
+(81, 6, 4, ' Palminha', 'kkkkk', '14:44:23');
 
 -- --------------------------------------------------------
 
@@ -57,32 +75,9 @@ CREATE TABLE `comentarios` (
 --
 
 INSERT INTO `comentarios` (`id`, `usuario`, `perfil`, `comentario`, `horario`, `id_plano`) VALUES
-(1, 'patim', 'Pedagogo', 'MEEEEEEE', '0000-00-00 00:00:00', 1),
-(2, 'Coordenador', 'edilson', 'AI é brabo', '2020-04-09 13:24:23', 1),
-(6, 'Adriana Assis', 'Pedagogo', 'tsete', '2020-04-16 16:47:00', 0),
-(7, 'Adriana Assis', 'Pedagogo', '                          kkkkk        ', '2020-04-16 17:11:00', 0),
-(8, 'Adriana Assis', 'Pedagogo', 'PQP BIXO, TODO DIA ISSO       ', '2020-04-16 17:44:00', 0),
-(9, 'Adriana Assis', 'Pedagogo', 'todo fia', '2020-04-16 17:46:00', 1),
-(10, 'Palminha', 'Coordenador', 'todo dia Ã© essa sacanagem bicho', '2020-04-16 17:46:00', 1),
-(11, 'Palminha', 'Coordenador', '                  patimPedagogoMEEEEEEE0000-00-00 00:00:00CoordenadoredilsonAI ï¿½ brabo2020-04-09 13:24:23Adriana AssisPedagogotodo fia2020-04-16 17:46:00PalminhaCoordenadortodo dia Ã© essa sacanagem bicho2020-04-16 17:46:00                ', '2020-04-16 17:48:00', 1),
-(12, 'Palminha', 'Coordenador', '                  patimPedagogoMEEEEEEE0000-00-00 00:00:00CoordenadoredilsonAI ï¿½ brabo2020-04-09 13:24:23Adriana AssisPedagogotodo fia2020-04-16 17:46:00PalminhaCoordenadortodo dia Ã© essa sacanagem bicho2020-04-16 17:46:00PalminhaCoordenador           ', '2020-04-16 17:48:00', 1),
-(13, 'Adriana Assis', 'Pedagogo', 'KAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA             ', '2020-04-16 17:49:00', 1),
-(14, 'Palminha', 'Coordenador', 'PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP       ', '2020-04-16 17:49:00', 1),
-(15, 'Adriana Assis', 'Pedagogo', '                                 Necessita mudanÃ§as', '2020-04-17 11:19:00', 2),
-(16, 'Adriana Assis', 'Pedagogo', 'Creio que poderia haver um detalhamento melhor na avaliaÃ§Ã£o da aprendizagem    ', '2020-04-17 12:16:00', 2),
-(17, 'Adriana Assis', 'Pedagogo', '                            Esse plano precisa de alteraÃ§Ã£o na avaliaÃ§Ã£o de aprendizagem', '2020-04-17 13:03:00', 6),
-(18, 'Denner Basilio', 'Discente do Colegiado', '              Adriana AssisPedagogo                            Esse plano precisa de alteraÃ§Ã£o na avaliaÃ§Ã£o de aprendizagem2020-04-17 13:03:00        \r\n      Acho que precisa alterar o nome, se possÃ­vel', '2020-04-17 13:10:00', 6),
-(19, 'Denner Basilio', 'Discente do Colegiado', 'tambÃ©m acho que precisa alterar o nome', '2020-04-17 13:12:00', 6),
-(20, 'Denner Basilio', 'Discente do Colegiado', 'tambÃ©m acho', '2020-04-17 13:14:00', 6),
-(21, 'Palminha', 'Coordenador', '', '2020-04-17 13:24:00', 6),
-(22, 'Erick', 'Tecnico do colegiado', 'kakakka', '2020-04-17 13:32:00', 8),
-(23, 'Ricardo', 'Docente do colegiado', 'vida triste', '2020-04-17 13:32:00', 8),
-(0, 'Palminha', 'Coordenador', 'To com Fome', '2020-04-19 02:57:00', 2),
-(0, 'Palminha', 'Coordenador', 'Teste refrash', '2020-04-19 03:36:00', 2),
-(0, 'Palminha', 'Coordenador', 'Teste 2', '2020-04-19 03:37:00', 2),
-(0, 'Palminha', 'Coordenador', 'teste 3', '2020-04-19 03:41:00', 2),
-(0, 'Palminha', 'Coordenador', 'teste 4', '2020-04-19 03:42:00', 2),
-(0, 'Palminha', 'Coordenador', 'MAIS OU MENOS', '2020-04-19 21:34:00', 11);
+(1, 'Palminha', 'Coordenador', 'tudo ok', '2020-04-22 17:57:00', 0),
+(2, 'Palminha', 'Coordenador', 'ok', '2020-04-22 17:58:00', 11),
+(3, 'Palminha', 'Coordenador', 'Uma bosta, de vdd', '2020-04-23 17:27:00', 1);
 
 -- --------------------------------------------------------
 
@@ -93,17 +88,22 @@ INSERT INTO `comentarios` (`id`, `usuario`, `perfil`, `comentario`, `horario`, `
 CREATE TABLE `curso` (
   `id_curso` int(11) NOT NULL,
   `nome_curso` varchar(255) NOT NULL,
-  `descricao_curso` varchar(255) NOT NULL
+  `duracao` varchar(255) NOT NULL,
+  `cargahoraria` int(11) NOT NULL,
+  `campus` varchar(255) NOT NULL,
+  `descricao_curso` varchar(255) NOT NULL,
+  `ementa` varchar(255) NOT NULL,
+  `coordenador` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `curso`
 --
 
-INSERT INTO `curso` (`id_curso`, `nome_curso`, `descricao_curso`) VALUES
-(2, 'TÃ©cnico em informÃ¡tica', 'Mecher com softwares'),
-(7, 'Alimentos', 'Fazer pÃ£o'),
-(9, 'Engenharia de pesca', 'Criar peixes');
+INSERT INTO `curso` (`id_curso`, `nome_curso`, `duracao`, `cargahoraria`, `campus`, `descricao_curso`, `ementa`, `coordenador`) VALUES
+(2, 'TÃ©cnico em informÃ¡tica', '3 anos e meio (7 semestres)', 36000, 'Coxim', 'VocÃª se tornarÃ¡ um bom desenvolvedor ', 'Um monte de coisa', 'Edilson Palma'),
+(7, 'Alimentos', '3 anos e meio (7 semestres)', 3600, 'Coxim', 'Se tornarÃ¡ um profissional qualificado em mÃ©todos para gestÃ£o de alimentos', 'um monte de coisa', 'Angela Kiwisiseoeiso'),
+(9, 'Engenharia de pesca', '5 anos (10 semestres)', 6250, 'CorumbÃ¡', 'SerÃ¡ um Aquiculturista ', 'vÃ¡rias coisas', 'Ribeirinho Beiramar');
 
 -- --------------------------------------------------------
 
@@ -159,7 +159,8 @@ INSERT INTO `disciplina` (`id_disciplina`, `nome_disciplina`, `carga_horaria`, `
 (20, 'Linguagem de programaÃ§Ã£o I', 60, 'IDE NetBens e lÃ³gica de programaÃ§Ã£o', 'Ensinar os discentes a mecher no Netbeans', '', 20, 4, 'Sommervile', 2),
 (24, 'Portugues', 60, 'Classes gramaticais, regÃªncia verbal e regÃªncia nominal', 'EsmiuÃ§ar os principais tÃ³picos das classes gramaticais existentes na lÃ­ngua portuguesa', '', 55, 1, 'Livro de portuguÃªs do ensino mÃ©dio', 7),
 (25, 'HistÃ³ria I', 60, 'Primeira Guerra Mundial e RevoluÃ§Ã£o Francesa', 'Apresentar acontecimentos histÃ³ricos de relevÃ¢ncia', '', 20, 2, 'Livro de HistÃ³ria do ensino mÃ©dio', 2),
-(26, 'FÃ­sica 1', 60, 'Leis de Newton; Velocidade mÃ©dia; TermodinÃ¢mica', 'Estudar os fenÃ´menos bÃ¡sicos da fÃ­sica', '', 20, 2, 'Isaac Newton', 2);
+(26, 'FÃ­sica 1', 60, 'Leis de Newton; Velocidade mÃ©dia; TermodinÃ¢mica', 'Estudar os fenÃ´menos bÃ¡sicos da fÃ­sica', '', 20, 2, 'Isaac Newton', 2),
+(27, 'IKA', 2, 'IKA', 'IKA', 'IKA', 2, 2, 'IKA', 2);
 
 -- --------------------------------------------------------
 
@@ -171,6 +172,8 @@ CREATE TABLE `planos` (
   `id_plano` int(11) NOT NULL,
   `nome_plano` varchar(255) NOT NULL,
   `nome_docente` varchar(255) NOT NULL,
+  `campus` varchar(255) NOT NULL,
+  `anoSemestre` varchar(255) NOT NULL,
   `curso_plano` varchar(255) NOT NULL,
   `periodoC_plano` int(11) NOT NULL,
   `nomeDisc_plano` varchar(255) NOT NULL,
@@ -198,19 +201,20 @@ CREATE TABLE `planos` (
 -- Extraindo dados da tabela `planos`
 --
 
-INSERT INTO `planos` (`id_plano`, `nome_plano`, `nome_docente`, `curso_plano`, `periodoC_plano`, `nomeDisc_plano`, `carga_plano`, `semanas_plano`, `aulasT_plano`, `aulasP_plano`, `aulasL_plano`, `laboratorio`, `ementa_plano`, `objetivosG_plano`, `objetivosE_plano`, `aprendizagem`, `referencias_plano`, `complementares`, `p1_primeiro`, `p2_primeiro`, `p1_segundo`, `p2_segundo`, `situacao`, `comentario`) VALUES
-(1, 'PE LinguagemP 1025', 'Gilson Saturnino', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de ProgramaÃ§Ã£o I', 60, 20, 20, 20, 40, 69, 'Classes e Objetos, mÃ©todos e seus fundamentos', 'Fazer com que os discentes entendam a parte lÃ³gica da Ã¡rea de programaÃ§Ã£o orientada a objetos', 'Fazer atividades no computador com os discentes, ajudando e orientando-os a respeito do desenvolvimento com foco na teoria', 'Utilizarei duas provas por bimestre e uma recuperaÃ§Ã£o por bimestre', 'ASS', 'Alan Turing, ateu e Homossexual, e pai da ciencia da computaÃ§Ã£o', '2020-03-05', '2020-03-05', '2020-03-06', '2020-03-06', 'Aguardando', 'Sem comentÃ¡rios por eqnto'),
-(2, 'PE Portugues I 1027', 'Gilson Saturnino', 'Alimentos', 1, 'Portugues', 60, 20, 40, 0, 0, 0, 'Crase, RegÃªncia Verbal e Nominal, Substantivo e Adverbios', 'Estimular o desenvolvimento da Ã¡rea gramatical dos discentes', 'Dar uma aula show', 'Utilizarei duas provas por bimestre e uma recuperaÃ§Ã£o por bimestre', 'Machado de Assis', 'Nenhuma', '2020-03-18', '2020-03-27', '2020-03-04', '2020-03-27', 'CorrigirColegiado', ''),
-(3, 'TESTE', 'Gilson Saturnino', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de programaÃ§Ã£o I', 60, 20, 1, 2, 3, 69, 'IDE NetBens e lÃ³gica de programaÃ§Ã£o', 'Ensinar os discentes a mecher no Netbeans', 'A', 'A', 'Sommervile', 'A', '2020-04-10', '2020-04-24', '2020-04-08', '2020-04-26', 'Sucesso', ''),
-(4, 'Plano-HistÃ³ria ALTERADO', 'Gilson Saturnino', 'TÃ©cnico em informÃ¡tica', 2, 'HistÃ³ria I', 60, 20, 1, 1, 1, 69, 'Primeira Guerra Mundial e RevoluÃ§Ã£o Francesa', 'Apresentar acontecimentos histÃ³ricos de relevÃ¢ncia', 'a', 'a', 'Livro de HistÃ³ria do ensino mÃ©dio', 'a', '2020-04-15', '2020-04-11', '2020-04-21', '2020-04-22', 'Sucesso', ''),
-(5, 'ABA', 'Gilson Saturnino', '7', 1, 'Portugues', 60, 55, 1, 1, 1, 69, 'Portugues', 'EsmiuÃ§ar os principais tÃ³picos das classes gramaticais existentes na lÃ­ngua portuguesa', 'A', 'A', 'Livro de portuguÃªs do ensino mÃ©dio', 'A', '2020-04-16', '2020-04-17', '2020-04-20', '2020-04-09', 'Sucesso', ''),
-(6, 'PE LinguagemP 1025', 'Gilson Saturnino', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de ProgramaÃ§Ã£o I', 60, 20, 20, 20, 40, 69, 'Classes e Objetos, mÃ©todos e seus fundamentos', 'Fazer com que os discentes entendam a parte lÃ³gica da Ã¡rea de programaÃ§Ã£o orientada a objetos', 'Fazer atividades no computador com os discentes, ajudando e orientando-os a respeito do desenvolvimento com foco na teoria', 'Utilizarei duas provas por bimestre e uma recuperaÃ§Ã£o por bimestre', 'ASS', 'Alan Turing, ateu e Homossexual, e pai da ciencia da computaÃ§Ã£oAAAAAAAAAAAAAAAAAAAAAA', '2020-03-05', '2020-03-05', '2020-03-06', '2020-03-06', 'Aguardando', ''),
-(7, 'TESTE FINAL ULTIMATE STONKSSSSSSSSSSSSS', 'Gilson Saturnino', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de programaÃ§Ã£o I', 60, 20, 4, 4, 4, 0, 'Linguagem de programaÃ§Ã£o I', 'Ensinar os discentes a mecher no Netbeans', '', 'AAA', 'Sommervile', 'AAA', '2020-04-04', '2020-04-24', '2020-04-08', '2020-04-27', 'Sucesso', ''),
-(8, 'LKKKK', 'Gilson Saturnino', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de programaÃ§Ã£o I', 60, 20, 2, 2, 2, 0, 'Linguagem de programaÃ§Ã£o I', 'Ensinar os discentes a mecher no Netbeans', 'AAA', 'AAA', 'Sommervile', 'AAA', '2020-04-16', '2020-04-17', '2020-04-30', '2020-04-07', 'Novo', ''),
-(9, 'A', 'Gilson Saturnino', 'Alimentos', 1, 'Portugues', 60, 55, 10, 20, 90, 69, 'Portugues', 'EsmiuÃ§ar os principais tÃ³picos das classes gramaticais existentes na lÃ­ngua portuguesa', 'aaa', 'aaaa', 'Livro de portuguÃªs do ensino mÃ©dio', 'aaaaa', '2020-04-04', '2020-04-11', '2020-04-18', '2020-04-25', 'Novo', ''),
-(10, 'Pe fe', 'Gilson Saturnino', 'TÃ©cnico em informÃ¡tica', 2, 'HistÃ³ria I', 60, 20, 10, 10, 0, 0, 'HistÃ³ria I', 'Apresentar acontecimentos histÃ³ricos de relevÃ¢ncia', 'hihk', 'kgfum', 'Livro de HistÃ³ria do ensino mÃ©dio', 'kjgjk', '2020-04-15', '2020-04-16', '2020-04-15', '2020-04-21', 'Novo', ''),
-(11, 'B', 'Gilson Saturnino', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de programaÃ§Ã£o I', 60, 20, 10, 10, 0, 0, 'Linguagem de programaÃ§Ã£o I', 'Ensinar os discentes a mecher no Netbeans', 'aaa', 'aaaaa', 'Sommervile', 'aaaaaa', '2020-12-30', '2020-04-13', '2020-04-01', '2020-04-08', 'Aguardando', ''),
-(12, 'PE portugues 2020 A', 'Gilson Saturnino', 'TÃ©cnico em informÃ¡tica', 2, 'HistÃ³ria I', 60, 20, 10, 20, 20, 0, 'HistÃ³ria I', 'Apresentar acontecimentos histÃ³ricos de relevÃ¢ncia', 'ihik', 'hhkÃ§l', 'Livro de HistÃ³ria do ensino mÃ©dio', 'kkÃ§kÃ§', '2020-04-20', '2020-04-21', '2020-04-22', '2020-04-23', 'Novo', '');
+INSERT INTO `planos` (`id_plano`, `nome_plano`, `nome_docente`, `campus`, `anoSemestre`, `curso_plano`, `periodoC_plano`, `nomeDisc_plano`, `carga_plano`, `semanas_plano`, `aulasT_plano`, `aulasP_plano`, `aulasL_plano`, `laboratorio`, `ementa_plano`, `objetivosG_plano`, `objetivosE_plano`, `aprendizagem`, `referencias_plano`, `complementares`, `p1_primeiro`, `p2_primeiro`, `p1_segundo`, `p2_segundo`, `situacao`, `comentario`) VALUES
+(1, 'PE LinguagemP 1025', 'Gilson Saturnino', '', '', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de ProgramaÃ§Ã£o I', 60, 20, 20, 20, 40, 69, 'Classes e Objetos, mÃ©todos e seus fundamentos', 'Fazer com que os discentes entendam a parte lÃ³gica da Ã¡rea de programaÃ§Ã£o orientada a objetos', 'Fazer atividades no computador com os discentes, ajudando e orientando-os a respeito do desenvolvimento com foco na teoria', 'Utilizarei duas provas por bimestre e uma recuperaÃ§Ã£o por bimestre', 'ASS', 'Alan Turing, ateu e Homossexual, e pai da ciencia da computaÃ§Ã£o', '2020-03-05', '2020-03-05', '2020-03-06', '2020-03-06', 'Aguardando', 'Sem comentÃ¡rios por eqnto'),
+(2, 'PE Portugues I 1027', 'Gilson Saturnino', '', '', 'Alimentos', 1, 'Portugues', 60, 20, 40, 0, 0, 0, 'Crase, RegÃªncia Verbal e Nominal, Substantivo e Adverbios', 'Estimular o desenvolvimento da Ã¡rea gramatical dos discentes', 'Dar uma aula show', 'Utilizarei duas provas por bimestre e uma recuperaÃ§Ã£o por bimestre', 'Machado de Assis', 'Nenhuma', '2020-03-18', '2020-03-27', '2020-03-04', '2020-03-27', 'Aguardando', ''),
+(3, 'TESTE', 'Gilson Saturnino', '', '', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de programaÃ§Ã£o I', 60, 20, 1, 2, 3, 69, 'IDE NetBens e lÃ³gica de programaÃ§Ã£o', 'Ensinar os discentes a mecher no Netbeans', 'A', 'A', 'Sommervile', 'A', '2020-04-10', '2020-04-24', '2020-04-08', '2020-04-26', 'Sucesso', ''),
+(4, 'Plano-HistÃ³ria ALTERADO', 'Gilson Saturnino', '', '', 'TÃ©cnico em informÃ¡tica', 2, 'HistÃ³ria I', 60, 20, 1, 1, 1, 69, 'Primeira Guerra Mundial e RevoluÃ§Ã£o Francesa', 'Apresentar acontecimentos histÃ³ricos de relevÃ¢ncia', 'a', 'a', 'Livro de HistÃ³ria do ensino mÃ©dio', 'a', '2020-04-15', '2020-04-11', '2020-04-21', '2020-04-22', 'Sucesso', ''),
+(5, 'ABA', 'Gilson Saturnino', '', '', '7', 1, 'Portugues', 60, 55, 1, 1, 1, 69, 'Portugues', 'EsmiuÃ§ar os principais tÃ³picos das classes gramaticais existentes na lÃ­ngua portuguesa', 'A', 'A', 'Livro de portuguÃªs do ensino mÃ©dio', 'A', '2020-04-16', '2020-04-17', '2020-04-20', '2020-04-09', 'Sucesso', ''),
+(6, 'PE LinguagemP 1025', 'Gilson Saturnino', '', '', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de ProgramaÃ§Ã£o I', 60, 20, 20, 20, 40, 69, 'Classes e Objetos, mÃ©todos e seus fundamentos', 'Fazer com que os discentes entendam a parte lÃ³gica da Ã¡rea de programaÃ§Ã£o orientada a objetos', 'Fazer atividades no computador com os discentes, ajudando e orientando-os a respeito do desenvolvimento com foco na teoria', 'Utilizarei duas provas por bimestre e uma recuperaÃ§Ã£o por bimestre', 'ASS', 'Alan Turing, ateu e Homossexual, e pai da ciencia da computaÃ§Ã£oAAAAAAAAAAAAAAAAAAAAAA', '2020-03-05', '2020-03-05', '2020-03-06', '2020-03-06', 'CorrigirColegiado', ''),
+(7, 'TESTE FINAL ULTIMATE STONKSSSSSSSSSSSSS', 'Gilson Saturnino', '', '', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de programaÃ§Ã£o I', 60, 20, 4, 4, 4, 0, 'Linguagem de programaÃ§Ã£o I', 'Ensinar os discentes a mecher no Netbeans', '', 'AAA', 'Sommervile', 'AAA', '2020-04-04', '2020-04-24', '2020-04-08', '2020-04-27', 'Sucesso', ''),
+(8, 'LKKKK', 'Gilson DOS SANTOS', '', '', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de programaÃ§Ã£o I', 60, 20, 2, 2, 2, 0, 'Linguagem de programaÃ§Ã£o I', 'Ensinar os discentes a mecher no Netbeans', 'AAA', 'AAA', 'Sommervile', 'AAA', '2020-04-16', '2020-04-17', '2020-04-30', '2020-04-07', 'Novo', ''),
+(9, 'A', 'Gilson Saturnino', '', '', 'Alimentos', 1, 'Portugues', 60, 55, 10, 20, 90, 69, 'Portugues', 'EsmiuÃ§ar os principais tÃ³picos das classes gramaticais existentes na lÃ­ngua portuguesa', 'aaa', 'aaaa', 'Livro de portuguÃªs do ensino mÃ©dio', 'aaaaa', '2020-04-04', '2020-04-11', '2020-04-18', '2020-04-25', 'Novo', ''),
+(10, 'Pe fe', 'Gilson Saturnino', '', '', 'TÃ©cnico em informÃ¡tica', 2, 'HistÃ³ria I', 60, 20, 10, 10, 0, 0, 'HistÃ³ria I', 'Apresentar acontecimentos histÃ³ricos de relevÃ¢ncia', 'hihk', 'kgfum', 'Livro de HistÃ³ria do ensino mÃ©dio', 'kjgjk', '2020-04-15', '2020-04-16', '2020-04-15', '2020-04-21', 'Novo', ''),
+(11, 'B', 'Gilson Saturnino', '', '', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de programaÃ§Ã£o I', 60, 20, 10, 10, 0, 0, 'Linguagem de programaÃ§Ã£o I', 'Ensinar os discentes a mecher no Netbeans', 'aaa', 'aaaaa', 'Sommervile', 'aaaaaa', '2020-12-30', '2020-04-13', '2020-04-01', '2020-04-08', 'CorrigirColegiado', ''),
+(12, 'PE portugues 2020 A', 'Gilson Saturnino', '', '', 'TÃ©cnico em informÃ¡tica', 2, 'HistÃ³ria I', 60, 20, 10, 20, 20, 0, 'HistÃ³ria I', 'Apresentar acontecimentos histÃ³ricos de relevÃ¢ncia', 'ihik', 'hhkÃ§l', 'Livro de HistÃ³ria do ensino mÃ©dio', 'kkÃ§kÃ§', '2020-04-20', '2020-04-21', '2020-04-22', '2020-04-23', 'Novo', ''),
+(13, 'AAA', 'Gilson Saturnino', 'Coxim', '2020 / 1', 'Alimentos', 1, 'Portugues', 60, 55, 1, 2, 3, 69, 'Portugues', 'EsmiuÃ§ar os principais tÃ³picos das classes gramaticais existentes na lÃ­ngua portuguesa', '', 'AA', 'Livro de portuguÃªs do ensino mÃ©dio', 'AA', '2020-04-03', '2020-04-18', '2020-04-08', '2020-04-15', 'Novo', '');
 
 -- --------------------------------------------------------
 
@@ -241,88 +245,100 @@ INSERT INTO `usuarios` (`id`, `email`, `nome`, `senha`, `perfil`) VALUES
 (11, 'a', 'a', 'a', 'Docente');
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `chat`
+-- Indexes for table `chat`
 --
 ALTER TABLE `chat`
   ADD PRIMARY KEY (`id_chat`);
 
 --
--- Índices para tabela `curso`
+-- Indexes for table `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `curso`
 --
 ALTER TABLE `curso`
   ADD PRIMARY KEY (`id_curso`);
 
 --
--- Índices para tabela `detalhamento`
+-- Indexes for table `detalhamento`
 --
 ALTER TABLE `detalhamento`
   ADD PRIMARY KEY (`id_det`);
 
 --
--- Índices para tabela `disciplina`
+-- Indexes for table `disciplina`
 --
 ALTER TABLE `disciplina`
   ADD PRIMARY KEY (`id_disciplina`),
   ADD KEY `id_curso` (`id_curso`);
 
 --
--- Índices para tabela `planos`
+-- Indexes for table `planos`
 --
 ALTER TABLE `planos`
   ADD PRIMARY KEY (`id_plano`);
 
 --
--- Índices para tabela `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `chat`
+-- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
--- AUTO_INCREMENT de tabela `curso`
+-- AUTO_INCREMENT for table `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `curso`
 --
 ALTER TABLE `curso`
   MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de tabela `detalhamento`
+-- AUTO_INCREMENT for table `detalhamento`
 --
 ALTER TABLE `detalhamento`
   MODIFY `id_det` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de tabela `disciplina`
+-- AUTO_INCREMENT for table `disciplina`
 --
 ALTER TABLE `disciplina`
-  MODIFY `id_disciplina` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_disciplina` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT de tabela `planos`
+-- AUTO_INCREMENT for table `planos`
 --
 ALTER TABLE `planos`
-  MODIFY `id_plano` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_plano` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT de tabela `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --

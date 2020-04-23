@@ -45,29 +45,85 @@ opacity: 0.9;
                     <div class="card-body">
                         <form action="SalvarCurso.php" method="POST" onsubmit="" name="">
                             <div class="form-row">
-                            <div class="col-3">
-                                <label>
-                                    <h5 class="text-primary">Id do Curso</h5>
-                                </label><br>
-                                <input type="text" class="form-control" value="<?=$vetorUmregistro["id_curso"]; ?>" name="idCurso" readonly
-                                    placeholder="Automático">
-                            </div><br>
-                            <div class="col-6">
-                                <label class="validationDefault01">
-                                    <h5 class="text-primary">Nome Curso</h5>
-                                </label><br>
-                                <input type="text" class="form-control" value="<?=$vetorUmregistro["nome_curso"]; ?>" name="nomeCurso"
-                                id="validationDefault01" placeholder="" required>
-                            </div><br>
+                                <div class="col-3">
+                                    <label>
+                                        <h5 class="text-primary">Id do Curso</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" value="<?=$vetorUmregistro["id_curso"]; ?>" name="idCurso" readonly
+                                        placeholder="Automático">
+                                </div><br>
+                                <div class="col-6">
+                                    <label class="validationDefault01">
+                                        <h5 class="text-primary">Nome do Curso</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" value="<?=$vetorUmregistro["nome_curso"]; ?>" name="nomeCurso"
+                                    id="validationDefault01" placeholder="" required> <br>
+                                </div><br>
+                            </div>
+                            <div class="form-row">
                             <div class="col-9">
-                                <label class="validationDefault02">
-                                    <h5 class="text-primary">Descrição do Curso</h5>
+                                    <label class="validationDefault20">
+                                        <h5 class="text-primary">Nome do coordenador</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" value="<?=$vetorUmregistro["coordenador"]; ?>" name="coordenador"
+                                    id="validationDefault20" placeholder="" required> <br>
+                                </div><br>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-5">
+                                    <label class="validationDefault02">
+                                        <h5 class="text-primary">Duração do Curso Anos / Semestres</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" value="<?=$vetorUmregistro["duracao"]; ?>" name="duracao"
+                                    id="validationDefault02" placeholder="" required> <br>
+                                </div><br>
+                                <div class="col-4">
+                                    <label class="validationDefault02">
+                                            <h5 class="text-primary">Carga Horária - horas</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" value="<?=$vetorUmregistro["cargahoraria"]; ?> horas" name="cargahoraria"
+                                        id="validationDefault02" placeholder="" required> <br>
+                                </div>
+                                <div class="col-3">
+                                    <label class="validationDefault19">
+                                        <h5 class="text-primary">Campus</h5>
+                                    </label><br>
+                                    <select class="custom-select" name="campus" id="validationDefault19" required>
+                                        <option selected  value=""></option>
+                                        <option>Aquidauana</option>
+                                        <option>Campo Grande</option>
+                                        <option>Corumbá</option>
+                                        <option>Coxim</option>
+                                        <option>Dourados</option>
+                                        <option>Jardim</option>
+                                        <option>Naviraí</option>
+                                        <option>Nova Andradina</option>
+                                        <option>Ponta porã</option>
+                                        <option>Três Lagoas</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-9">
+                                    <label class="validationDefault04">
+                                        <h5 class="text-primary">Descrição do Curso</h5>
+                                    </label><br>
+                                    <textarea name="descricao" class="char valid form-control" rows="4" id="validationDefault04" required><?=$vetorUmregistro["descricao_curso"];?></textarea>
+                                </div>
+                            </div><br>
+                            <div class="form-row">
+                            <div class="col-9">
+                                <label class="validationDefault05">
+                                    <h5 class="text-primary">Ementa do Curso</h5>
                                 </label><br>
-                                <input type="text" class="form-control" value="<?=$vetorUmregistro["descricao_curso"]; ?>"
-                                id="validationDefault02" name="descricaoCurso" placeholder="" required>
+                                <textarea name="ementa" class="char valid form-control" rows="4" id="validationDefault05" required><?=$vetorUmregistro["ementa"];?></textarea>
                             </div></div><br>
                             
                             <div>
+                            </div>
+                            
+                            <div>
+
                                 <button type="submit" class="btn btn-primary">Salvar</button>
                             </div>
                         </form>

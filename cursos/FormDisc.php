@@ -64,26 +64,41 @@ opacity: 0.9;
                                         </div>
                                     </div><br>
                                     <div class="form-row">
-                                        <div class="col-8">
+                                        <div class="col-4">
                                             <label class="validationDefault01">
                                                 <h5 class="text-primary">Nome da Disciplina</h5>
                                             </label><br>
                                             <input type="text" class="form-control" name="nomeDisc" id="validationDefault01"
                                                 value="<?=$vetorUmregistro["nome_disciplina"];?>" required>
                                         </div><br>
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <label class="validationDefault02">
                                                 <h5 class="text-primary">Carga Horaria</h5>
                                             </label><br>
                                             <input type="text" class="form-control" name="cargaHoraria" id="validationDefault02"
                                                 value="<?=$vetorUmregistro["carga_horaria"];?>" required>
                                         </div>
+
+                                        <div class="col-3">
+                                            <label class="validationDefault05">
+                                                <h5 class="text-primary">Nº de Semanas</h5>
+                                            </label><br>
+                                            <input type="text" class="form-control" name="numeroSemana" id="validationDefault05"
+                                                value="<?=$vetorUmregistro["numero_semanas"];?>" required>
+                                        </div>
+                                        <div class="col-2">
+                                            <label class="validationDefault06">
+                                                <h5 class="text-primary">Período do Curso</h5>
+                                            </label><br>
+                                            <input type="text" class="form-control" name="periodoCurso" id="validationDefault06"
+                                                value="<?=$vetorUmregistro["periodo_curso"];?>" required> <br>
+                                        </div>
                                     </div><br>
                                     <div>
                                     <label class="validationDefault03">
                                         <h5 class="text-primary">Ementa</h5>
                                     </label><br>
-                                    <textarea name="ementa" class="char valid form-control" rows="4" id="validationDefault03" required><?=$vetorUmregistro["ementa"];?></textarea>
+                                    <textarea name="ementa" class="char valid form-control" rows="4" id="validationDefault03" required><?=$vetorUmregistro["ementa"];?></textarea><br>
                                     </div>
                                     <div>
                                         <label class="validationDefault04">
@@ -91,29 +106,18 @@ opacity: 0.9;
                                         </label><br>
                                             <textarea name="objetivosG" class="char valid form-control" rows="4" id="validationDefault04" required><?=$vetorUmregistro["objetivosG"];?></textarea>
                                     </div><br>
-                                    <div class="form-row">
-                                        <div class="col-6">
-                                            <label class="validationDefault05">
-                                                <h5 class="text-primary">Nº de Semanas</h5>
-                                            </label><br>
-                                            <input type="text" class="form-control" name="numeroSemana" id="validationDefault05"
-                                                value="<?=$vetorUmregistro["numero_semanas"];?>" required>
-                                        </div>
-                                        <div class="col-6">
-                                            <label class="validationDefault06">
-                                                <h5 class="text-primary">Período do Curso</h5>
-                                            </label><br>
-                                            <input type="text" class="form-control" name="periodoCurso" id="validationDefault06"
-                                                value="<?=$vetorUmregistro["periodo_curso"];?>" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                    <div class="col-md-12 mt-4">
-                                        <label class="validationDefault07">
-                                            <h5 class="text-primary">Bibliografia Básica</h5>
+                                    <div>
+                                        <label class="validationDefault09">
+                                            <h5 class="text-primary">Objetivos Especificos</h5>
                                         </label><br>
-                                        <input type="text" class="form-control" name="referencias" id="validationDefault07"
-                                            value="<?=$vetorUmregistro["referencias"];?>" required>
+                                            <textarea name="objetivosE" class="char valid form-control" rows="4" id="validationDefault09" required><?=$vetorUmregistro["objetivosG"];?></textarea>
+                                    </div><br>
+                                    <div class="form-row">
+                                    <div class="col-md-12">
+                                        <label class="validationDefault07">
+                                            <h5 class="text-primary">Bibliografia Básica / Complementar</h5>
+                                        </label><br>
+                                        <textarea name="referencias" class="char valid form-control" rows="4" id="validationDefault07" required><?=$vetorUmregistro["referencias"];?></textarea><br>
                                     </div>
                                     <div class="col-md-5">
                                         <label class="validationDefault08">

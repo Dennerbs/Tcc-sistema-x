@@ -7,7 +7,7 @@ $idplano = $_POST["idplano"];
 $usuario = $_POST["nome"];
 $perfil = $_POST["perfil"];
 $comentario = $_POST["comentario"];
-date_default_timezone_set('America/Sao_Paulo');
+date_default_timezone_set('America/Campo_Grande');
 $data = date('Y-m-d H:i');
 	$sql = "insert into comentarios (usuario,perfil,comentario,horario,id_plano) values (?,?,?,?,?)";
     $sqlprep = $conexao ->prepare($sql);

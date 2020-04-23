@@ -58,7 +58,9 @@
         
     </div>
     </div>
-      
+    <?php
+        require_once("Footer.php");
+        ?>
     </div>
 
   </body>

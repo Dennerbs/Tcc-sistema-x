@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <style>
-        td{
-            font-size: 14px;
-        }
         input{
             opacity: 0.9;
         }
@@ -34,23 +31,21 @@
     
     
 ?>
-         <a type="submit" class="btn btn-success btn-lg btn-block mt-4" href="FormDisc.php" role="button">Cadastrar</a>
-
-         <table class="table mt-4" style="background-color:#FFFFFF;">
-
+         <a type="submit" class="btn btn-lg btn-block mt-4" style="background-color:#04b826;" href="FormDisc.php" role="button">Cadastrar</a>
+         
         <table class="table mt-4" style="background-color:#FFFFFF;">
 
             <tr>
-                <th class="text-success text-justify">Nome Disciplina</th>
-                <th class="text-success text-center">Carga Horaria</th>
-                <th class="text-success text-justify">Ementa</th>
-                <th class="text-success text-justify">Objetivos gerais</th>
-                <th class="text-success text-center">Nº Semanas</th>
-                <th class="text-success text-center">Periodo do Curso</th>
-                <th class="text-success text-center">Referencias</th>
-                <th class="text-success text-justify">Curso</th>
+                <th class="text-primary text-left" style="font-size: 10px;">Unidade Curricular</th>
+                <th class="text-primary text-left" style="font-size: 10px;">Carga Horaria</th>
+                <th class="text-primary text-left" style="font-size: 10px;">Ementa</th>
+                <th class="text-primary text-left" style="font-size: 10px;">Objetivos gerais</th>
+                <th class="text-primary text-left" style="font-size: 10px;">Nº Semanas</th>
+                <th class="text-primary text-left" style="font-size: 10px;">Periodo do Curso</th>
+                <th class="text-primary text-left" style="font-size: 10px;">Referencias</th>
+                <th class="text-primary text-left" style="font-size: 10px;">Curso</th>
 
-                <th colspan="2" class="text-success text-center">Alterações</th>
+                <th colspan="2" class="text-primary text-center">Alterações</th>
             </tr>
             <?php
     
@@ -58,14 +53,14 @@
     ?>
             <tr>
 
-                <td class="text-justify"><?=$umRegistro["nome_disciplina"];?></td>
-                <td class="text-center"><?=$umRegistro["carga_horaria"];?></td>
-                <td class="text-justify"><?=$umRegistro["ementa"];?></td>
-                <td class="text-justify"><?=$umRegistro["objetivosG"];?></td>
-                <td class="text-center"><?=$umRegistro["numero_semanas"];?></td>
-                <td class="text-center"><?=$umRegistro["periodo_curso"];?></td>
-                <td class="text-justify"><?=$umRegistro["referencias"];?></td>
-                <td>
+                <td class="text-left" style="font-size: 10px;"><?=$umRegistro["nome_disciplina"];?></td>
+                <td class="text-left" style="font-size: 10px;"><?=$umRegistro["carga_horaria"];?></td>
+                <td class="text-left" style="font-size: 10px;"><?=$umRegistro["ementa"];?></td>
+                <td class="text-left" style="font-size: 10px;"><?=$umRegistro["objetivosG"];?></td>
+                <td class="text-left" style="font-size: 10px;"><?=$umRegistro["numero_semanas"];?></td>
+                <td class="text-left" style="font-size: 10px;"><?=$umRegistro["periodo_curso"];?></td>
+                <td class="text-left" style="font-size: 10px;"><?=$umRegistro["referencias"];?></td>
+                <td class="text-left" style="font-size: 10px;">
                     <?php
                     $idC =$umRegistro["id_curso"];
                     $sql = "select nome_curso from curso  where id_curso = $idC";
@@ -77,13 +72,13 @@
                 <td>
                     <form action="RemoverDisciplina.php" method="POST">
                         <input type="hidden" name="id" value="<?= $umRegistro["id_disciplina"]; ?>">
-                        <button type="submit" class="btn btn-danger">Remover</button>
+                        <button type="submit" class="btn" style="background-color:#fc6c5a">Remover</button>
                     </form>
                 </td>
                 <td>
                     <form action="FormDisc.php" method="POST">
                         <input type="hidden" name="id_disciplina" value="<?= $umRegistro["id_disciplina"]; ?>">
-                        <button type="submit" class="btn btn-info">Atualizar</button>
+                        <button type="submit" class="btn" style="background-color:#ADD8E6;">Atualizar</button>
                     </form>
                 </td>
 

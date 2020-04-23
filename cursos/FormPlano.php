@@ -22,6 +22,7 @@
 </head>
 
 <body>
+
     <div class="container">
         <?php 
         require_once("Cabecalho.php");
@@ -67,7 +68,7 @@
                         <form method="POST" action="EscolhaDisc.php" class="form-inline">
                             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Disciplinas</label>
                             <select class="custom-select my-1 mr-sm-2" id="selecionar" name="idDisc">
-                                <option selected disabled>Disciplinas</option>
+                                <option selected disabled>Disciplina</option>
                                 <?php foreach ($vetorTodosRegistros as $umRegistro){ ?>
                                 <option value="<?=$umRegistro["id_disciplina"];?>">
                                     <?=$umRegistro["nome_disciplina"];?>
@@ -116,7 +117,7 @@
                             $curso=$valor["id_curso"];
                         endforeach;
 
-                        $sql = "select nome_curso from curso where id_curso =?";
+                        $sql = "select nome_curso,campus from curso where id_curso =?";
                         $sqlprep = $conexao->prepare($sql);
                         $sqlprep->bind_param("i",$curso);
                         $sqlprep->execute();
@@ -137,22 +138,56 @@
                             <input type="hidden" class="form-control" name="id_plano" 
                             value="">
                             </div>
-                            <div>
-                                <label class="validationDefault01">
-                                    <h5 class="text-primary">Nome do plano de ensino</h5>
-                                </label><br>
-                                <input type="text" class="form-control" name="nomePlano" id="validationDefault01"
-                                    placeholder=" Exemplo: Plano-Portugues 1027" required>
-                            </div><br>
-                            <div>
-                                <label class="validationDefault02">
-                                    <h5 class="text-primary">Nome do docente</h5>
-                                </label><br>
-                                <input type="text" class="form-control" name="nomeDocente" id="validationDefault02"
-                                    value="<?=$_SESSION["nome"]; ?>" required>
+                            <div class="form-row">
+                                <div class="col-6">
+                                    <label class="validationDefault01">
+                                        <h5 class="text-primary">Classe</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" name="nomePlano" id="validationDefault01"
+                                        placeholder=" Exemplo: Algoritmos I- CX 1027" required>
+                                </div><br>
+                            </div> <br>
+                            <div class="form-row">
+                                <div class="col-6">
+                                    <label class="validationDefault02">
+                                        <h5 class="text-primary">Nome do docente</h5>
+                                    </label><br>
+                                    <input type="text" class="form-control" name="nomeDocente" id="validationDefault02"
+                                        value="<?=$_SESSION["nome"]; ?>" required readonly>
+                                </div><br>
                             </div><br>
                             <div class="form-row">
-                                <div class="col-9">
+                                <div class="col-3">
+                                    <label class="validationDefault26">
+                                        <h5 class="text-primary">Campus</h5>
+                                    </label><br>
+                                    <select class="custom-select" name="campus" id="validationDefault26" required>
+                                        <option selected disabled value="">Campus</option>
+                                        <option>Aquidauana</option>
+                                        <option>Campo Grande</option>
+                                        <option>Corumbá</option>
+                                        <option>Coxim</option>
+                                        <option>Dourados</option>
+                                        <option>Jardim</option>
+                                        <option>Naviraí</option>
+                                        <option>Nova Andradina</option>
+                                        <option>Ponta porã</option>
+                                        <option>Três Lagoas</option>
+                                    </select>
+                                </div>
+                                <div class="col-3">
+                                    <label class="validationDefault25">
+                                        <?php
+                                            date_default_timezone_set('America/Campo_Grande');
+                                            $data = date('o');
+                                        ?>
+                                        <h5 class="text-primary">Ano / Semestre</h5>
+                                    </label>
+                                    <input type="text" class="form-control" name="anoSemestre" value="<?=$data; ?> / " id="validationDefault25" required>
+                                </div>
+                            </div><br>
+                            <div class="form-row">
+                                <div class="col-6">
                                     <label>
                                         <h5 class="text-primary">Curso</h5>
                                     </label><br>
@@ -160,7 +195,7 @@
                                     <input type="text" class="form-control" name="nomeCurso" value="<?=$nomeCurso ?>"
                                         readonly>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-4">
                                     <label>
                                         <h5 class="text-primary">Período do Curso</h5>
                                     </label><br>
@@ -172,19 +207,19 @@
 
                                 <div class="col-4">
                                     <label>
-                                        <h5 class="text-primary">Nome da Disciplina</h5>
+                                        <h5 class="text-primary">Unidade Curricular</h5>
                                     </label><br>
                                     <input type="text" class="form-control" value="<?=$nome; ?>" name="nomeDisc"
                                         readonly>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-3">
                                     <label>
-                                        <h5 class="text-primary">Carga Horária</h5>
+                                        <h5 class="text-primary">Carga Horária - horas</h5>
                                     </label><br>
                                     <input type="text" class="form-control" value="<?=$carga?> horas" name="cargaDisc"
                                         placeholder="" readonly>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-3">
                                     <label>
                                         <h5 class="text-primary">N° de semanas aula </h5>
                                     </label><br>
@@ -193,13 +228,13 @@
                                 </div>
                             </div>
                             <div class="form-row mt-4">
-                                <div class="col-3">
+                                <div class="col-2">
                                     <label class="validationDefault03">
                                         <h5 class="text-primary">Aulas teóricas</h5>
                                     </label><br>
                                     <input type="text" class="form-control" name="aulasT" id="validationDefault03" required>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-2">
                                     <label class="validationDefault04">
                                         <h5 class="text-primary">Aulas práticas</h5>
                                     </label><br>
@@ -227,19 +262,19 @@
                                     <label class="validationDefault07">
                                     <h5 class="text-primary">Ementa</h5>
                                     </label><br>
-                                    <textarea name="ementaDisc" class="char valid form-control" rows="4" id="validationDefault07" required><?=$nome; ?></textarea>
+                                    <textarea name="ementaDisc" class="char valid form-control" rows="4" id="validationDefault07" required readonly><?=$nome; ?></textarea>
                                 </div>
                                 <div class="col-md-12 mt-4">
                                     <label class="validationDefault08">
                                     <h5 class="text-primary">Objetivos Gerais</h5>
                                     </label><br>
-                                    <textarea name="objetivosG" class="char valid form-control" rows="4" id="validationDefault08" required><?=$objetivosG; ?></textarea>
+                                    <textarea name="objetivosG" class="char valid form-control" rows="4" id="validationDefault08" required readonly><?=$objetivosG; ?></textarea>
                                 </div>
                                 <div class="col-md-12 mt-4">
                                     <label class="validationDefault09">
                                     <h5 class="text-primary">Objetivos Específicos</h5>
                                     </label><br>
-                                    <textarea name="objetivosE" class="char valid form-control" rows="4" id="validationDefault09" required><?=$objetivosE; ?></textarea>
+                                    <textarea name="objetivosE" class="char valid form-control" rows="4" id="validationDefault09" required readonly><?=$objetivosE; ?></textarea>
                                 </div>
                             </div>
                             <div class="form-row mt-4">
@@ -251,13 +286,13 @@
                                 </div>
                                 <div class="col-md-12 mt-4">
                                     <label class="validationDefault11">
-                                    <h5 class="text-primary">Referências Bibliográficas</h5>
+                                    <h5 class="text-primary">Referências Bibliográficas / Complementares</h5>
                                     </label><br>
                                     <textarea name="referenciasB" class="char valid form-control" rows="4" id="validationDefault11" required readonly><?=$referencias; ?></textarea>
                                 </div>
                                 <div class="col-md-12 mt-4">
                                     <label class="validationDefault12">
-                                    <h5 class="text-primary">Referências Complementares</h5>
+                                    <h5 class="text-primary">Referências Complementares do docente</h5>
                                     </label><br>
                                     <textarea name="referenciasC" class="char valid form-control" rows="4" id="validationDefault12" required ></textarea>
                                 </div>

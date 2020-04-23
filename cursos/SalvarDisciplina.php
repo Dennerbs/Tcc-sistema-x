@@ -8,19 +8,20 @@
     $idCursos = $_POST["id_curso"];
     $idDisc = $_POST["idDisc"];
     $objetivosG = $_POST["objetivosG"];
+    $objetivosE = $_POST["objetivosE"];
 
     require_once("Conexao.php");
     if($idDisc == 0){        
-    $sql = "insert into disciplina (nome_disciplina,carga_horaria,ementa,objetivosG,numero_semanas,periodo_curso,referencias,id_curso) 
-    values (?,?,?,?,?,?,?,?)";
+    $sql = "insert into disciplina (nome_disciplina,carga_horaria,ementa,objetivosG,objetivosE,numero_semanas,periodo_curso,referencias,id_curso) 
+    values (?,?,?,?,?,?,?,?,?)";
     $sqlprep = $conexao ->prepare($sql);
-    $sqlprep -> bind_param("sissiisi",$nomeDisc, $cargaH,$ementa,$objetivosG,$nSemana,$periodoC,$referencias,$idCursos);
+    $sqlprep -> bind_param("sisssiisi",$nomeDisc,$cargaH,$ementa,$objetivosG,$objetivosE,$nSemana,$periodoC,$referencias,$idCursos);
     $sqlprep -> execute();
     header("location: ListarDisciplina.php"); 
     }else{
-        $sql = "update disciplina set nome_disciplina=?,carga_horaria=?,ementa=?,objetivosG=?,numero_semanas=?,periodo_curso=?,referencias=?,id_curso=? where id_disciplina=?";
+        $sql = "update disciplina set nome_disciplina=?,carga_horaria=?,ementa=?,objetivosG=?,objetivosE=?,numero_semanas=?,periodo_curso=?,referencias=?,id_curso=? where id_disciplina=?";
         $sqlprep =$conexao ->prepare($sql);
-        $sqlprep -> bind_param("sissiisii",$nomeDisc,$cargaH,$ementa,$objetivosG,$nSemana,$periodoC,$referencias,$idCursos,$idDisc);
+        $sqlprep -> bind_param("sisssiisii",$nomeDisc,$cargaH,$ementa,$objetivosG,$objetivosE,$nSemana,$periodoC,$referencias,$idCursos,$idDisc);
         $sqlprep -> execute();
     header("location: ListarDisciplina.php");  
     }

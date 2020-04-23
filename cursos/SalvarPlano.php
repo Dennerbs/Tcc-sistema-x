@@ -1,6 +1,8 @@
 <?php
     $nomePlano = $_POST["nomePlano"];
     $nomeDocente = $_POST["nomeDocente"];
+    $campus = $_POST["campus"];
+    $anoSemestre = $_POST["anoSemestre"];
     $nomeCurso = $_POST["nomeCurso"];
     $periodoC = $_POST["periodoC"];
     $nomeDisc = $_POST["nomeDisc"];
@@ -28,12 +30,12 @@
     if($id_plano==0){
     $situacao ="Novo";
     $comentarios="";
-    $sql = "insert into planos (nome_plano,nome_docente,curso_plano,periodoC_plano,nomeDisc_plano,carga_plano,semanas_plano,
+    $sql = "insert into planos (nome_plano,nome_docente,campus,anoSemestre,curso_plano,periodoC_plano,nomeDisc_plano,carga_plano,semanas_plano,
         aulasT_plano,aulasP_plano,aulasL_plano,laboratorio,ementa_plano,objetivosG_plano,objetivosE_plano,aprendizagem,
         referencias_plano,complementares,p1_primeiro,p2_primeiro,p1_segundo,p2_segundo,situacao)
-        values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     $sqlprep = $conexao ->prepare($sql);
-    $sqlprep -> bind_param("sssisiiiiissssssssssss",$nomePlano,$nomeDocente,$nomeCurso,$periodoC,$nomeDisc,$cargaDisc,$semanaDisc,
+    $sqlprep -> bind_param("sssssisiiiiissssssssssss",$nomePlano,$nomeDocente,$campus,$anoSemestre,$nomeCurso,$periodoC,$nomeDisc,$cargaDisc,$semanaDisc,
         $aulasT,$aulasP,$aulasL,$laboratorio,$ementaDisc,$objetivosG,$objetivosE,$avaliacaoA,$referenciasB,$referenciasC,$p1primeiro,$p2primeiro,$p1segundo,$p2segundo,$situacao);
     if($sqlprep -> execute()){
         $_SESSION["inseridoPlano"]="Plano de ensino foi adicionado com sucesso";
@@ -46,10 +48,10 @@
         header("location: FormPlano.php"); 
     }
 }else{
-        $sql = "update planos set nome_plano=?,nome_docente=?,curso_plano=?,periodoC_plano=?,nomeDisc_plano=?,carga_plano=?,semanas_plano=?,
+        $sql = "update planos set nome_plano=?,nome_docente=?,campus=?,anoSemestre=?,curso_plano=?,periodoC_plano=?,nomeDisc_plano=?,carga_plano=?,semanas_plano=?,
         aulasT_plano=?,aulasP_plano=?,aulasL_plano=?,laboratorio=?,ementa_plano=?,objetivosG_plano=?,objetivosE_plano=?,aprendizagem=?,referencias_plano=?,complementares=?,p1_primeiro=?,p2_primeiro=?,p1_segundo=?,p2_segundo=? where id_plano=?";
         $sqlprep =$conexao ->prepare($sql);
-        $sqlprep -> bind_param("sssisiiiiiissssssssssi",$nomePlano,$nomeDocente,$nomeCurso,$periodoC,$nomeDisc,$cargaDisc,$semanaDisc,$aulasT,$aulasP,$aulasL,$laboratorio,$ementaDisc,$objetivosG,$objetivosE,$avaliacaoA,$referenciasB,$referenciasC,$p1primeiro,$p2primeiro,$p1segundo,$p2segundo,$id_plano);
+        $sqlprep -> bind_param("sssssisiiiiiissssssssssi",$nomePlano,$nomeDocente,$campus,$anoSemestre,$nomeCurso,$periodoC,$nomeDisc,$cargaDisc,$semanaDisc,$aulasT,$aulasP,$aulasL,$laboratorio,$ementaDisc,$objetivosG,$objetivosE,$avaliacaoA,$referenciasB,$referenciasC,$p1primeiro,$p2primeiro,$p1segundo,$p2segundo,$id_plano);
         if($sqlprep->execute()){
          $_SESSION["alteracao"]="Plano alterado com sucesso";
         header("location: ListarPlano.php");  
