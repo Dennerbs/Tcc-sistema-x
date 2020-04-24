@@ -95,7 +95,7 @@
                         <div class="col-md-3 mt-3">
                                 <form action="PlanoCorrecao.php" method="POST">
                                     <input type="hidden" name="id_plano" value="<?=$umRegistro["id_plano"]; ?>">
-                                <button  type="submit" class="btn btn-secondary btn-sm">Submeter</button>
+                                <button  type="submit" class="btn btn-sm">Submeter</button>
                             </form>
                             </div>
                         </div> 
