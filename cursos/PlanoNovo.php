@@ -199,13 +199,13 @@ opacity: 0.9;
          </div>
          <div class="form-row mt-4">
         <div class="col-md-12">
-          <?php $sql = "select * from detalhamento where id_plano = $idplano";
+          <?php $sql = "select * from detalhamento where id_plano = $idplano order by Month(mes)";
         $resultadoSql = mysqli_query($conexao, $sql);
         $vetorRegistro = mysqli_fetch_assoc($resultadoSql);
         $vetorDetalhamento = array();
-        while($vetorUmregistro !=null){
+        while($vetorRegistro !=null){
           array_push($vetorDetalhamento,$vetorRegistro);
-          $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);}
+          $vetorRegistro = mysqli_fetch_assoc($resultadoSql);}
           ?> <table id="employee_table" align="left">
            <tr><th><h5 class="text-primary">Mês</h5></th>
            <th><h5 class="text-primary">Conteudo</h5></th></tr>

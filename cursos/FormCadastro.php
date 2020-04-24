@@ -75,8 +75,8 @@ opacity: 0.9;
                 <div class="card w-100" style="width: 18rem;">
                     <img src="imagens/educacao.jpg" class="card-img-top" alt="Bandeira de Coxim-MS">
                     <div class="card-body">
-                        <p class="card-text text-justify">O Sistema x é um sistema desenvolvido por academicos,
-                            para auxiliar o corpo educacional do municipio de Coxim-MS</p>
+                        <p class="card-text text-justify">Cordélia é um sistema desenvolvido por academicos,
+                            para auxiliar o corpo educacional do IFMS</p>
                     </div>
                 </div>
             </div>
@@ -85,8 +85,8 @@ opacity: 0.9;
     <?php require_once("Footer.php"); 
         
     ?>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+</body>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -96,6 +96,5 @@ opacity: 0.9;
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-</body>
 
 </html>

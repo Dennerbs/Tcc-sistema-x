@@ -41,18 +41,15 @@
                     unset($_SESSION["inseridoPlano"]);
                     endif?>
                 <form method="POST" action="SalvarPlano_det.php">
+                    <p class="font-italic">Inserir os meses na sequência correta</p>
                     <table id="employee_table">
                         <tr>
                             <th><h5 class="text-primary">Mês</h5></th>
-                            <th><h5 class="text-primary">Data Inicial</h5></th>
-                            <th><h5 class="text-primary">Data Final</h5></th>
                             <th><h5 class="text-primary">Conteudo</h5></th>
                         </tr>
                         <tr id="row1">
-                            <td><input type='text' class='form-control' name='mes' id="validationDefault01" required></td>
-                            <td><input type='date' class='form-control' name='dI' id="validationDefault02" required></td>
-                            <td><input type='date' class='form-control' name='dF' id="validationDefault03" required></td>
-                            <td><textarea name="con" class="char valid form-control" style="width:450px;" rows="1" id="validationDefault04" required></textarea></td>
+                            <td><input type='text' class='form-control' name='mes[]' id="validationDefault01" required></td>
+                            <td><textarea name="con[]" class="char valid form-control" style="width:450px;" rows="1" id="validationDefault04" required></textarea></td>
         
                         </tr>
                     </table>
@@ -80,7 +77,7 @@ function add_row()
  $rowno=$("#employee_table tr").length;
  $rowno=$rowno+1;
  $("#employee_table tr:last").after("<tr id='row"+$rowno+
- "'><td><input type='text' class='form-control' name='mes'></td><td><input type='date' class='form-control' name='dI'></td><td><input type='date' class='form-control' name='dF'></td><td><input type='text' class='form-control' name='con'></td><td><input type='button' class='btn' value='DELETE' style='background-color:#fc6c5a' onclick=delete_row('row"+$rowno+"')></td></tr>");
+ "'><td><input type='text' class='form-control' name='mes[]'></td><td><input type='text' class='form-control' name='con[]' class='char valid form-control' style='width:450px;' rows='1'></td><td><input type='button' class='btn' value='DELETE' style='background-color:#fc6c5a' onclick=delete_row('row"+$rowno+"')></td></tr>");
 }
 function delete_row(rowno)
 {

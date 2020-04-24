@@ -15,19 +15,29 @@ $idplano = $vetorUmregistro['id_plano'];
 
 ?>
 <?php
-$mes = $_POST['mes'];
-$data1 = $_POST['dI'];
-$data2 = $_POST['dF'];
-$conteudo = $_POST['con'];
+    
+
+    
+    
+    $mes = $_POST['mes'];
+    $conteudo = $_POST['con'];
+    for ($i=0 ; $i < sizeof($mes) ; $i++) { 
+       
+        $sqlprep =$conexao ->prepare($ $sql = "insert into detalhamento (id_plano,mes,conteudo) values ('".$idplano."','".$mes[$i]."','".$conteudo[$i]."')");
+
+        $sqlprep -> execute();
+      }
+      header("location: ListarPlano.php");
+      
+          
+  
+
+    
 
 
 
 
 
-$sql = "insert into detalhamento (id_plano,mes,dataI,dataF,conteudo) values (?,?,?,?,?)";
-$sqlprep =$conexao ->prepare($sql);
-$sqlprep -> bind_param("issss",$idplano, $mes,$data1,$data2,$conteudo);
-$sqlprep -> execute()
 
 
 

@@ -55,41 +55,17 @@
                     </div>
                     <div class="card-body">
                     <div class="list-group">
+                        <div class="row">
                         <?php foreach ($vetorTodosregistro as $umRegistro){ 
 
                     if($umRegistro["situacao"]=="Novo"){
                     ?>
                         
-                        <div class="row">
+                        
                         <div class="col-md-9 mt-1">
                                <form action="ValidacaoPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"];?>">
-                                <button type="submit" class=" btn w-100" style="background-color:#ADD8E6;"><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button>
-                               </form>
-                        </div>
-                        <div class="col-md-3 mt-3">
-                                <form action="PlanoCorrecao.php" method="POST">
-                                    <input type="hidden" name="id_plano" value="<?=$umRegistro["id_plano"]; ?>">
-                                <button  type="submit" class="btn btn-sm">Submeter</button>
-                            </form>
-                            </div>
-                        </div>
-
-                        <?php }if($umRegistro["situacao"]=="CorrigirColegiado"){ ?>
-                           <div class="mt-1">
-                               <form action="ValidacaoPlano.php" method="POST"> 
-                               <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
-                                <button  type="submit" class="btn w-100" style="background-color:#fbe531"><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button>
-                               </form>
-                               
-                            </div>
-
-                        <?php }if($umRegistro["situacao"]=="Aguardando"){ ?>
-                        <div class="row">
-                        <div class="col-md-9 mt-1">
-                               <form action="ValidacaoPlano.php" method="POST"> 
-                               <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"];?>">
-                                <button type="submit" class=" btn w-100" style="background-color:#fc6c5a"><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button>
+                                <button type="submit" class=" btn btn-lg btn-block" style="background-color:#ADD8E6;"><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button>
                                </form>
                         </div>
                         <div class="col-md-3 mt-3">
@@ -98,19 +74,44 @@
                                 <button  type="submit" class="btn btn-secondary btn-sm">Submeter</button>
                             </form>
                             </div>
-                        </div> 
+                        
+
+                        <?php }if($umRegistro["situacao"]=="CorrigirColegiado"){ ?>
+                           <div class="col-md-9 mt-1">
+                               <form action="ValidacaoPlano.php" method="POST"> 
+                               <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
+                                <button  type="submit" class="btn btn-lg btn-block" style="background-color:#fbe531"><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button>
+                               </form>
+                               
+                            </div>
+
+                        <?php }if($umRegistro["situacao"]=="Aguardando"){ ?>
+                        
+                        <div class="col-md-9 mt-1">
+                               <form action="ValidacaoPlano.php" method="POST"> 
+                               <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"];?>">
+                                <button type="submit" class=" btn btn-lg btn-block" style="background-color:#fc6c5a"><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button>
+                               </form>
+                        </div>
+                        <div class="col-md-3 mt-3">
+                                <form action="PlanoCorrecao.php" method="POST">
+                                    <input type="hidden" name="id_plano" value="<?=$umRegistro["id_plano"]; ?>">
+                                <button  type="submit" class="btn btn-secondary btn-sm">Submeter</button>
+                            </form>
+                            </div>
+                         
                             
                         <?php }if($umRegistro["situacao"]=="Sucesso"){ ?>
 
-                            <div class="mt-1">
+                            <div class="col-md-9 mt-1">
                             <form action="ValidacaoPlano.php" method="POST"> 
                                <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"]; ?>">
-                                <button type="submit" class="btn w-100" style="background-color:#04b826;"><strike><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button></strike>
+                                <button type="submit" class="btn btn-lg btn-block" style="background-color:#04b826;"><strike><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button></strike>
                                </form>
                            </div>
 
-                        <?php }
-        } ?> 
+                        <?php } } ?> 
+                        </div>
                     </div>
                     </div>
                 </div>
@@ -213,8 +214,8 @@
     </div>
         </div>
     </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+</body>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -229,6 +230,5 @@
             $('[data-toggle="popover"]').popover()
             })
     </script>
-</body>
 
 </html>

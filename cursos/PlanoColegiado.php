@@ -178,9 +178,9 @@ opacity: 0.9;
         $resultadoSql = mysqli_query($conexao, $sql);
         $vetorRegistro = mysqli_fetch_assoc($resultadoSql);
         $vetorDetalhamento = array();
-        while($vetorUmregistro !=null){
+        while($vetorRegistro !=null){
           array_push($vetorDetalhamento,$vetorRegistro);
-          $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);}
+          $vetorRegistro = mysqli_fetch_assoc($resultadoSql);}
           ?> <table id="employee_table" align="left">
            <tr><th><h5 class="text-primary">Mês</h5></th>
            <th><h5 class="text-primary">Conteudo</h5></th></tr>
@@ -196,7 +196,7 @@ opacity: 0.9;
           </table> 
         </div>  
          </div>
-         <?php if(($_SESSION["perfil"]=="Pedagogo")||($_SESSION["perfil"]=="Discente do colegiado")||($_SESSION["perfil"]=="Docente do colegiado")||($_SESSION["perfil"]=="Tecnico do colegiado") ||($_SESSION["perfil"]=="Coordenador")){ ?>
+         <?php if(($_SESSION["perfil"]=="Pedagogo")||($_SESSION["perfil"]=="Discente do Colegiado")||($_SESSION["perfil"]=="Docente do Colegiado")||($_SESSION["perfil"]=="Tecnico do Colegiado") ||($_SESSION["perfil"]=="Coordenador")){ ?>
           <div class="row">
             <div class="col-md-12">         
               <label class="validationDefault21"><h5 class="text-primary text-center">Comentários</h5></label><br>
