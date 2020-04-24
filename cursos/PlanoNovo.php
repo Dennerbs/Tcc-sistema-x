@@ -72,7 +72,17 @@ opacity: 0.9;
           <label ><h5 class="text-primary">Nome do docente</h5> </label><br>
           <input type="text" class="form-control" name="nomeDocente" 
           value="<?php echo $vetorUmregistro['nome_docente'] ?>">
-        </div><br>  
+        </div><br>
+        <div class="form-row">
+          <div class="col-3">
+            <label ><h5 class="text-primary">Campus</h5> </label><br>
+            <input type="text" class="form-control" name="campus" value="<?= $vetorUmregistro['campus']?>">
+          </div>
+          <div class="col-3">
+          <label ><h5 class="text-primary">Ano / Semestre</h5> </label><br>
+          <input type="text" class="form-control" name="anoSemestre" value="<?= $vetorUmregistro['anoSemestre']?>">
+          </div>
+        </div>  
         <div class="form-row">
           <div class="col-9">
             <label><h5 class="text-primary">Curso</h5></label><br>
@@ -199,7 +209,7 @@ opacity: 0.9;
          </div>
          <div class="form-row mt-4">
         <div class="col-md-12">
-          <?php $sql = "select * from detalhamento where id_plano = $idplano order by Month(mes)";
+          <?php $sql = "select * from detalhamento where id_plano = $idplano";
         $resultadoSql = mysqli_query($conexao, $sql);
         $vetorRegistro = mysqli_fetch_assoc($resultadoSql);
         $vetorDetalhamento = array();

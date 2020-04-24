@@ -67,4 +67,4 @@
 ?>
 <form action="SalvarPlano_det.php" method="POST">
              <input name="idp" value="<?php $id_plano ?>">
-        </form>  
+</form>  
