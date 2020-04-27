@@ -19,6 +19,7 @@
 <body>
     <?php
         session_start();
+        require_once("Conexao.php");
     ?>
     <nav class="navbar navbar-expand-lg  bg-light border border-info mt-4">
         <a class="navbar-brand" href="index.php">Inicial</a>
@@ -113,7 +114,34 @@
         <?php
         if(isset($_SESSION["nome"])){
         ?>
-        <img src="imagens/usuario.png" alt="imagem do usuario" class="img-thumbnail">
+        <?php
+                        $id_usuario = $_SESSION["id_logado"];
+                        $sql = "select id,nome from imagens where id_usuario=?";
+                        $sqlprep = $conexao->prepare($sql);
+                        $sqlprep->bind_param("i",$id_usuario);
+                        $sqlprep->execute();
+                        $resultadoSql = $sqlprep->get_result();
+                        $registro= mysqli_fetch_assoc($resultadoSql);
+                        $vetorRegistros = array();
+                        while($registro !=null){
+                            array_push($vetorRegistros,$registro);
+                            $registro = mysqli_fetch_assoc($resultadoSql);
+                            $validacao = 0;
+                        }
+                        foreach($vetorRegistros as $valor):
+                            $id = $valor["id"];
+                            $foto =$valor["nome"];                  
+
+                        endforeach;
+                        //var_dump($imagens);
+                        if(isset($validacao)){ ?>
+                            <img src="<?php echo "./imagens/".$foto; ?>" style="width:45px; height:45px;">
+                        <?php
+                        }else{ ?>
+                            <img src="imagens/usuario.png" style="width:45px; height:45px;">
+                        <?php
+                        } ?>
+                        
         <a href="MeuPerfil.php"><span class="mr-4 ml-2 mt-2">Usuário: <?= $_SESSION["nome"]; ?></span></a>
         <a href="MataSessao.php" class="text-decoration-none">Desconectar</a>
         <?php

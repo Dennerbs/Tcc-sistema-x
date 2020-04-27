@@ -44,14 +44,40 @@
                         <input type="hidden" name="id" value="<?=$Umregistro["id"]; ?>">
                         <input type="hidden" name="nome" value="<?=$Umregistro["nome"]; ?>">
                         <div class="form-group">  
-                            <img src="imagens/usuario.png" alt="imagem do usuario" class="img-thumbnail">
+                            <?php
+                        $sql = "select id,nome from imagens where id_usuario=?";
+                        $sqlprep = $conexao->prepare($sql);
+                        $sqlprep->bind_param("i",$Umregistro['id']);
+                        $sqlprep->execute();
+                        $resultadoSql = $sqlprep->get_result();
+                        $registro= mysqli_fetch_assoc($resultadoSql);
+                        $vetorRegistros = array();
+                        while($registro !=null){
+                            array_push($vetorRegistros,$registro);
+                            $registro = mysqli_fetch_assoc($resultadoSql);
+                        }
+                        $idfoto = 0;
+                        foreach($vetorRegistros as $valor):
+                            $idfoto = $valor["id"];
+                            $foto =$valor["nome"];                  
+
+                        endforeach;
+                        //var_dump($imagens);
+                        if($idfoto != null){ ?>
+                            <img src="<?php echo "./imagens/".$foto; ?>" style="width:80px; height:80px;">
+                        <?php
+                        }else{ ?>
+                            <img src="imagens/usuario.png" style="width:80px; height:80px;">
+                        <?php
+                        } ?>
                             <button id="botaocontato" type="submit" class="btn btn-outline-primary ml-3"><?=$Umregistro["nome"]; ?></button> 
                         </div>
 
                     </form>
                 </div>
                 </li>
-            <?php }}?>    
+            <?php }
+        }?>    
 
             </ul>
         </div>
