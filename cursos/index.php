@@ -1,8 +1,8 @@
-<!doctype html>
+
 <html lang="en">
 
 <head>
-    <title>Cordélia</title>
+    <title>Index</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,7 +28,7 @@
             <div class="col-md-12">
                 <div class="jumbotron-fluid mt-4">
                     <div class="container" style="height: 400px;">
-                        <h5 class="display-3 text-center font-italic" style="height: 180px;">Cordélia</h5>
+                        <h5 class="display-3 text-center font-italic" style="height: 180px;">IFMS</h5>
                         <h2 class="text-center">Bem vindo!!</h2>
                         <p class="lead text-center">Ao sistema acadêmico para o Instituto Federal de Mato Grosso do Sul- Campus Coxim</p>
                     </div>

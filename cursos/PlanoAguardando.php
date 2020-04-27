@@ -90,29 +90,29 @@ opacity: 0.9;
           <div class="col-9">
             <label><h5 class="text-primary">Curso</h5></label><br>
             <input type="text" class="form-control" name="nomeCurso" 
-              value="<?php echo $vetorUmregistro['curso_plano'] ?>">
+              value="<?php echo $vetorUmregistro['curso_plano'] ?>" readonly>
           </div>
           <div class="col-3">
             <label> <h5 class="text-primary">Período do Curso</h5></label><br>
             <input type="text" class="form-control" name="periodoC"
-              value="<?php echo $vetorUmregistro['periodoC_plano'] ?>">
+              value="<?php echo $vetorUmregistro['periodoC_plano'] ?>" readonly>
            </div>
         </div>                           
         <div class="form-row mt-4">
           <div class="col-4">
             <label><h5 class="text-primary">Nome da Disciplina</h5></label><br>
             <input type="text" class="form-control" name="nomeDisc"
-              value="<?php echo $vetorUmregistro['nomeDisc_plano'] ?>">
+              value="<?php echo $vetorUmregistro['nomeDisc_plano'] ?>" readonly>
           </div>
           <div class="col-4">
             <label><h5 class="text-primary">Carga Horária</h5></label><br>
             <input type="text" class="form-control" name="cargaDisc"
-              value="<?php echo $vetorUmregistro['carga_plano'] ?>">
+              value="<?php echo $vetorUmregistro['carga_plano'] ?>" readonly>
           </div>
           <div class="col-4">
             <label><h5 class="text-primary">N° de semanas aula </h5></label><br>
             <input type="text" class="form-control" name="semanaDisc"
-            value="<?php echo $vetorUmregistro['semanas_plano'] ?>">
+            value="<?php echo $vetorUmregistro['semanas_plano'] ?>" readonly>
           </div>
         </div>                
         <div class="form-row mt-4">
@@ -142,21 +142,21 @@ opacity: 0.9;
           <label class="validationDefault07">
           <h5 class="text-primary">Ementa</h5>
           </label><br>
-          <textarea name="ementaDisc" class="char valid form-control" rows="4" id="validationDefault07" required
-          ><?php echo $vetorUmregistro['ementa_plano'] ?></textarea>
+          <textarea name="ementaDisc" class="char valid form-control" rows="4" id="validationDefault07" required readonly
+          ><?php echo $vetorUmregistro['ementa_plano'] ?></textarea >
           </div>
           <div class="col-md-12 mt-4">
           <label class="validationDefault08">
           <h5 class="text-primary">Objetivos Gerais</h5>
           </label><br>
-          <textarea name="objetivosG" class="char valid form-control" rows="4" id="validationDefault08" required
+          <textarea name="objetivosG" class="char valid form-control" rows="4" id="validationDefault08" required readonly
           ><?php echo $vetorUmregistro['objetivosG_plano'] ?></textarea>
           </div>
           <div class="col-md-12 mt-4">
             <label class="validationDefault09">
             <h5 class="text-primary">Objetivos Especificos</h5>
             </label><br>
-            <textarea name="objetivosE" class="char valid form-control" rows="4" id="validationDefault09" required><?php echo $vetorUmregistro['objetivosE_plano'] ?></textarea>
+            <textarea name="objetivosE" class="char valid form-control" rows="4" id="validationDefault09" required readonly><?php echo $vetorUmregistro['objetivosE_plano'] ?></textarea>
           </div>
         <div class="col-md-12 mt-4">
           <label class="validationDefault10">
@@ -166,13 +166,13 @@ opacity: 0.9;
           </div>
           <div class="col-md-12 mt-4">
           <label class="validationDefault11">
-          <h5 class="text-primary">Referencias Bibliográficas</h5>
+          <h5 class="text-primary">Referencias Bibliográficas / Complementares</h5>
           </label><br>
-          <textarea name="referenciasB" class="char valid form-control" rows="4" id="validationDefault11" required ><?php echo $vetorUmregistro['referencias_plano'] ?></textarea>
+          <textarea name="referenciasB" class="char valid form-control" rows="4" id="validationDefault11" required readonly><?php echo $vetorUmregistro['referencias_plano'] ?></textarea>
           </div>
           <div class="col-md-12 mt-4">
           <label class="validationDefault12">
-          <h5 class="text-primary">Referencias Complementares</h5>
+          <h5 class="text-primary">Referencias Complementares do docente</h5>
           </label><br>
           <textarea name="referenciasC" class="char valid form-control" rows="4" id="validationDefault12" required><?php echo $vetorUmregistro['complementares'] ?></textarea>
           </div>

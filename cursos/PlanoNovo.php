@@ -151,14 +151,14 @@ opacity: 0.9;
           <label class="validationDefault08">
           <h5 class="text-primary">Objetivos Gerais</h5>
           </label><br>
-          <textarea name="objetivosG" class="char valid form-control" rows="4" id="validationDefault08" required
+          <textarea name="objetivosG" class="char valid form-control" rows="4" id="validationDefault08" required readonly
           ><?php echo $vetorUmregistro['objetivosG_plano'] ?></textarea>
           </div>
           <div class="col-md-12 mt-4">
             <label class="validationDefault09">
             <h5 class="text-primary">Objetivos Especificos</h5>
             </label><br>
-            <textarea name="objetivosE" class="char valid form-control" rows="4" id="validationDefault09" required><?php echo $vetorUmregistro['objetivosE_plano'] ?></textarea>
+            <textarea name="objetivosE" class="char valid form-control" rows="4" id="validationDefault09" required readonly><?php echo $vetorUmregistro['objetivosE_plano'] ?></textarea>
           </div>
         <div class="col-md-12 mt-4">
           <label class="validationDefault10">

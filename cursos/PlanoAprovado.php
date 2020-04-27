@@ -204,6 +204,29 @@ opacity: 0.9;
             </tr>
           </table>   
          </div>
+         <div class="row">
+            <div class="col-md-12">         
+              <label class="validationDefault21"><h5 class="text-primary text-center">Comentários</h5></label><br>
+              <div id="comentario" class="overflow-auto w-auto p-2" style="height:450px;" readonly>
+              <?php $sql = "select * from comentarios where id_plano=?";
+              $sqlprep = $conexao->prepare($sql);
+              $sqlprep->bind_param("i",$idplano);
+              $sqlprep->execute();
+              $registro = $sqlprep->get_result();
+              $vetorRegistro= mysqli_fetch_assoc($registro);
+              $vetorTodosRegistros = array();
+              while($vetorRegistro !=null){
+                array_push($vetorTodosRegistros,$vetorRegistro);
+                $vetorRegistro = mysqli_fetch_assoc($registro);
+              }foreach($vetorTodosRegistros as $valor){ ?>
+                <div>  
+                <h6 class="font-weight-bold"><?php echo $valor["usuario"]; ?> (<?php echo $valor["perfil"]; ?>):</h6> 
+                <?php echo $valor["comentario"]; ?><br> <small class="text-primary"><?php echo $valor["horario"];?></small>
+              </div><br><br>
+              <?php } ?>
+              </div>
+            </div>
+          </div>
            <small id="notificacao" class="form-text text-muted">Esse plano de ensino foi aprovado, não resta mais alterações</small>
         </form>
     </div>

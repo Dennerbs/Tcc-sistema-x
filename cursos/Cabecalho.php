@@ -1,8 +1,7 @@
-<!doctype html>
 <html lang="en">
 
 <head>
-    <title>Cordelia</title>
+    <title></title>
 
     <meta charset="utf-8">
 
@@ -22,7 +21,7 @@
         session_start();
     ?>
     <nav class="navbar navbar-expand-lg  bg-light border border-info mt-4">
-        <a class="navbar-brand" href="index.php">Cordélia</a>
+        <a class="navbar-brand" href="index.php">Inicial</a>
         <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
