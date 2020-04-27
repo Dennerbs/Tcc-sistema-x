@@ -56,11 +56,11 @@ opacity: 0.9;
         <div class="form-row">
           <div class="col-3">
             <label ><h5 class="text-primary">Campus</h5> </label><br>
-            <input type="text" class="form-control" name="campus" value="<?= $vetorUmregistro['campus']?>">
+            <input type="text" class="form-control" name="campus" value="<?= $vetorUmregistro['campus']?>" readonly>
           </div>
           <div class="col-3">
           <label ><h5 class="text-primary">Ano / Semestre</h5> </label><br>
-          <input type="text" class="form-control" name="anoSemestre" value="<?= $vetorUmregistro['anoSemestre']?>">
+          <input type="text" class="form-control" name="anoSemestre" value="<?= $vetorUmregistro['anoSemestre']?>" readonly>
           </div>
         </div>   
         <div class="form-row">

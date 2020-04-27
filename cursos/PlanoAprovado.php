@@ -59,11 +59,11 @@ opacity: 0.9;
         <div class="form-row">
           <div class="col-3">
             <label ><h5 class="text-primary">Campus</h5> </label><br>
-            <input type="text" class="form-control" name="campus" value="<?= $vetorUmregistro['campus']?>">
+            <input type="text" class="form-control" name="campus" value="<?php echo $vetorUmregistro['campus']?>" readonly>
           </div>
           <div class="col-3">
           <label ><h5 class="text-primary">Ano / Semestre</h5> </label><br>
-          <input type="text" class="form-control" name="anoSemestre" value="<?= $vetorUmregistro['anoSemestre']?>">
+          <input type="text" class="form-control" name="anoSemestre" value="<?php echo $vetorUmregistro['anoSemestre']?>" readonly>
           </div>
         </div>   
         <div class="form-row">
@@ -191,15 +191,15 @@ opacity: 0.9;
         $vetorRegistro = mysqli_fetch_assoc($resultadoSql);
         $vetorTodosRegistros = array();
         while($vetorRegistro !=null){
-          array_push($vetorTodosRegistros,$vetorUmregistro);
+          array_push($vetorTodosRegistros,$vetorRegistro);
           $vetorRegistro = mysqli_fetch_assoc($resultadoSql);}
           ?> <table id="employee_table" align="center">
            <tr><th><h5 class="text-primary">Mês</h5></th>
            <th><h5 class="text-primary">Conteudo</h5></th></tr>
           <?php foreach($vetorTodosRegistros as $Umregistro){ ?> 
             <tr id="row1">
-            <td><input type='text' class='form-control' value="<?php echo $Umregistro['mes']?>" name='mes'></td>
-            <td><input type='text' class='form-control' value="<?php echo $Umregistro['conteudo']?>" name='con'></td>
+            <td><input type='text' class='form-control' value="<?php echo $Umregistro['mes']?>" name='mes' readonly></td>
+            <td><input type='text' class='form-control' value="<?php echo $Umregistro['conteudo']?>" name='con'readonly></td>
         <?php } ?>
             </tr>
           </table>   

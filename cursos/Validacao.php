@@ -20,6 +20,7 @@
         $id = $valor["id"];
         $nome =$valor["nome"];
         $perfil =$valor["perfil"];
+        $email =$valor["email"];
         
 
     endforeach;
@@ -28,6 +29,7 @@
         $_SESSION['id_logado'] = $id;
         $_SESSION["nome"]=$nome;
         $_SESSION["perfil"]=$perfil;
+        $_SESSION["email"]=$email;
         if($perfil == "Coordenador"){
             header("location: ListarPlano.php");
 

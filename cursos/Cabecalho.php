@@ -11,6 +11,8 @@
         <style type="text/css">
             body{
             background-color:#ffffff;
+        }span{
+            font-style: italic;
         }
         </style>
 </head>
@@ -112,7 +114,8 @@
         <?php
         if(isset($_SESSION["nome"])){
         ?>
-        <span class="align-baseline mr-4"><h6 class="text-primary">Usuário: <?= $_SESSION["nome"]; ?></h6></span>
+        <img src="imagens/usuario.png" alt="imagem do usuario" class="img-thumbnail">
+        <a href="MeuPerfil.php"><span class="mr-4 ml-2 mt-2">Usuário: <?= $_SESSION["nome"]; ?></span></a>
         <a href="MataSessao.php" class="text-decoration-none">Desconectar</a>
         <?php
         }
