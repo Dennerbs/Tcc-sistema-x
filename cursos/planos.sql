@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Abr-2020 às 18:02
--- Versão do servidor: 10.4.6-MariaDB
--- versão do PHP: 7.2.21
+-- Generation Time: 27-Abr-2020 às 20:49
+-- Versão do servidor: 10.1.37-MariaDB
+-- versão do PHP: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `planos`
+-- Database: `planos`
 --
 
 -- --------------------------------------------------------
@@ -59,7 +59,13 @@ CREATE TABLE `comentarios` (
 INSERT INTO `comentarios` (`id`, `usuario`, `perfil`, `comentario`, `horario`, `id_plano`) VALUES
 (4, 'Edilson Palma', 'Coordenador', 'Especifique melhor sua maneira de avaliaÃ§Ã£o.', '2020-04-24 11:52:00', 14),
 (5, 'Edilson Palma', 'Coordenador', 'Melhorar objetivos Especificos', '2020-04-24 11:55:00', 15),
-(6, 'pato', 'Discente do Colegiado', 'Concordo com o Palma', '2020-04-24 11:58:00', 15);
+(6, 'pato', 'Discente do Colegiado', 'Concordo com o Palma', '2020-04-24 11:58:00', 15),
+(7, 'Edilson Palma', 'Coordenador', 'Adicionar tambÃ©m o campus e ano / semestre', '2020-04-26 13:54:00', 15),
+(8, 'Adriana Assis', 'Pedagogo', 'Ok', '2020-04-27 12:38:00', 18),
+(9, 'pato', 'Discente do Colegiado', 'Ok', '2020-04-27 12:40:00', 18),
+(10, 'Denner Basilio', 'Docente do Colegiado', 'ok', '2020-04-27 12:41:00', 18),
+(11, 'Janaina', 'Tecnico do Colegiado', 'ok', '2020-04-27 12:42:00', 18),
+(12, 'Edilson Palm', 'Coordenador', 'todos concordam, entÃ£o estÃ¡ aprovado', '2020-04-27 12:42:00', 18);
 
 -- --------------------------------------------------------
 
@@ -125,7 +131,13 @@ INSERT INTO `detalhamento` (`id_det`, `id_plano`, `mes`, `conteudo`) VALUES
 (22, 16, 'Setembro', 'Java Avancado'),
 (23, 16, 'Outubro', 'Java Avancado'),
 (24, 16, 'Novembro', 'Java Avancado'),
-(25, 16, 'Dezembro', 'Java Avancado');
+(25, 16, 'Dezembro', 'Java Avancado'),
+(26, 18, 'Jan', 'a'),
+(27, 18, 'Fev', 'b'),
+(28, 18, 'Mar', 'c'),
+(29, 18, 'Abr', 'd'),
+(30, 18, 'Mai', 'e'),
+(31, 18, 'Jun', 'f');
 
 -- --------------------------------------------------------
 
@@ -156,6 +168,32 @@ INSERT INTO `disciplina` (`id_disciplina`, `nome_disciplina`, `carga_horaria`, `
 (25, 'HistÃ³ria I', 60, 'Primeira Guerra Mundial e RevoluÃ§Ã£o Francesa', 'Apresentar acontecimentos histÃ³ricos de relevÃ¢ncia', '', 20, 2, 'Livro de HistÃ³ria do ensino mÃ©dio', 2),
 (26, 'FÃ­sica 1', 60, 'Leis de Newton; Velocidade mÃ©dia; TermodinÃ¢mica', 'Estudar os fenÃ´menos bÃ¡sicos da fÃ­sica', '', 20, 2, 'Isaac Newton', 2),
 (27, 'IKA', 2, 'IKA', 'IKA', 'IKA', 2, 2, 'IKA', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `imagens`
+--
+
+CREATE TABLE `imagens` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `id_usuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `imagens`
+--
+
+INSERT INTO `imagens` (`id`, `nome`, `id_usuario`) VALUES
+(3, 'WhatsApp Image 2020-04-22 at 21.04.05.jpeg', 12),
+(4, 'WhatsApp Image 2020-04-22 at 21.04.04.jpeg', 12),
+(5, 'pp.jpg', 12),
+(6, '', 12),
+(7, 'WhatsApp Image 2020-04-22 at 21.04.04.jpeg', 12),
+(8, 'pp.jpg', 12),
+(9, 'WhatsApp Image 2020-04-22 at 21.04.05.jpeg', 3),
+(10, 'Desert.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -196,10 +234,11 @@ CREATE TABLE `planos` (
 --
 
 INSERT INTO `planos` (`id_plano`, `nome_plano`, `nome_docente`, `campus`, `anoSemestre`, `curso_plano`, `periodoC_plano`, `nomeDisc_plano`, `carga_plano`, `semanas_plano`, `aulasT_plano`, `aulasP_plano`, `aulasL_plano`, `laboratorio`, `ementa_plano`, `objetivosG_plano`, `objetivosE_plano`, `aprendizagem`, `referencias_plano`, `complementares`, `p1_primeiro`, `p2_primeiro`, `p1_segundo`, `p2_segundo`, `situacao`) VALUES
-(14, 'Linguagem de ProgramaÃ§Ã£o | - cx 2020', 'Gilson Saturnino', '', '', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de programaÃ§Ã£o I', 60, 20, 10, 30, 40, 69, 'Linguagem de programaÃ§Ã£o I', 'Ensinar os discentes a mecher no Netbeans', 'os melhores', 'Trabalhos + Atividades + Provas', 'Sommervile', 'Youtube', '2020-03-11', '2020-03-25', '2020-05-06', '2020-05-27', 'Sucesso'),
-(15, 'Linguagem de ProgramaÃ§Ã£o || - cx 2020', 'Gilson Saturnino', '', '', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de programaÃ§Ã£o I', 60, 20, 10, 30, 35, 69, 'Linguagem de programaÃ§Ã£o I', 'Ensinar os discentes a mecher no Netbeans', 'Os melhores', 'Atividades e Provas', 'Sommervile', 'Topicos da internet', '2020-03-12', '2020-03-26', '2020-04-16', '2020-05-21', 'CorrigirColegiado'),
-(16, 'Linguagem de ProgramaÃ§Ã£o ||| - cx 2020', 'Gilson Saturnino', 'Coxim', '2020 / 2', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de programaÃ§Ã£o I', 60, 20, 10, 20, 30, 0, 'Linguagem de programaÃ§Ã£o I', 'Ensinar os discentes a mecher no Netbeans', '', 'Prova', 'Sommervile', 'youtube', '2020-08-11', '2020-09-08', '2020-09-29', '2020-10-13', 'Novo'),
-(17, 'PE Historia 2023A', 'Maria denise', 'Coxim', '2020 / 2', 'TÃ©cnico em informÃ¡tica', 2, 'HistÃ³ria I', 60, 20, 10, 20, 30, 0, 'HistÃ³ria I', 'Apresentar acontecimentos histÃ³ricos de relevÃ¢ncia', '', 'prova', 'Livro de HistÃ³ria do ensino mÃ©dio', 'youtube', '2020-09-09', '2020-10-07', '2020-11-11', '2020-12-09', 'Novo');
+(14, 'Linguagem de ProgramaÃ§Ã£o | - cx 2020', 'Gilson Saturnino', 'Coxim', '2019 / 2', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de programaÃ§Ã£o I', 60, 20, 10, 30, 40, 69, 'Linguagem de programaÃ§Ã£o I', 'Ensinar os discentes a mecher no Netbeans', 'os melhores', 'Trabalhos + Atividades + Provas', 'Sommervile', 'Youtube', '2020-03-11', '2020-03-25', '2020-05-06', '2020-05-27', 'Sucesso'),
+(15, 'Linguagem de ProgramaÃ§Ã£o || - cx 2020', 'Gilson Saturnino', 'Coxim', '2020 / 1', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de programaÃ§Ã£o I', 60, 20, 10, 30, 35, 69, 'Linguagem de programaÃ§Ã£o I', 'Ensinar os discentes a mecher no Netbeans', 'Os melhores', 'Atividades e Provas', 'Sommervile', 'Topicos da internet', '2020-03-12', '2020-03-26', '2020-04-16', '2020-05-21', 'Sucesso'),
+(16, 'Linguagem de ProgramaÃ§Ã£o ||| - cx 2020', 'Gilson Saturnino', 'Coxim', '2020 / 2', 'TÃ©cnico em informÃ¡tica', 4, 'Linguagem de programaÃ§Ã£o I', 60, 20, 10, 20, 30, 0, 'Linguagem de programaÃ§Ã£o I', 'Ensinar os discentes a mecher no Netbeans', '', 'Prova', 'Sommervile', 'youtube', '2020-08-11', '2020-09-08', '2020-09-29', '2020-10-13', 'Aguardando'),
+(17, 'PE Historia 2023A', 'Maria denise', 'Coxim', '2020 / 2', 'TÃ©cnico em informÃ¡tica', 2, 'HistÃ³ria I', 60, 20, 10, 20, 30, 0, 'HistÃ³ria I', 'Apresentar acontecimentos histÃ³ricos de relevÃ¢ncia', '', 'prova', 'Livro de HistÃ³ria do ensino mÃ©dio', 'youtube', '2020-09-09', '2020-10-07', '2020-11-11', '2020-12-09', 'Novo'),
+(18, 'HistÃ³ria I - CX - 1027', 'Gilson Saturnino', 'Coxim', '2020 / 2', 'TÃ©cnico em informÃ¡tica', 2, 'HistÃ³ria I', 60, 20, 10, 10, 10, 69, 'HistÃ³ria I', 'Apresentar acontecimentos histÃ³ricos de relevÃ¢ncia', '', 'Encaminhar os discentes aos plantÃµes', 'Livro de HistÃ³ria do ensino mÃ©dio', 'nenhuma', '2020-04-02', '2020-04-03', '2020-04-04', '2020-04-05', 'Sucesso');
 
 -- --------------------------------------------------------
 
@@ -221,109 +260,121 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `email`, `nome`, `senha`, `perfil`) VALUES
 (2, 'gilson@docente.edu.br', 'Gilson Saturnino', '1234', 'Docente'),
-(3, 'adriana@pedagoga.edu.br', 'Adriana Assis', '1234', 'Pedagogo'),
-(4, 'edilson@coordenador.edu.br', 'Edilson Palma', '102030', 'Coordenador'),
-(5, 'denner@discente.edu.br', 'Denner Basilio', '105420', 'Discente do Colegiado'),
+(3, 'adriana@pedagoga.edu.br', 'Adriana Assis', '123', 'Pedagogo'),
+(5, 'denner@discente.edu.br', 'Denner Basilio', '105420', 'Docente do Colegiado'),
 (8, 'hugo@docente.edu.br', 'Hugo Pimentel', '105421', 'Docente'),
 (9, 'cadu@discente.edu.br', 'pato', '102031', 'Discente do Colegiado'),
 (10, 'maria@docente.edu.br', 'Maria denise', '12345', 'Docente'),
-(11, 'Janaina@tecnico.edu.br', 'Janaina', '10203040', 'Tecnico do Colegiado');
+(11, 'Janaina@tecnico.edu.br', 'Janaina', '10203040', 'Tecnico do Colegiado'),
+(12, 'edilson@coordenador.edu.br', 'Edilson Palma', '102030', 'Coordenador');
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `chat`
+-- Indexes for table `chat`
 --
 ALTER TABLE `chat`
   ADD PRIMARY KEY (`id_chat`);
 
 --
--- Índices para tabela `comentarios`
+-- Indexes for table `comentarios`
 --
 ALTER TABLE `comentarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `curso`
+-- Indexes for table `curso`
 --
 ALTER TABLE `curso`
   ADD PRIMARY KEY (`id_curso`);
 
 --
--- Índices para tabela `detalhamento`
+-- Indexes for table `detalhamento`
 --
 ALTER TABLE `detalhamento`
   ADD PRIMARY KEY (`id_det`);
 
 --
--- Índices para tabela `disciplina`
+-- Indexes for table `disciplina`
 --
 ALTER TABLE `disciplina`
   ADD PRIMARY KEY (`id_disciplina`),
   ADD KEY `id_curso` (`id_curso`);
 
 --
--- Índices para tabela `planos`
+-- Indexes for table `imagens`
+--
+ALTER TABLE `imagens`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `planos`
 --
 ALTER TABLE `planos`
   ADD PRIMARY KEY (`id_plano`);
 
 --
--- Índices para tabela `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `chat`
+-- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
   MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `comentarios`
+-- AUTO_INCREMENT for table `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT de tabela `curso`
+-- AUTO_INCREMENT for table `curso`
 --
 ALTER TABLE `curso`
   MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de tabela `detalhamento`
+-- AUTO_INCREMENT for table `detalhamento`
 --
 ALTER TABLE `detalhamento`
-  MODIFY `id_det` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_det` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT de tabela `disciplina`
+-- AUTO_INCREMENT for table `disciplina`
 --
 ALTER TABLE `disciplina`
   MODIFY `id_disciplina` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT de tabela `planos`
+-- AUTO_INCREMENT for table `imagens`
+--
+ALTER TABLE `imagens`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `planos`
 --
 ALTER TABLE `planos`
-  MODIFY `id_plano` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_plano` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT de tabela `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
