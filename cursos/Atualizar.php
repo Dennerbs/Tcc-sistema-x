@@ -40,7 +40,32 @@
             <form method="POST" action="Atualizardados.php">
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <img src="imagens/usuario.png" alt="Sua foto de perfil" class="img-thumbnail" style="width:150px;">
+                        <?php
+                        $sql = "select id,nome from imagens where id_usuario=?";
+                        $sqlprep = $conexao->prepare($sql);
+                        $sqlprep->bind_param("i",$id_usuario);
+                        $sqlprep->execute();
+                        $resultadoSql = $sqlprep->get_result();
+                        $registro= mysqli_fetch_assoc($resultadoSql);
+                        $vetorRegistros = array();
+                        while($registro !=null){
+                            array_push($vetorRegistros,$registro);
+                            $registro = mysqli_fetch_assoc($resultadoSql);
+                            $validacao = 0;
+                        }
+                        foreach($vetorRegistros as $valor):
+                            $id = $valor["id"];
+                            $foto =$valor["nome"];                  
+
+                        endforeach;
+                        //var_dump($imagens);
+                        if(isset($validacao)){ ?>
+                            <img src="<?php echo "./imagens/".$foto; ?>" style="width:180px; height:180px;">
+                        <?php
+                        }else{ ?>
+                            <img src="imagens/usuario.png" style="width:180px; height:180px;">
+                        <?php
+                        } ?>
                         <footer class="blockquote-footer mt-1">As pessoas irão ver essa foto </footer>
                     </div>
                 </div>

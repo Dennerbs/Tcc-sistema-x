@@ -20,6 +20,7 @@
    }
    ajax.open("GET", "ExibirChat.php"); // página a ser requisitada
    ajax.send(); // envia a requisição
+        
 }
 ajx();
     </script>
@@ -97,6 +98,7 @@ function inserir_registo()
                 mensagem:$("#mensagem").val()
     };
     pageurl = 'SalvChat.php';
+     document.getElementById("mensagem").value="";
     $.ajax({
  
         //url da pagina
