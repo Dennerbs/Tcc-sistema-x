@@ -48,7 +48,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="ListarUsuarios.php">Chat</a>
-
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=" GrupoCorrecao.php">Grupo Correção</a>
                 </li>
                 <?php
                 }if($_SESSION["perfil"]=="Docente"){
@@ -66,44 +68,16 @@
                     <a class="nav-link" href="ListarUsuarios.php">Chat</a>
                 </li>
                 <?php
-                }if($_SESSION["perfil"]=="Discente do Colegiado"){
-                            ?>
-                <li class="nav-item">
+                }if($_SESSION["cole"] == "sim"){ ?>
+                     <li class="nav-item">
                     <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>
                 </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="ListarUsuarios.php">Chat</a>
                 </li>
-                <?php 
-                }if($_SESSION["perfil"]=="Pedagogo"){
-                            ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ListarUsuarios.php">Chat</a>
-                </li>
-                <?php
-                }if($_SESSION["perfil"]=="Docente do Colegiado"){
-                            ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ListarUsuarios.php">Chat</a>
-                </li>
-                <?php
-                }if($_SESSION["perfil"]=="Tecnico do Colegiado"){
-                            ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ListarUsuarios.php">Chat</a>
-                </li>
-                <?php
 
-                }
+               <?php }
                 }else{ ?>
                 <li class="nav-item">
                     <a class="nav-link" href="Login.php">Login</a>

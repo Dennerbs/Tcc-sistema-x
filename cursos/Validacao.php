@@ -4,7 +4,7 @@
     $login = $_POST["email"];
     $password = $_POST["password"];
     
-    $sql = "select id,nome,perfil from usuarios where email=? and senha=?";
+    $sql = "select * from usuarios where email=? and senha=?";
     $sqlprep = $conexao->prepare($sql);
     $sqlprep->bind_param("ss",$login,$password);
     $sqlprep->execute();
@@ -21,6 +21,7 @@
         $nome =$valor["nome"];
         $perfil =$valor["perfil"];
         $email =$valor["email"];
+        $colegiado =$valor["colegiado"];
         
 
     endforeach;
@@ -30,6 +31,7 @@
         $_SESSION["nome"]=$nome;
         $_SESSION["perfil"]=$perfil;
         $_SESSION["email"]=$email;
+        $_SESSION["cole"] = $colegiado;
         if($perfil == "Coordenador"){
             header("location: ListarPlano.php");
 

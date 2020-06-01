@@ -58,10 +58,10 @@ opacity: 0.9;
                                 <select class="form-control" id="selecionar" name="perfil">
                                     <option selected disabled>Perfil do usuário</option>
                                     <option>Docente</option>
-                                    <option>Discente do colegiado</option>
-                                    <option>Docente do colegiado</option>
+                                    <option>Discente do Colegiado</option>
+                                    <option>Docente do Colegiado</option>
                                     <option>Pedagogo</option>
-                                    <option>Tecnico do colegiado</option>
+                                    <option>Tecnico do Colegiado</option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Cadastrar</button>
