@@ -41,9 +41,9 @@ ajx();
         $idl=$_SESSION['id_logado'];
         $nomel=$_SESSION['nome'];
         
-        $id_sala = $idl + $id;
+        $id_sala = (($idl * $id)*10) / ($idl + $id) ;
 
-        $_SESSION['ids'] = $id_sala;
+        $_SESSION['ids'] = intval( $id_sala);
         
         
 

@@ -44,41 +44,32 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="FormCadastro.php">Adicionar membro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ListarUsuarios.php">Chat</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href=" GrupoCorrecao.php">Grupo Correção</a>
-                </li>
-                <?php
-                }if($_SESSION["perfil"]=="Docente"){
-                        ?>
-                        <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Planos de Ensino
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="FormPlano.php">Novo plano</a>
-                        <a class="dropdown-item" href="ListarPlano.php">Meus planos</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="ListarUsuarios.php">Chat</a>
-                </li>
-                <?php
-                }if($_SESSION["cole"] == "sim"){ ?>
-                     <li class="nav-item">
-                    <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>
+                    <a class="nav-link" href="ListarUsuarios.php">Membros</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="ListarUsuarios.php">Chat</a>
+                    <a class="nav-link" href=" ListarGrupoCorrecao.php">Grupo Correção</a>
                 </li>
+                <?php
+                }if($_SESSION["perfil"]=="Docente" || $_SESSION["cole"] == "sim" && $_SESSION["perfil"] != "Coordenador" && $_SESSION["perfil"] != 'Discente do Colegiado' && $_SESSION["perfil"] != 'Tecnico do Colegiado'){
+                        ?>
+                    
+                    <li class="nav-item">
+                    <a class="nav-link" href="ListarPlanoMeus.php">Meus planos</a>
+                    </li>
+                <?php
+                }if($_SESSION["cole"] == "sim" && $_SESSION["perfil"] != "Coordenador" ){ ?>
+                     <li class="nav-item">
+                    <a class="nav-link" href="ListarPlano.php">Planos de Ensino</a>
+                </li>
+               
 
-               <?php }
-                }else{ ?>
+               <?php } ?>
+                   
+               <li class="nav-item">
+                    <a class="nav-link" href="ListarUsuarios2.php">Chat</a>
+                    </li>
+                <?php }else{ ?>
                 <li class="nav-item">
                     <a class="nav-link" href="Login.php">Login</a>
                 </li>

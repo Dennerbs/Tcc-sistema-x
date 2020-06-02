@@ -1,4 +1,3 @@
-
 <html lang="pt-br">
   <head>
    
@@ -32,7 +31,6 @@
     <div class="card mt-4">
         <div class="card-header">
             Membros
-            <a class="float-right text-success" href="FormCadastro.php"> Cadastrar Usuário</a>
         </div>
         <div class="card-body">
             <ul class="list-group">

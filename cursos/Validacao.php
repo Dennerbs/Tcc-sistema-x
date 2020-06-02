@@ -22,6 +22,7 @@
         $perfil =$valor["perfil"];
         $email =$valor["email"];
         $colegiado =$valor["colegiado"];
+        $codgrupo = $valor["codigo_grupo"];
         
 
     endforeach;
@@ -32,11 +33,12 @@
         $_SESSION["perfil"]=$perfil;
         $_SESSION["email"]=$email;
         $_SESSION["cole"] = $colegiado;
+        $_SESSION["codigo_grupo"] = $codgrupo;
         if($perfil == "Coordenador"){
             header("location: ListarPlano.php");
 
         }if($perfil == "Docente"){
-            header("location: ListarPlano.php");
+            header("location: ListarPlanoMeus.php");
 
         }if($perfil == "Pedagogo"){
             header("location: ListarPlano.php");

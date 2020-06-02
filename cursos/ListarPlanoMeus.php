@@ -15,7 +15,7 @@
     <div class="row marketing">
         <div class="col-lg-12">
           <form id="form">
-            <input  type="text" name="campo" id="campo" class="form-control" placeholder="Buscar por Nome Docente ou do Plano" >
+            <input  type="text" name="campo" id="campo" class="form-control" placeholder="Buscar Nome">
           </form>
         </div>
     </div>
@@ -48,10 +48,8 @@
                         </tr>
                     
                         <?php foreach ($vetorTodosregistro as $umRegistro){ 
-                            if($umRegistro["situacao"] != "Novo"){
-                                if($_SESSION["cole"] == "sim" && $_SESSION["perfil"] != "Coordenador"){ 
-                                    if($umRegistro["codigo_grupo"] == $_SESSION["codigo_grupo"]){
-                            
+                        if($_SESSION["perfil"] == "Docente" || $_SESSION["perfil"] == "Docente do Colegiado" )   {
+                            if($umRegistro["nome_docente"] == $_SESSION["nome"]){
                             ?> 
                             <tr>
                             <td>
@@ -61,7 +59,6 @@
                                    </form>
                             </td>
                             <td><?php echo $umRegistro["nome_docente"];?></td>
-                            
                             <td>
                             <?php if($umRegistro["situacao"] == "Novo"){ ?>
                             <h6 style="background-color:#ADD8E6;"> <?= $umRegistro["situacao"];?></h6>
@@ -74,44 +71,18 @@
                             <?php }?>
                             
                             </td>
-                           
-                            <td></td>
-                            
+                            <td>
+                            <?php if($umRegistro["situacao"] == "Novo" || $umRegistro["situacao"] == "Aguardando" ){ ?>    
+                            <form action="PlanoCorrecao.php" method="POST">
+                                        <input type="hidden" name="id_plano" value="<?=$umRegistro["id_plano"]; ?>">
+                                    <button  type="submit" class="btn btn-secondary btn-sm">Submeter</button>
+                            </form>
                             </td>
                             </tr>
                         
-                    <?php } }
-                    if($_SESSION["perfil"] == "Coordenador"){ ?> 
-                        <tr>
-                        <td>
-                        <form action="ValidacaoPlano.php" method="POST"> 
-                               <input type="hidden" name="id_plan" value="<?= $umRegistro["id_plano"];?>">
-                                <button type="submit" class=" btn  btn-block" ><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button>
-                               </form>
-                        </td>
-                        <td><?php echo $umRegistro["nome_docente"];?></td>
-                        <td>
-                            <?php if($umRegistro["situacao"] == "Novo"){ ?>
-                            <h6 style="background-color:#ADD8E6;"> <?= $umRegistro["situacao"];?></h6>
-                            <?php } if($umRegistro["situacao"] == "Corrigir Colegiado"){ ?>
-                            <h6 style="background-color:#fbe531"> <?= $umRegistro["situacao"];?></h6>
-                            <?php }if($umRegistro["situacao"] == "Aguardando"){ ?>
-                            <h6 style="background-color:#fc6c5a"> <?= $umRegistro["situacao"];?></h6>
-                            <?php }if($umRegistro["situacao"] == "Sucesso"){ ?>
-                            <h6 style="background-color:#04b826;"> <?= $umRegistro["situacao"];?></h6>
-                            <?php }?>
-                            
-                            </td>
-                        <td>
-                        <?php if($umRegistro["situacao"] != "Novo" && $umRegistro["situacao"] != "Aguardando"  && $umRegistro["situacao"] != "Sucesso" ){ ?>
-                        <form action="PlanoCorrecao.php" method="POST">
-                                    <input type="hidden" name="id_plano" value="<?=$umRegistro["id_plano"]; ?>">
-                                <button  type="submit" class="btn btn-secondary btn-sm">Submeter</button>
-                        </form>
-                        </td>
-                        </tr>
+                    <?php } } } } ?>
+                        
                     
-                <?php }}}} ?>
                 </table>
                   
                 </div>

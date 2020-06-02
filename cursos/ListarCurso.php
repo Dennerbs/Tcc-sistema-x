@@ -27,16 +27,22 @@
                 $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
                 } 
             ?>
-             <a type="submit" class="btn btn-lg btn-block mt-4" style="background-color:#04b826;" href="FormCurso.php" role="button">Cadastrar</a>
+    <div class="row">
+        <div class="col-md-12 mt-4">
+            <div class="card">
+                <div class="card-header">
+                  Cursos<a class="float-right text-success" href="GrupoCorrecao.php"> Adicionar Curso</a>
+                </div>
+                <div class="card-body">
              <table class="table mt-4" style="background-color:#FFFFFF;">
                     <tr>
-                        <th class="text-primary text-left" style="font-size:10px;">Nome do Curso</th>
-                        <th class="text-primary text-left" style="font-size:10px;">Duração Anos / Semestres</th>
-                        <th class="text-primary text-left" style="font-size:10px;">Carga Horária</th>
-                        <th class="text-primary text-left" style="font-size:10px;">Campus</th>
-                        <th class="text-primary text-left" style="font-size:10px;">Descrição do Curso</th>
-                        <th class="text-primary text-left" style="font-size:10px;">Ementa</th>
-                        <th class="text-primary text-left" style="font-size:10px;">Coordenador</th>
+                        <th class="text-primary text-left" >Nome do Curso</th>
+                        <th class="text-primary text-left" >Duração Anos / Semestres</th>
+                        <th class="text-primary text-left" >Carga Horária</th>
+                        <th class="text-primary text-left" >Campus</th>
+                        <th class="text-primary text-left" >Descrição do Curso</th>
+                        <th class="text-primary text-left" >Ementa</th>
+                        <th class="text-primary text-left" >Coordenador</th>
                         <th colspan="2" class="text-primary text-center">Alterações</th>
                     </tr>
                     <?php
@@ -44,13 +50,13 @@
     ?>
                     <tr>
 
-                        <td class="text-left" style="font-size:10px;"><?=$umRegistro["nome_curso"];?></td>
-                        <td class="text-left" style="font-size:10px;"><?=$umRegistro["duracao"];?></td>
-                        <td class="text-left" style="font-size:10px;"><?=$umRegistro["cargahoraria"];?></td>
-                        <td class="text-left" style="font-size:10px;"><?=$umRegistro["campus"];?></td>
-                        <td class="text-left" style="font-size:10px;"><?=$umRegistro["descricao_curso"];?></td>
-                        <td class="text-left" style="font-size:10px;"><?=$umRegistro["ementa"];?></td>
-                        <td class="text-left" style="font-size:10px;"><?=$umRegistro["coordenador"];?></td>
+                        <td class="text-left" ><?=$umRegistro["nome_curso"];?></td>
+                        <td class="text-left" ><?=$umRegistro["duracao"];?></td>
+                        <td class="text-left" ><?=$umRegistro["cargahoraria"];?></td>
+                        <td class="text-left" ><?=$umRegistro["campus"];?></td>
+                        <td class="text-left" ><?=$umRegistro["descricao_curso"];?></td>
+                        <td class="text-left" ><?=$umRegistro["ementa"];?></td>
+                        <td class="text-left" ><?=$umRegistro["coordenador"];?></td>
                         <td>
                             <form action="RemoverCurso.php" method="post">
                                 <input type="hidden" name="id_curso" value="<?= $umRegistro["id_curso"]; ?>">

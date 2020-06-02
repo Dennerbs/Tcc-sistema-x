@@ -23,23 +23,9 @@ $idplano = $vetorUmregistro['id_plano'];
     $conteudo = $_POST['con'];
     for ($i=0 ; $i < sizeof($mes) ; $i++) { 
        
-        $sqlprep =$conexao ->prepare($ $sql = "insert into detalhamento (id_plano,mes,conteudo) values ('".$idplano."','".$mes[$i]."','".$conteudo[$i]."')");
+        $sqlprep =$conexao ->prepare($sql = "insert into detalhamento (id_plano,mes,conteudo) values ('".$idplano."','".$mes[$i]."','".$conteudo[$i]."')");
 
         $sqlprep -> execute();
       }
-      header("location: ListarPlano.php");
-      
-          
-  
-
-    
-
-
-
-
-
-
-
-
- 
+      header("location: ListarPlano.php"); 
 ?>

@@ -1,4 +1,3 @@
-
 <html lang="pt-br">
   <head>
    
@@ -18,7 +17,7 @@
     require_once('Cabecalho.php'); 
     require_once('Conexao.php'); 
     
-    $sql = "select * from usuarios ORDER BY nome ASC";
+    $sql = "select id,nome,colegiado,codigo_grupo from usuarios";
     $resultadoSql = mysqli_query($conexao, $sql);
     $vetorUmregistro = mysqli_fetch_assoc($resultadoSql);
     $vetorTodosRegistros = array();
@@ -31,20 +30,21 @@
     
     <div class="card mt-4">
         <div class="card-header">
-            Membros
-            <a class="float-right text-success" href="FormCadastro.php"> Cadastrar Usuário</a>
+            Usuarios
         </div>
         <div class="card-body">
             <ul class="list-group">
             <?php foreach($vetorTodosRegistros as $Umregistro){
               if($Umregistro["id"] != $_SESSION['id_logado']){
+                  if($Umregistro["colegiado"] == "sim"){
+                  if($Umregistro["codigo_grupo"] == null){
               ?>
                 <li class="list-group-item">
                 <div class="col-md-12">
-                    <form action="chat.php" method="POST">
-                        <input type="hidden" name="id" value="<?=$Umregistro["id"]; ?>">
-                        <input type="hidden" name="nome" value="<?=$Umregistro["nome"]; ?>">
-                        <div class="form-group">  
+                    <form action="SalvarGrupoCorrecao.php" method="POST">
+                        <div class="form-group">   
+                        <input type="checkbox" name='ids[]' value="<?=$Umregistro["id"];  ?>"  >
+                        <input type="text" name='nome_usuario[]' value=" <?= $Umregistro["nome"]; ?>" readonly >
                             <?php
                         $sql = "select id,nome from imagens where id_usuario=?";
                         $sqlprep = $conexao->prepare($sql);
@@ -71,16 +71,20 @@
                             <img src="imagens/usuario.png" style="width:80px; height:80px;">
                         <?php
                         } ?>
-                            <button id="botaocontato" type="submit" class="btn btn-outline-primary ml-3"><?=$Umregistro["nome"]; ?></button> 
+                            
                         </div>
 
-                    </form>
+                    
                 </div>
                 </li>
-            <?php }
+            <?php } } }
         }?>    
 
             </ul>
+
+        <input type="text" name="nome_grupo" placeholder="Nome do grupo" >
+        <button type="submit">Criar</button>
+        </form>
         </div>
         
     </div>
@@ -89,6 +93,8 @@
         require_once("Footer.php");
         ?>
     </div>
+
+    
 
   </body>
     <script src="https://code.jquery.com/jquery-2.2.4.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
