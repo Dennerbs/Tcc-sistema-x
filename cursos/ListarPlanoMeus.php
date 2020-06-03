@@ -62,8 +62,8 @@
                             <td>
                             <?php if($umRegistro["situacao"] == "Novo"){ ?>
                             <h6 style="background-color:#ADD8E6;"> <?= $umRegistro["situacao"];?></h6>
-                            <?php } if($umRegistro["situacao"] == "Corrigir Colegiado"){ ?>
-                            <h6 style="background-color:#fbe531"> <?= $umRegistro["situacao"];?></h6>
+                            <?php } if(($umRegistro["situacao"] == "Corrigir Colegiado")|| ($umRegistro["situacao"] == "Aprovado") || ($umRegistro["situacao"] == "Reprovado")){ ?>
+                            <h6 style="background-color:#fbe531">Correção pelo colegiado</h6>
                             <?php }if($umRegistro["situacao"] == "Aguardando"){ ?>
                             <h6 style="background-color:#fc6c5a"> <?= $umRegistro["situacao"];?></h6>
                             <?php }if($umRegistro["situacao"] == "Sucesso"){ ?>

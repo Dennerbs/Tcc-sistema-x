@@ -53,7 +53,9 @@
                 <?php
                 }if($_SESSION["perfil"]=="Docente" || $_SESSION["cole"] == "sim" && $_SESSION["perfil"] != "Coordenador" && $_SESSION["perfil"] != 'Discente do Colegiado' && $_SESSION["perfil"] != 'Tecnico do Colegiado'){
                         ?>
-                    
+                    <li class="nav-item">
+                    <a class="nav-link" href="FormPlano.php">Novo plano</a>
+                    </li>
                     <li class="nav-item">
                     <a class="nav-link" href="ListarPlanoMeus.php">Meus planos</a>
                     </li>
