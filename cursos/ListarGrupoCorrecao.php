@@ -34,7 +34,7 @@
                         <th >Nome Grupo</th>
                         <th >Nome Integrantes</th>
                         <th >Id Planos</th>
-                        <th >Ação</th>
+                        <th colspan="2" class="text-center">Ações</th>
                         </tr>
                         <?php foreach ($vetorTodosregistro as $umRegistro){?>
                         <tr>
@@ -46,6 +46,12 @@
                           <form action="DesignarPlano.php" method="POST">
                             <input type="hidden" name="codigo_grupo" value="<?=$umRegistro["codigo_grupo"];?>">
                             <button type="submit">Designar Planos</button>
+                          </form>
+                        </td>
+                        <td>
+                          <form action="RemoverGrupo.php" method="POST">
+                            <input type="hidden" name="codigo_grupo" value="<?=$umRegistro["codigo_grupo"];?>">
+                            <button type="submit">Remover Grupo</button>
                           </form>
                         </td>
                         </tr>

@@ -44,6 +44,19 @@ opacity: 0.9;
       </div>
     <div class="card-body">
         <div>
+        <?php
+        if($vetorUmregistro['situacao']=="Corrigir Colegiado"){
+        if(($_SESSION["perfil"]=="Pedagogo")||($_SESSION["perfil"]=="Discente do Colegiado")||($_SESSION["perfil"]=="Docente do Colegiado")||($_SESSION["perfil"]=="Tecnico do Colegiado")){ ?>
+
+        <form action="AprovarGrupo.php" method="POST">
+          <input type="hidden" name="aprovado" value="<?=$vetorUmregistro["id_plano"];?>">
+          <button type="submit" style="background-color:#5aff72; width:250px;">Aprovar Plano</button>
+        </form>
+        <form action="ReprovarGrupo.php" method="POST">
+          <input type="hidden" name="reprovado" value="<?=$vetorUmregistro["id_plano"];?>">
+          <button type="submit" class="mt-2" style="background-color:#ff9f62; width:250px;">Reprovar Plano</button>
+        </form>
+        <?php }} ?>
           <label class="validationDefault01"><h5 class="text-primary">Nome do plano de ensino</h5></label><br>
           <input type="text" class="form-control" name="nomePlano" id="validationDefault01" 
             value="<?php echo $vetorUmregistro['nome_plano'] ?>" required readonly>

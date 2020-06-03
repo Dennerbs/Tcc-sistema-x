@@ -23,6 +23,10 @@
     	$_SESSION["id_plan"]=$idplano;
     	header("location: PlanoAguardando.php");
     }
+    if(($vetorUmregistro["situacao"]=="Aprovado") || ($vetorUmregistro["situacao"]=="Reprovado")){
+    	$_SESSION["id_plan"]=$idplano;
+    	header("location: PlanoColegiado.php");
+    }
     if($vetorUmregistro["situacao"]=="Sucesso"){
     	$_SESSION["id_plan"]=$idplano;
     	header("location: PlanoAprovado.php");

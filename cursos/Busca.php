@@ -12,7 +12,7 @@ if($num >0){ ?>
       <th>Plano</th>
       <th >Docente</th>
       <th >Situação</th>
-      <th >Ação</th>
+      <th>Grupo Responsável</th>
       </tr>
       <?php
         while($umRegistro = mysqli_fetch_assoc($query)){
@@ -32,15 +32,23 @@ if($num >0){ ?>
                    </td>
                    <td><?php echo $umRegistro["nome_docente"];?></td>
                   <td>
-                  <?php if($umRegistro["situacao"] == "Corrigir Colegiado"){ ?>
-                  <h6 style="background-color:#fbe531"> <?= $umRegistro["situacao"];?></h6>
-                  <?php }if($umRegistro["situacao"] == "Aguardando"){ ?>
-                  <h6 style="background-color:#fc6c5a"> <?= $umRegistro["situacao"];?></h6>
-                  <?php }if($umRegistro["situacao"] == "Sucesso"){ ?>
-                  <h6 style="background-color:#04b826;"> <?= $umRegistro["situacao"];?></h6>
-                  <?php }?>
+                  <?php if($umRegistro["situacao"] == "Novo"){ ?>
+                            <h6 style="background-color:#ADD8E6;"> <?= $umRegistro["situacao"];?></h6>
+                            <?php } if($umRegistro["situacao"] == "Corrigir Colegiado"){
+                                if($umRegistro["codigo_grupo"] !=""){ ?>
+                            <h6 style="background-color:#be70ff">Um grupo está corrigindo</h6>  
+                                <?php }else{?>
+                            <h6 style="background-color:#fbe531">Aguardando correções</h6>
+                            <?php }}if($umRegistro["situacao"] == "Aguardando"){ ?>
+                            <h6 style="background-color:#fc6c5a">Aguardando docente</h6>
+                            <?php }if($umRegistro["situacao"] == "Sucesso"){ ?>
+                            <h6 style="background-color:#04b826;">Plano aprovado</h6>
+                            <?php }?>
+                            
                   </td>
-                  <td></td>
+                  <td>
+                  #<?php echo $umRegistro["codigo_grupo"];?>
+                  </td>
                    </tr>
 
 

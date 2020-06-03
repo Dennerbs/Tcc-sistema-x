@@ -13,7 +13,7 @@
         require_once("Conexao.php");?>
         
     <div class="row marketing">
-        <div class="col-lg-12">
+        <div class="col-lg-12 mt-2">
           <form id="form">
             <input  type="text" name="campo" id="campo" class="form-control" placeholder="Buscar por Nome Docente ou do Plano" >
           </form>
@@ -36,7 +36,7 @@
         <div class="col-md-12 mt-4">
             <div class="card">
                 <div class="card-header">
-                    <p> planos de ensino</p>
+                    <p>Planos de ensino</p>
                 </div>
                 <div class="card-body" id="resultado"  >
                 <table class="table">
@@ -44,7 +44,7 @@
                         <th>Plano</th>
                         <th >Docente</th>
                         <th >Situação</th>
-                        <th >Ação</th>
+                        <th>Grupo Responsável</th>
                         </tr>
                     
                         <?php foreach ($vetorTodosregistro as $umRegistro){ 
@@ -66,16 +66,23 @@
                             <?php if($umRegistro["situacao"] == "Novo"){ ?>
                             <h6 style="background-color:#ADD8E6;"> <?= $umRegistro["situacao"];?></h6>
                             <?php } if($umRegistro["situacao"] == "Corrigir Colegiado"){ ?>
-                            <h6 style="background-color:#fbe531"> <?= $umRegistro["situacao"];?></h6>
+                            <h6 style="background-color:#fbe531">Esperando sua correção</h6>
                             <?php }if($umRegistro["situacao"] == "Aguardando"){ ?>
-                            <h6 style="background-color:#fc6c5a"> <?= $umRegistro["situacao"];?></h6>
+                            <h6 style="background-color:#fc6c5a">Aguardando docente</h6>
                             <?php }if($umRegistro["situacao"] == "Sucesso"){ ?>
-                            <h6 style="background-color:#04b826;"> <?= $umRegistro["situacao"];?></h6>
+                            <h6 style="background-color:#04b826;">Plano Aprovado</h6>
+                            <?php }if($umRegistro["situacao"] == "Aprovado"){ ?>
+                            <h6 style="background-color:#ccff7e;">Aprovado pelo grupo</h6>
+                            <?php }if($umRegistro["situacao"] == "Reprovado"){ ?>
+                            <h6 style="background-color:#ff6e4c;">Reprovado pelo grupo</h6>
                             <?php }?>
+
                             
                             </td>
                            
-                            <td></td>
+                            <td>
+                            #<?php echo $umRegistro["codigo_grupo"];?>
+                            </td>
                             
                             </td>
                             </tr>
@@ -93,25 +100,28 @@
                         <td>
                             <?php if($umRegistro["situacao"] == "Novo"){ ?>
                             <h6 style="background-color:#ADD8E6;"> <?= $umRegistro["situacao"];?></h6>
-                            <?php } if($umRegistro["situacao"] == "Corrigir Colegiado"){ ?>
-                            <h6 style="background-color:#fbe531"> <?= $umRegistro["situacao"];?></h6>
-                            <?php }if($umRegistro["situacao"] == "Aguardando"){ ?>
-                            <h6 style="background-color:#fc6c5a"> <?= $umRegistro["situacao"];?></h6>
+                            <?php } if($umRegistro["situacao"] == "Corrigir Colegiado"){
+                                if($umRegistro["codigo_grupo"] !=""){ ?>
+                            <h6 style="background-color:#be70ff">Um grupo está corrigindo</h6>  
+                                <?php }else{?>
+                            <h6 style="background-color:#fbe531">Aguardando correções</h6>
+                            <?php }}if($umRegistro["situacao"] == "Aguardando"){ ?>
+                            <h6 style="background-color:#fc6c5a">Aguardando docente</h6>
                             <?php }if($umRegistro["situacao"] == "Sucesso"){ ?>
-                            <h6 style="background-color:#04b826;"> <?= $umRegistro["situacao"];?></h6>
+                            <h6 style="background-color:#04b826;">Plano aprovado</h6>
+                            <?php }if($umRegistro["situacao"] == "Aprovado"){ ?>
+                            <h6 style="background-color:#ccff7e;">Aprovado pelo grupo</h6>
+                            <?php }if($umRegistro["situacao"] == "Reprovado"){ ?>
+                            <h6 style="background-color:#ff6e4c;">Reprovado pelo grupo</h6>
                             <?php }?>
                             
                             </td>
                         <td>
-                        <?php if($umRegistro["situacao"] != "Novo" && $umRegistro["situacao"] != "Aguardando"  && $umRegistro["situacao"] != "Sucesso" ){ ?>
-                        <form action="PlanoCorrecao.php" method="POST">
-                                    <input type="hidden" name="id_plano" value="<?=$umRegistro["id_plano"]; ?>">
-                                <button  type="submit" class="btn btn-secondary btn-sm">Submeter</button>
-                        </form>
+                        #<?php echo $umRegistro["codigo_grupo"];?>
                         </td>
                         </tr>
                     
-                <?php }}}} ?>
+                <?php }}} ?>
                 </table>
                   
                 </div>
