@@ -13,7 +13,7 @@
         require_once("Conexao.php");?>
         
     <div class="row marketing">
-        <div class="col-lg-12">
+        <div class="col-lg-12 mt-4">
           <form id="form">
             <input  type="text" name="campo" id="campo" class="form-control" placeholder="Buscar Nome">
           </form>
@@ -36,15 +36,15 @@
         <div class="col-md-12 mt-4">
             <div class="card">
                 <div class="card-header">
-                    <p> planos de ensino</p>
+                    <p>Planos de ensino</p>
                 </div>
                 <div class="card-body" id="resultado"  >
                 <table class="table">
                         <tr>
                         <th>Plano</th>
-                        <th >Docente</th>
-                        <th >Situação</th>
-                        <th >Ação</th>
+                        <th>Docente</th>
+                        <th>Situação</th>
+                        <th>Ação</th>
                         </tr>
                     
                         <?php foreach ($vetorTodosregistro as $umRegistro){ 
@@ -117,7 +117,7 @@
                 $('#form').submit(function(){
                     var dados = $(this).serialize();
                     $.ajax({
-                        url: "Busca.php",
+                        url: "BuscarDocente.php",
                         type:"POST",
                         dataType:'html',
                         data: dados,

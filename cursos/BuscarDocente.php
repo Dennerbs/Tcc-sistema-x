@@ -2,9 +2,8 @@
 require_once("Conexao.php");
 session_start();
 $campo =  $_POST['campo'];
-
-
-$query = mysqli_query($conexao, "SELECT * FROM planos WHERE nome_docente LIKE '%$campo%' or nome_plano LIKE '%$campo%' or id_plano LIKE '%$campo%'");
+$nome = $_SESSION['nome'];
+$query = mysqli_query($conexao, "SELECT * FROM planos WHERE nome_plano LIKE '%$campo%' AND nome_docente='$nome'");
 $num   = mysqli_num_rows($query);
 if($num >0){ ?>
     <table class="table">
@@ -16,8 +15,6 @@ if($num >0){ ?>
       </tr>
       <?php
         while($umRegistro = mysqli_fetch_assoc($query)){
-          if($umRegistro["situacao"] != "Novo"){
-            if($umRegistro["codigo_grupo"] == $_SESSION["codigo_grupo"] || $_SESSION["perfil"] == "Coordenador"){ 
               ?>
                 <tr>
                   <?php if($umRegistro["situacao"] != "Agurdando"){ ?>
@@ -32,7 +29,7 @@ if($num >0){ ?>
                    </td>
                    <td><?php echo $umRegistro["nome_docente"];?></td>
                   <td>
-                  <?php if($umRegistro["situacao"] == "Novo"){ ?>
+                  <?php if($umRegistro["situacao"] == "Novo"){ ?> 
                             <h6 style="background-color:#ADD8E6;"> <?= $umRegistro["situacao"];?></h6>
                             <?php } if($umRegistro["situacao"] == "Corrigir Colegiado"){
                                 if($umRegistro["codigo_grupo"] !=""){ ?>
@@ -59,8 +56,8 @@ if($num >0){ ?>
 
 
               <?php
-              }
-            }
+              
+            
           }                
         
         }else{

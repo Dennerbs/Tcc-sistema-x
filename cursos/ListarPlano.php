@@ -15,7 +15,7 @@
     <div class="row marketing">
         <div class="col-lg-12 mt-2">
           <form id="form">
-            <input  type="text" name="campo" id="campo" class="form-control" placeholder="Buscar por Nome Docente ou do Plano" >
+            <input  type="text" name="campo" id="campo" class="form-control" placeholder="Buscar por nome do docente ou do Plano" >
           </form>
         </div>
     </div>
@@ -42,8 +42,8 @@
                 <table class="table">
                         <tr>
                         <th>Plano</th>
-                        <th >Docente</th>
-                        <th >Situação</th>
+                        <th>Docente</th>
+                        <th>Situação</th>
                         <th>Grupo Responsável</th>
                         </tr>
                     

@@ -51,7 +51,7 @@
                     <a class="nav-link" href=" ListarGrupoCorrecao.php">Grupo Correção</a>
                 </li>
                 <?php
-                }if($_SESSION["perfil"]=="Docente" || $_SESSION["cole"] == "sim" && $_SESSION["perfil"] != "Coordenador" && $_SESSION["perfil"] != 'Discente do Colegiado' && $_SESSION["perfil"] != 'Tecnico do Colegiado'){
+                }if($_SESSION["perfil"]=="Docente" || $_SESSION["cole"] == "sim" && $_SESSION["perfil"] != "Coordenador" && $_SESSION["perfil"] != 'Discente do Colegiado' && $_SESSION["perfil"] != 'Tecnico do Colegiado' && $_SESSION["perfil"] != 'Pedagogo'){
                         ?>
                     <li class="nav-item">
                     <a class="nav-link" href="FormPlano.php">Novo plano</a>
