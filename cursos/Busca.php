@@ -66,7 +66,7 @@ if($num >0){ ?>
         }else{
           echo "Plano não encontrado";
         }
-                //echo $row['nome_plano'].' - '.$row['situacao'].'<br /><hr>';
+
 
 
 
