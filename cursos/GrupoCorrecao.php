@@ -37,7 +37,7 @@
             <?php foreach($vetorTodosRegistros as $Umregistro){
               if($Umregistro["id"] != $_SESSION['id_logado']){
                   if($Umregistro["colegiado"] == "sim"){
-                  if($Umregistro["codigo_grupo"] == null){
+                  if($Umregistro["codigo_grupo"] == null || $Umregistro["codigo_grupo"] == " "){
               ?>
                 <li class="list-group-item">
                 <div class="col-md-12">

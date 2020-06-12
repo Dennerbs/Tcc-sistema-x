@@ -2,7 +2,7 @@
     require_once("conexao.php");
 
     $id = $_POST["codigo_grupo"];
-    $variavelvazia="";
+    $variavelvazia= " ";
 
     $sql = "delete from grupocorrecao where codigo_grupo = ?";
     $sqlprep = $conexao -> prepare($sql);
@@ -12,7 +12,13 @@
         $sqlprep =$conexao ->prepare($sql);
         $sqlprep -> bind_param("ss",$variavelvazia,$id);
         $sqlprep -> execute(); 
+    }if($sqlprep -> execute()){
+        $sql = "update usuarios set codigo_grupo=? where codigo_grupo=?";
+        $sqlprep =$conexao ->prepare($sql);
+        $sqlprep -> bind_param("ss",$variavelvazia,$id);
+        $sqlprep -> execute();
+
     }
 
-   require_once("ListarPlano.php");
+   require_once("ListarGrupoCorrecao.php");
 ?>
