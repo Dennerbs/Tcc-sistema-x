@@ -15,7 +15,7 @@
     <div class="row marketing">
         <div class="col-lg-12 mt-4">
           <form id="form">
-            <input  type="text" name="campo" id="campo" class="form-control" placeholder="Buscar Nome">
+            <input  type="text" name="campo" id="campo" class="form-control" placeholder="Buscar Planos">
           </form>
         </div>
     </div>
@@ -42,7 +42,6 @@
                 <table class="table">
                         <tr>
                         <th>Plano</th>
-                        <th>Docente</th>
                         <th>Situação</th>
                         <th>Ação</th>
                         </tr>
@@ -58,16 +57,15 @@
                                     <button type="submit" class=" btn  btn-block" ><p id="plano" class="text-left"><?= $umRegistro["nome_plano"]; ?></p></button>
                                    </form>
                             </td>
-                            <td><?php echo $umRegistro["nome_docente"];?></td>
                             <td>
                             <?php if($umRegistro["situacao"] == "Novo"){ ?>
                             <h6 style="background-color:#ADD8E6;"> <?= $umRegistro["situacao"];?></h6>
                             <?php } if(($umRegistro["situacao"] == "Corrigir Colegiado")|| ($umRegistro["situacao"] == "Aprovado") || ($umRegistro["situacao"] == "Reprovado")){ ?>
-                            <h6 style="background-color:#fbe531">Correção pelo colegiado</h6>
+                            <h6 style="background-color:#fbe531">Sendo Corrigido</h6>
                             <?php }if($umRegistro["situacao"] == "Aguardando"){ ?>
-                            <h6 style="background-color:#fc6c5a"> <?= $umRegistro["situacao"];?></h6>
+                            <h6 style="background-color:#fc6c5a"> Aguardando Correções</h6>
                             <?php }if($umRegistro["situacao"] == "Sucesso"){ ?>
-                            <h6 style="background-color:#04b826;"> <?= $umRegistro["situacao"];?></h6>
+                            <h6 style="background-color:#04b826;"> Plano Aprovado</h6>
                             <?php }?>
                             
                             </td>

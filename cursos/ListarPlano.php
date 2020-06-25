@@ -66,18 +66,13 @@
                             <?php if($umRegistro["situacao"] == "Novo"){ ?>
                             <h6 style="background-color:#ADD8E6;"> <?= $umRegistro["situacao"];?></h6>
                             <?php } if($umRegistro["situacao"] == "Corrigir Colegiado"){ ?>
-                            <h6 style="background-color:#fbe531">Esperando sua correção</h6>
+                            <h6 style="background-color:#fbe531">Aguardando Correção</h6>
                             <?php }if($umRegistro["situacao"] == "Aguardando"){ ?>
-                            <h6 style="background-color:#fc6c5a">Aguardando docente</h6>
+                            <h6 style="background-color:#fc6c5a">Sendo Corrigido</h6>
                             <?php }if($umRegistro["situacao"] == "Sucesso"){ ?>
                             <h6 style="background-color:#04b826;">Plano Aprovado</h6>
-                            <?php }if($umRegistro["situacao"] == "Aprovado"){ ?>
-                            <h6 style="background-color:#ccff7e;">Aprovado pelo grupo</h6>
-                            <?php }if($umRegistro["situacao"] == "Reprovado"){ ?>
-                            <h6 style="background-color:#ff6e4c;">Reprovado pelo grupo</h6>
-                            <?php }?>
-
                             
+                            <?php }?>
                             </td>
                            
                             <td>
@@ -102,17 +97,14 @@
                             <h6 style="background-color:#ADD8E6;"> <?= $umRegistro["situacao"];?></h6>
                             <?php } if($umRegistro["situacao"] == "Corrigir Colegiado"){
                                 if($umRegistro["codigo_grupo"] !=""){ ?>
-                            <h6 style="background-color:#be70ff">Um grupo está corrigindo</h6>  
+                            <h6 style="background-color:#be70ff">Sendo Corrigido</h6>  
                                 <?php }else{?>
                             <h6 style="background-color:#fbe531">Aguardando correções</h6>
                             <?php }}if($umRegistro["situacao"] == "Aguardando"){ ?>
-                            <h6 style="background-color:#fc6c5a">Aguardando docente</h6>
+                            <h6 style="background-color:#fc6c5a">Sendo Corrigido</h6>
                             <?php }if($umRegistro["situacao"] == "Sucesso"){ ?>
                             <h6 style="background-color:#04b826;">Plano aprovado</h6>
-                            <?php }if($umRegistro["situacao"] == "Aprovado"){ ?>
-                            <h6 style="background-color:#ccff7e;">Aprovado pelo grupo</h6>
-                            <?php }if($umRegistro["situacao"] == "Reprovado"){ ?>
-                            <h6 style="background-color:#ff6e4c;">Reprovado pelo grupo</h6>
+                            
                             <?php }?>
                             
                             </td>

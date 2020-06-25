@@ -45,6 +45,7 @@ require_once("Conexao.php");
         
           }
 
+        
     
 
     $sql = "insert into grupocorrecao (codigo_grupo,nome_grupo,id_usuario,nome_usuario) values (?,?,?,?)";
